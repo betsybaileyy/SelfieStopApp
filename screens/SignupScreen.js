@@ -6,7 +6,7 @@ export default class SignupScreen extends Component {
     render() {
         return (
             <View>
-                <Text>dhsajkfdmvdlkfvdf</Text>
+                <Text>SignUp Screen</Text>
             </View>
         )
     }

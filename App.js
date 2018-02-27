@@ -10,12 +10,17 @@ import UITest from './screens/uiTest';
 import LocationScreen from './screens/LocationScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import SignupScreen from './screens/SignupScreen';
+import LocationsScreen from './screens/LocationsScreen';
+import LoginScreen from './screens/LoginScreen';
 
 const RootNavigator = TabNavigator({
     Home: { screen: UITest },
     Signup: { screen: SignupScreen },
     Location: { screen: LocationScreen },
-    Profile: { screen: ProfileScreen }
+    Profile: { screen: ProfileScreen },
+    Locations: { screen: LocationsScreen },
+    Login: { screen: LoginScreen },
+
 }, {
         initialRouteName: 'Home'
     });

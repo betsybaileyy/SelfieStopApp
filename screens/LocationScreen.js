@@ -6,11 +6,7 @@ export default class LocationScreen extends Component {
     render() {
         return (
             <View>
-                <Text>Location</Text>
-                <RkButton
-                    title="Location"
-                    onPress={() => this.props.navigation.navigate('Signup')}
-                />
+                <Text>Location Screen</Text>
             </View>
         )
     }

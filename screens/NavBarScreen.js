@@ -11,10 +11,12 @@ import SignupScreen from './SignupScreen';
 
 
 const TabNavigation = TabNavigator({
+    Home: { screen: UITest },
+    Signup: { screen: SignupScreen },
     Location: { screen: LocationScreen },
-    Locations: { screen: LocationsScreen },
     Profile: { screen: ProfileScreen },
-    Signup: { screen: SignupScreen }
+    Locations: { screen: LocationsScreen },
+    Login: { screen: LoginScreen },
 });
 
 export default class NavBarScreen extends Component {

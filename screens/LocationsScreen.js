@@ -6,7 +6,7 @@ export default class LocationsScreen extends Component {
     render() {
         return (
             <View>
-                <Text>Locations</Text>
+                <Text>Locations Screen</Text>
             </View>
         )
     }
