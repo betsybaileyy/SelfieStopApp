@@ -8,11 +8,11 @@ import {
     ScrollView
 } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
+import SignupScreen from './SignupScreen';
+
 
 
 export default class UITest extends Component {
-
-
 
     render() {
         return (
@@ -29,7 +29,7 @@ export default class UITest extends Component {
                     </RkText>
                     </View>
                     <View rkCardFooter>
-                        <RkButton rkType='small outline'>Learn More</RkButton>
+                        <RkButton onPress={() => { this.navigate('Signup') }} rkType='small outline'>Learn More</RkButton>
                         <RkButton rkType='small'>Read later</RkButton>
                     </View>
                 </RkCard>

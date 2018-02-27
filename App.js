@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
     Platform,
@@ -11,30 +5,41 @@ import {
     Text,
     View
 } from 'react-native';
+import { TabNavigator } from 'react-navigation';
 import UITest from './screens/uiTest';
+import LocationScreen from './screens/LocationScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import SignupScreen from './screens/SignupScreen';
 
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' +
-        'Cmd+D or shake for dev menu',
-    android: 'Double tap R on your keyboard to reload,\n' +
-        'Shake or press menu button for dev menu',
-});
+const RootNavigator = TabNavigator({
+    Home: { screen: UITest },
+    Signup: { screen: SignupScreen },
+    Location: { screen: LocationScreen },
+    Profile: { screen: ProfileScreen }
+}, {
+        initialRouteName: 'Home'
+    });
+
 
 
 export default class App extends Component {
+    navigate(index) {
+        let screens = ['Location', 'Signup', 'Profile'];
+        console.log(index);
+        console.log(Object.keys(RootNavigator.router));
+        RootNavigator.router.navigate(screens[index]);
+    }
+
     render() {
         return (
-            <UITest />
+            <RootNavigator />
         );
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'blue',
+        flex: 1
     },
     welcome: {
         fontSize: 20,
