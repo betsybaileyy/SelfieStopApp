@@ -23,13 +23,6 @@ const RootNavigator = TabNavigator({
 
 
 export default class App extends Component {
-    navigate(index) {
-        let screens = ['Location', 'Signup', 'Profile'];
-        console.log(index);
-        console.log(Object.keys(RootNavigator.router));
-        RootNavigator.router.navigate(screens[index]);
-    }
-
     render() {
         return (
             <RootNavigator />
