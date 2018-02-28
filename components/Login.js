@@ -35,4 +35,8 @@ const styles = StyleSheet.create({
         flexGrow: 10,
         justifyContent: 'center',
     },
+    logo: {
+        height: 220,
+        width: 320,
+    }
 })
