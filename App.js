@@ -23,7 +23,14 @@ const RootNavigator = TabNavigator({
     Login: { screen: LoginScreen },
     Test: { screen: UITest },
 
-}, {
+},
+{
+    ...TabNavigator.Presets.iOSBottomTabs, // or iOSBottomTabs
+    // Defining options as usual
+    tabBarPosition: 'bottom',
+
+},
+{
         initialRouteName: 'Home'
     });
 
@@ -32,7 +39,8 @@ const RootNavigator = TabNavigator({
 export default class App extends Component {
     render() {
         return (
-            <RootNavigator />
+            <RootNavigator
+            />
         );
     }
 }
