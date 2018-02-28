@@ -17,9 +17,9 @@ export default class SelfieCard extends Component {
         return (
 
             <View>
-            <View style={{ flexDirection: 'row', height: 40, justifyContent: 'center', }}>
+            <View style={{ flexDirection: 'row', height: 40, justifyContent: 'center', backgroundColor: '#ffcc66', }}>
 
-                <Text style={{fontSize: 20, fontWeight: 'bold', }}>Recent Selfies</Text>
+                <Text style={{fontFamily: 'Cochin', fontSize: 20, fontWeight: 'bold', fontFamily: 'Cochin', }}>Recent Selfies</Text>
             </View>
 
             <ScrollView horizontal={true}>
