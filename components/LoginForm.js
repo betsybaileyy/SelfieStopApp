@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView, TextInput, TouchableOpacity, } from 'react-native';
-import { RkButton, RkCard, RkTheme, RkText, RkTextInput } from 'react-native-ui-kitten';
+
 
 
 
