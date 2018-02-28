@@ -13,20 +13,14 @@ export default class SignupForm extends Component {
                     placeholderTextColor='#f5f6fa'
                     style={styles.input}
                     autoCorrect={false}
-                    returnKeyType='next'
-                    onSubmitEditing={() => this.passwordInput.focus()}
-                    keyboardType='email-address'
-                    autoCapitalize='none'
                 />
 
                 <TextInput
                     placeholder='Last Name'
                     placeholderTextColor='#f5f6fa'
                     style={styles.input}
-                    secureTextEntry
                     autoCorrect={false}
-                    returnKeyType='go'
-                    ref={(input) => this.passwordInput = input}
+                    underlineColorAndroid='transparent'
                 />
 
                 <TextInput
@@ -34,10 +28,9 @@ export default class SignupForm extends Component {
                     placeholderTextColor='#f5f6fa'
                     style={styles.input}
                     autoCorrect={false}
-                    returnKeyType='next'
-                    onSubmitEditing={() => this.passwordInput.focus()}
                     keyboardType='email-address'
                     autoCapitalize='none'
+                    underlineColorAndroid='transparent'
                 />
 
                 <TextInput
@@ -47,7 +40,7 @@ export default class SignupForm extends Component {
                     secureTextEntry
                     autoCorrect={false}
                     returnKeyType='go'
-                    ref={(input) => this.passwordInput = input}
+                    underlineColorAndroid='transparent'
                 />
                 <TouchableOpacity style={styles.buttonContainer}>
                     <Text style={styles.buttonText}>LOGIN</Text>
