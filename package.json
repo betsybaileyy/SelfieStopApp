@@ -9,7 +9,9 @@
   "dependencies": {
     "react": "16.2.0",
     "react-native": "0.53.3",
+    "react-native-snap-carousel": "^3.6.0",
     "react-native-ui-kitten": "^3.0.0",
+    "react-native-vector-icons": "^4.5.0",
     "react-navigation": "^1.2.1"
   },
   "devDependencies": {
