@@ -43,7 +43,7 @@ export default class SignupForm extends Component {
                     underlineColorAndroid='transparent'
                 />
                 <TouchableOpacity style={styles.buttonContainer}>
-                    <Text style={styles.buttonText}>LOGIN</Text>
+                    <Text style={styles.buttonText}>SIGNUP</Text>
                 </TouchableOpacity>
 
             </View>
