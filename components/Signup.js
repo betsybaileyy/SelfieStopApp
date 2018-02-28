@@ -1,13 +1,40 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
-import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
+import { Platform, StyleSheet, Text, View, Image, ScrollView, TextInput, KeyboardAvoidingView } from 'react-native';
+import SignupForm from './SignupForm';
+
 
 export default class Signup extends Component {
     render() {
         return (
-            <View>
-                <Text>SignUp Screen</Text>
-            </View>
+            <KeyboardAvoidingView behavior='padding'>
+
+                <View style={styles.logoContainer}>
+
+                    <Image
+                        style={styles.logo}
+                        source={require('../images/selfiestoplogo.png')} />
+
+                </View>
+
+                <View style={styles.formContainer}>
+
+                    <SignupForm />
+
+                </View>
+
+            </KeyboardAvoidingView>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    logoContainer: {
+        alignItems: 'center',
+        flexGrow: 10,
+        justifyContent: 'center',
+    },
+    logo: {
+        height: 150,
+        width: 200,
+    }
+})

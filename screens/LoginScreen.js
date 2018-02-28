@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
-import { RkButton, RkCard, RkTheme, RkText, RkTextInput } from 'react-native-ui-kitten';
 import Login from '../components/Login';
 
 
