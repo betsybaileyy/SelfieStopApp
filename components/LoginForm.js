@@ -20,6 +20,7 @@ export default class LoginForm extends Component {
                     onSubmitEditing={() => this.passwordInput.focus()}
                     keyboardType='email-address'
                     autoCapitalize='none'
+                    underlineColorAndroid='transparent'
                 />
 
                 <TextInput
@@ -30,6 +31,7 @@ export default class LoginForm extends Component {
                     autoCorrect={false}
                     returnKeyType='go'
                     ref={(input) => this.passwordInput = input}
+                    underlineColorAndroid='transparent'
                 />
                 <TouchableOpacity style={styles.buttonContainer}>
                     <Text style={styles.buttonText}>LOGIN</Text>
