@@ -10,6 +10,7 @@
     "native-base": "^2.3.9",
     "react": "16.2.0",
     "react-native": "0.53.3",
+    "react-native-camera": "^1.0.1",
     "react-native-carousel": "^0.11.0",
     "react-native-snap-carousel": "^3.6.0",
     "react-native-swipeable-parallax-carousel": "^1.1.0",
