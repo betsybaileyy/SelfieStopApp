@@ -13,18 +13,6 @@ export default class LoginForm extends Component {
         };
     }
 
-    componentDidMount() {
-        userService.checkLogin()
-            .then((loggedIn) => {
-                if (loggedIn) {
-                    this.setState({ checkingLogin: false });
-                    this.props.navigation.navigate('Home');
-                } else {
-                    this.setState({ checkingLogin: false });
-                }
-            });
-    }
-
     handleEmailChange(text) {
         this.setState({ email: text });
     }
