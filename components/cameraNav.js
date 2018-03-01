@@ -13,7 +13,11 @@ export default class CameraNav extends Component {
     render() {
         return(
             <View style={{marginTop: 10, alignItems: 'center'}}>
-                <RkButton>Take Selfie</RkButton>
+                <RkButton
+                 onPress={() => {
+                    Alert.alert('You tapped the button!');
+                  }}
+                >Take Selfie</RkButton>
             </View>
         );
     }

@@ -10,7 +10,7 @@ import {
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import SignupScreen from './SignupScreen';
 import { MyCarousel } from '../components/carousel';
-import SelfieCard from '../components/selfieCard';
+import RecentSelfies from '../components/recentSelfies';
 import LocationCards from '../components/locationCards';
 import CameraNav from '../components/cameraNav';
 
@@ -26,7 +26,7 @@ export default class HomeScreen extends Component {
                 ref={(c) => { this.parentScrollView = c; }}
             >
                 <MyCarousel />
-                <SelfieCard />
+                <RecentSelfies />
                 <LocationCards />
             </ScrollView>
             <CameraNav />
