@@ -12,7 +12,7 @@ import SignupScreen from './SignupScreen';
 import { MyCarousel } from '../components/carousel';
 import SelfieCard from '../components/selfieCard';
 import LocationCards from '../components/locationCards';
-
+import CameraNav from '../components/cameraNav';
 
 export default class HomeScreen extends Component {
 
@@ -21,7 +21,7 @@ export default class HomeScreen extends Component {
 
 
 
-
+            <View>
             <ScrollView
                 ref={(c) => { this.parentScrollView = c; }}
             >
@@ -29,7 +29,9 @@ export default class HomeScreen extends Component {
                 <SelfieCard />
                 <LocationCards />
             </ScrollView>
-        )
+            <CameraNav />
+            </View>
+        );
     }
 }
 
