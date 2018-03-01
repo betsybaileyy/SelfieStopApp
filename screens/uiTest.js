@@ -12,7 +12,7 @@ import SignupScreen from './SignupScreen';
 import { MyCarousel } from '../components/carousel';
 import SelfieCard from '../components/selfieCard';
 import LocationCards from '../components/locationCards';
-import BadInstagramCloneApp from '../components/camera';
+// import BadInstagramCloneApp from '../components/camera';
 
 
 export default class UITest extends Component {
