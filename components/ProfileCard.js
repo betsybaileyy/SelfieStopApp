@@ -31,6 +31,22 @@ export default class ProfileCard extends Component {
                     <Image
                         style={styles.photoItems}
                         source={require('../images/banana4.jpg')} />
+
+                    <Image
+                        style={styles.photoItems}
+                        source={require('../images/banana1.jpg')} />
+                    <Image
+                        style={styles.photoItems}
+                        source={require('../images/banana2.jpeg')} />
+                    <Image
+                        style={styles.photoItems}
+                        source={require('../images/banana3.jpg')} />
+                    <Image
+                        style={styles.photoItems}
+                        source={require('../images/banana4.jpg')} />
+                    <Image
+                        style={styles.photoItems}
+                        source={require('../images/banana1.jpg')} />
                 </View>
             </View>
         )
@@ -79,13 +95,15 @@ const styles = StyleSheet.create({
     },
 
     photoContainer: {
-        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',
+        flexWrap: 'wrap'
 
     },
 
     photoItems: {
-        height: 150,
-        width: 150,
+        height: 100,
+        width: 100,
     },
 
 
