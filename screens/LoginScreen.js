@@ -8,7 +8,7 @@ export default class LoginScreen extends Component {
     render() {
         return (
 
-            <Login />
+            <Login navigation={this.props.navigation} />
 
         )
     }
