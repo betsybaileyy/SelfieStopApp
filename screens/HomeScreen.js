@@ -21,7 +21,7 @@ export default class HomeScreen extends Component {
 
 
 
-            <View>
+            <View style={{ flex: 1 }}>
             <ScrollView
                 ref={(c) => { this.parentScrollView = c; }}
             >

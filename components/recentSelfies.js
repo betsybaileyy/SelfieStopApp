@@ -50,43 +50,6 @@ export default class RecentSelfies extends Component {
 
                 <ScrollView horizontal={true}>
                     {selfies}
-
-                    {/* <RkCard rkType='heroImage'>
-                        <Image rkCardImg source={require('../images/selfie3.jpg')} />
-                    </RkCard>
-
-                    <RkCard rkType='heroImage'>
-                        <Image rkCardImg source={require('../images/selfie1.jpg')} />
-                    </RkCard>
-
-                    <RkCard rkType='heroImage'>
-                        <Image rkCardImg source={require('../images/selfie3.jpg')} />
-                    </RkCard>
-
-                    <RkCard rkType='heroImage'>
-                        <Image rkCardImg source={require('../images/selfie1.jpg')} />
-                    </RkCard>
-
-                    <RkCard rkType='heroImage'>
-                        <Image rkCardImg source={require('../images/selfie2.jpg')} />
-                    </RkCard>
-
-                    <RkCard rkType='heroImage'>
-                        <Image rkCardImg source={require('../images/selfie3.jpg')} />
-                    </RkCard>
-
-                    <RkCard rkType='heroImage'>
-                        <Image rkCardImg source={require('../images/selfie2.jpg')} />
-                    </RkCard>
-
-                    <RkCard rkType='heroImage'>
-                        <Image rkCardImg source={require('../images/selfie3.jpg')} />
-                    </RkCard>
-
-                    <RkCard rkType='heroImage'>
-                        <Image rkCardImg source={require('../images/selfie4.jpg')} />
-                    </RkCard> */}
-
                 </ScrollView>
             </View>
         )

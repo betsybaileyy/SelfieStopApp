@@ -5,20 +5,28 @@ import {
     Text,
     View,
     Image,
-    ScrollView
+    ScrollView,
+    Alert
 } from 'react-native';
+import { withNavigation } from 'react-navigation';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 
-export default class CameraNav extends Component {
+class CameraNav extends Component {
+
+    onPressButton() {
+        //Alert.alert('You tapped the button!')
+        this.props.navigation.navigate('Test');
+    }
+
     render() {
-        return(
-            <View style={{marginTop: 10, alignItems: 'center'}}>
+        return (
+            <View style={{ marginTop: 10, alignItems: 'center' }}>
                 <RkButton
-                 onPress={() => {
-                    Alert.alert('You tapped the button!');
-                  }}
+                    onPress={() => { this.onPressButton() }}
                 >Take Selfie</RkButton>
             </View>
         );
     }
 }
+
+export default withNavigation(CameraNav);
