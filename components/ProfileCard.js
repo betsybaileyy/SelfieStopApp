@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
-import Signup from '../components/Signup';
-export default class SignupScreen extends Component {
+
+export default class ProfileCard extends Component {
     render() {
         return (
-            <Signup />
+            <View>
+                <Text>Profile Screen</Text>
+            </View>
         )
     }
 }
