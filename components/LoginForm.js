@@ -6,6 +6,25 @@ import { Platform, StyleSheet, Text, View, Image, ScrollView, TextInput, Touchab
 
 
 export default class LoginForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password: ''
+        };
+    }
+
+    handleEmailChange(text) {
+        this.setState({ email: text });
+    }
+
+    handlePasswordChange(text) {
+        this.setState({ password: text });
+        console.log(this.state);
+    }
+
+
+
     render() {
         return (
 
@@ -14,6 +33,7 @@ export default class LoginForm extends Component {
                 <TextInput
                     placeholder='email'
                     placeholderTextColor='#f5f6fa'
+                    onChangeText={(text) => this.handleEmailChange(text)}
                     style={styles.input}
                     autoCorrect={false}
                     returnKeyType='next'
@@ -26,6 +46,7 @@ export default class LoginForm extends Component {
                 <TextInput
                     placeholder='password'
                     placeholderTextColor='#f5f6fa'
+                    onChangeText={(text) => this.handlePasswordChange(text)}
                     style={styles.input}
                     secureTextEntry
                     autoCorrect={false}
