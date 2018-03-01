@@ -63,6 +63,7 @@ export default class SignupForm extends Component {
                     onChangeText={(text) => this.handleFirstNameChange(text)}
                     style={styles.input}
                     autoCorrect={false}
+                    underlineColorAndroid='transparent'
                 />
 
                 <TextInput
