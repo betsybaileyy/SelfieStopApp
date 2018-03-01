@@ -4,4 +4,4 @@ function insert(data) {
     return baseService.post('/api/auth/signup', data);
 }
 
-export { all };
+export { insert };

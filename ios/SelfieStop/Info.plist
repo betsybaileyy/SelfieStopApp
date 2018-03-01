@@ -39,7 +39,7 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
@@ -51,6 +51,10 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>We need this</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need this too</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Entypo.ttf</string>
