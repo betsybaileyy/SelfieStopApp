@@ -29,7 +29,7 @@ export default class UITest extends Component {
                 <MyCarousel />
                 <SelfieCard />
                 <LocationCards />
-                <BadInstagramCloneApp />
+
             </ScrollView>
         )
     }

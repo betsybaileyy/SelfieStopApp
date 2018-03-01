@@ -44,7 +44,7 @@ class BadInstagramCloneApp extends Component {
       console.log(data.uri);
     }
   };
-}
+
 
 const styles = StyleSheet.create({
   container: {
