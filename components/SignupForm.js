@@ -16,6 +16,7 @@ export default class SignupForm extends Component {
                     placeholderTextColor='#f5f6fa'
                     style={styles.input}
                     autoCorrect={false}
+                    underlineColorAndroid='transparent'
                 />
 
                 <TextInput

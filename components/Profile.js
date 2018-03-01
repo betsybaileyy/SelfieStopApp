@@ -8,7 +8,6 @@ export default class Profile extends Component {
         return (
             <ScrollView>
                 <ProfileCard />
-                <Text>Profile Screen</Text>
             </ScrollView>
         )
     }
