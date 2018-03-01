@@ -13,18 +13,17 @@ export default class LoginForm extends Component {
         };
     }
 
-    // componentDidMount() {
-    //     userService.checkLogin()
-    //         .then((loggedIn) => {
-    //             if (loggedIn) {
-    //                 this.setState({ checkingLogin: false });
-    //                 console.log('in componentDidMount');
-    //                 this.props.history.push('/')
-    //             } else {
-    //                 this.setState({ checkingLogin: false });
-    //             }
-    //         });
-    // }
+    componentDidMount() {
+        userService.checkLogin()
+            .then((loggedIn) => {
+                if (loggedIn) {
+                    this.setState({ checkingLogin: false });
+                    this.props.navigation.navigate('Home');
+                } else {
+                    this.setState({ checkingLogin: false });
+                }
+            });
+    }
 
     handleEmailChange(text) {
         this.setState({ email: text });
