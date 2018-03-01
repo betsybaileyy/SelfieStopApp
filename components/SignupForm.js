@@ -1,7 +1,53 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView, TextInput, TouchableOpacity, } from 'react-native';
+import * as newUserService from './services/newUser';
 
 export default class SignupForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            firstName: '',
+            lastName: '',
+            email: '',
+            password: '',
+            bio: '',
+            image: ''
+        }
+    }
+
+    handleFirstNameChange(text) {
+        this.setState({ firstName: text });
+    }
+
+    handleLastNameChange(text) {
+        this.setState({ lastName: text });
+    }
+
+    handleEmailChange(text) {
+        this.setState({ email: text });
+    }
+
+    handlePasswordChange(text) {
+        this.setState({ password: text });
+    }
+
+    handleBioChange(text) {
+        this.setState({ bio: text });
+    }
+
+    async signUp(user) {
+        try {
+            console.log(user);
+            await newUserService.insert(user);
+            this.props.navigation.navigate('Home');
+
+        } catch (err) {
+            if (err.message) {
+                this.setState({ feedbackMessage: err.message });
+            }
+            console.log(err);
+        }
+    }
 
     render() {
 
@@ -14,6 +60,7 @@ export default class SignupForm extends Component {
                 <TextInput
                     placeholder='First Name'
                     placeholderTextColor='#f5f6fa'
+                    onChangeText={(text) => this.handleFirstNameChange(text)}
                     style={styles.input}
                     autoCorrect={false}
                     underlineColorAndroid='transparent'
@@ -22,6 +69,7 @@ export default class SignupForm extends Component {
                 <TextInput
                     placeholder='Last Name'
                     placeholderTextColor='#f5f6fa'
+                    onChangeText={(text) => this.handleLastNameChange(text)}
                     style={styles.input}
                     autoCorrect={false}
                     underlineColorAndroid='transparent'
@@ -30,6 +78,7 @@ export default class SignupForm extends Component {
                 <TextInput
                     placeholder='email'
                     placeholderTextColor='#f5f6fa'
+                    onChangeText={(text) => this.handleEmailChange(text)}
                     style={styles.input}
                     autoCorrect={false}
                     keyboardType='email-address'
@@ -40,6 +89,7 @@ export default class SignupForm extends Component {
                 <TextInput
                     placeholder='password'
                     placeholderTextColor='#f5f6fa'
+                    onChangeText={(text) => this.handlePasswordChange(text)}
                     style={styles.input}
                     secureTextEntry
                     autoCorrect={false}
@@ -52,12 +102,16 @@ export default class SignupForm extends Component {
                 <TextInput
                     placeholder='Bio'
                     placeholderTextColor='#747d8c'
+                    onChangeText={(text) => this.handleBioChange(text)}
                     style={styles.inputBio}
                     autoCorrect={true}
                     underlineColorAndroid='transparent'
                 />
 
-                <TouchableOpacity style={styles.buttonContainer}>
+                <TouchableOpacity
+                    style={styles.buttonContainer}
+                    onPress={(user) => this.signUp(user)}
+                >
                     <Text style={styles.buttonText}>SIGNUP</Text>
                 </TouchableOpacity>
 

@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView, TextInput, TouchableOpacity, } from 'react-native';
-
-
-
-
+import * as userService from './services/user';
 
 export default class LoginForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            password: ''
+            email: 'bob@dylan.com',
+            password: 'password123',
+            feedbackMessage: '',
+            checkingLogin: 'true'
         };
     }
 
@@ -20,10 +19,20 @@ export default class LoginForm extends Component {
 
     handlePasswordChange(text) {
         this.setState({ password: text });
-        console.log(this.state);
     }
 
+    async login() {
+        try {
+            await userService.login(this.state.email, this.state.password);
+            this.props.navigation.navigate('Home');
 
+        } catch (err) {
+            if (err.message) {
+                this.setState({ feedbackMessage: err.message });
+            }
+            console.log(err);
+        }
+    }
 
     render() {
         return (
@@ -41,6 +50,7 @@ export default class LoginForm extends Component {
                     keyboardType='email-address'
                     autoCapitalize='none'
                     underlineColorAndroid='transparent'
+                    value={this.state.email}
                 />
 
                 <TextInput
@@ -53,8 +63,12 @@ export default class LoginForm extends Component {
                     returnKeyType='go'
                     ref={(input) => this.passwordInput = input}
                     underlineColorAndroid='transparent'
+                    value={this.state.password}
                 />
-                <TouchableOpacity style={styles.buttonContainer}>
+                <TouchableOpacity
+                    style={styles.buttonContainer}
+                    onPress={() => this.login()}
+                >
                     <Text style={styles.buttonText}>LOGIN</Text>
                 </TouchableOpacity>
 

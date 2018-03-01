@@ -17,7 +17,7 @@ export default class Login extends Component {
 
                 <View style={styles.formContainer}>
 
-                    <LoginForm />
+                    <LoginForm navigation={this.props.navigation} />
 
                 </View>
             </KeyboardAvoidingView>
