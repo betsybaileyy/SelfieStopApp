@@ -5,7 +5,7 @@ import Signup from '../components/Signup';
 export default class SignupScreen extends Component {
     render() {
         return (
-            <Signup />
+            <Signup navigation={this.props.navigation} />
         )
     }
 }

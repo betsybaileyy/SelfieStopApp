@@ -11,7 +11,7 @@ export default class SignupForm extends Component {
             email: '',
             password: '',
             bio: '',
-            image: ''
+            // image: ''
         }
     }
 
@@ -110,7 +110,7 @@ export default class SignupForm extends Component {
 
                 <TouchableOpacity
                     style={styles.buttonContainer}
-                    onPress={(user) => this.signUp(user)}
+                    onPress={() => this.signUp(this.state)}
                 >
                     <Text style={styles.buttonText}>SIGNUP</Text>
                 </TouchableOpacity>

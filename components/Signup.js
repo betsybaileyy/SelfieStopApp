@@ -18,7 +18,7 @@ export default class Signup extends Component {
 
                 <View style={styles.formContainer}>
 
-                    <SignupForm />
+                    <SignupForm navigation={this.props.navigation} />
 
                 </View>
 
