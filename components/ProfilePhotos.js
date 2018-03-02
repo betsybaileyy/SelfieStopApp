@@ -310,6 +310,8 @@ const styles = StyleSheet.create({
     photoItems: {
         height: 90,
         width: 90,
+        marginTop: 1,
+        marginBottom: 1,
     },
 
 
