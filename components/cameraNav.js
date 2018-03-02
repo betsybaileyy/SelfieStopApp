@@ -6,7 +6,8 @@ import {
     View,
     Image,
     ScrollView,
-    Alert
+    Alert,
+    TouchableOpacity
 } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
@@ -21,12 +22,20 @@ class CameraNav extends Component {
     render() {
         return (
             <View style={{ marginTop: 10, alignItems: 'center' }}>
-                <RkButton
-                    onPress={() => { this.onPressButton() }}
-                >Take Selfie</RkButton>
-            </View>
+               <TouchableOpacity onPress={() => { this.onPressButton() }}>
+                    <Image
+                        style={{ marginHorizontal: 65 }}
+                        source={require('../images/camera/openCamera.png')}
+                    />
+                    <Text style={{ marginHorizontal: 55 }}>Take Selfie</Text>
+                </TouchableOpacity>
+            </View >
         );
     }
 }
 
 export default withNavigation(CameraNav);
+
+
+
+

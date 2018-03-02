@@ -13,7 +13,7 @@ export default class LocationScreen extends Component {
     }
 
     getLocationImages() {
-       getLocaionService.all()
+       getLocaionService.one()
             .then((images) => {
                 this.setState({
                     images: images
