@@ -7,17 +7,29 @@ export default class ProfileCard extends Component {
     render() {
         return (
             <View>
-                <Text style={styles.header}>Profile</Text>
+                <Text style={styles.userName}>Bananas615</Text>
 
-                <View style={styles.headerContainer}>
-                    <Image source={require('../images/selfie4.jpg')}
-                        style={styles.profilePic} />
-                    <Text style={styles.userName}>Harambe</Text>
+
+
+                <View style={styles.profileContainer}>
+
+                    <View style={styles.headerContainer}>
+
+                        <Image source={require('../images/selfie4.jpg')}
+                            style={styles.profilePic} />
+
+                        <Text style={styles.fullName}>Harambe Smith</Text>
+
+                    </View>
+
+                    <View style={styles.bioContainer}>
+                        <Text style={styles.bioText}>I like bananas and climbing trees. I sometimes like to pick bugs out of my friends hair. Did I mention that I like bananas and climbing trees?</Text>
+                    </View>
+
                 </View>
-                <Text style={styles.bioHeader}>About me</Text>
-                <View style={styles.bioContainer}>
-                    <Text style={styles.bioText}>I like bananas and climbing trees. I sometimes like to pick bugs out of my friends hair.</Text>
-                </View>
+
+
+
                 <Text style={styles.photoHeader}>My Photos</Text>
                 <View>
                     <ScrollView>
@@ -32,49 +44,51 @@ export default class ProfileCard extends Component {
 
 const styles = StyleSheet.create({
     profilePic: {
-        height: 150,
-        width: 150,
+        height: 100,
+        width: 100,
+        borderRadius: 50,
+    },
+
+    profileContainer: {
+        flexDirection: 'row',
+
     },
 
     headerContainer: {
         alignItems: 'center',
-        flexGrow: 10,
         justifyContent: 'center',
-        backgroundColor: '#f5f6fa',
-
-
-    },
-
-    header: {
-        textAlign: 'center',
-        color: '#747d8c',
-        fontSize: 20,
-        paddingTop: 10,
-        backgroundColor: '#353b48',
-
     },
 
     userName: {
+        textAlign: 'center',
         fontSize: 20,
-        textAlign: 'center',
-        color: '#353b48',
-    }
+        marginTop: 20,
+        marginBottom: 10,
+        paddingTop: 10,
+        color: 'black',
 
-    ,
-    bioHeader: {
-        textAlign: 'center',
+    },
+
+    fullName: {
+        fontSize: 15,
         color: '#353b48',
+        paddingLeft: 10,
+    },
+    bioContainer: {
+        flexWrap: 'wrap',
+        paddingRight: 100,
+        paddingTop: 15,
     },
 
     bioText: {
-        textAlign: 'center',
         color: '#747d8c',
     },
     photoHeader: {
-        fontSize: 20,
+        marginTop: 40,
+        fontSize: 15,
         textAlign: 'center',
-        backgroundColor: '#353b48',
-        color: '#dfe6e9',
+        backgroundColor: '#dfe6e9',
+        color: 'black',
     },
 
 
