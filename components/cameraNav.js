@@ -16,7 +16,7 @@ class CameraNav extends Component {
 
     onPressButton() {
         //Alert.alert('You tapped the button!')
-        this.props.navigation.navigate('Test');
+        this.props.navigation.navigate('Camera', { ...this.props.navigation.state });
     }
 
     render() {

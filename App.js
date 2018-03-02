@@ -6,7 +6,7 @@ import {
     View
 } from 'react-native';
 import { TabNavigator } from 'react-navigation';
-import UITest from './screens/uiTest';
+import CameraScreen from './screens/CameraScreen';
 import LocationScreen from './screens/LocationScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import SignupScreen from './screens/SignupScreen';
@@ -21,7 +21,7 @@ const RootNavigator = TabNavigator({
     Profile: { screen: ProfileScreen },
     Locations: { screen: LocationsScreen },
     Login: { screen: LoginScreen },
-    Test: { screen: UITest },
+    Camera: { screen: CameraScreen },
 
 },
 {

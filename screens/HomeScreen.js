@@ -15,21 +15,21 @@ import LocationCards from '../components/locationCards';
 import CameraNav from '../components/cameraNav';
 
 export default class HomeScreen extends Component {
+    componentDidUpdate() {
+        console.log('received image: ' + this.props.navigation.state.params.image);
+    }
 
     render() {
         return (
-
-
-
             <View style={{ flex: 1 }}>
-            <ScrollView
-                ref={(c) => { this.parentScrollView = c; }}
-            >
-                <MyCarousel />
-                <RecentSelfies />
-                <LocationCards />
-            </ScrollView>
-            <CameraNav />
+                <ScrollView
+                    ref={(c) => { this.parentScrollView = c; }}
+                >
+                    <MyCarousel />
+                    <RecentSelfies />
+                    <LocationCards />
+                </ScrollView>
+                <CameraNav />
             </View>
         );
     }
