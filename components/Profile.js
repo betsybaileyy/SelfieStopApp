@@ -6,9 +6,9 @@ import ProfileCard from './ProfileCard';
 export default class Profile extends Component {
     render() {
         return (
-            <ScrollView>
+            <View>
                 <ProfileCard />
-            </ScrollView>
+            </View>
         )
     }
 }
