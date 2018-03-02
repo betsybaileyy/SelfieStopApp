@@ -6,13 +6,20 @@ import { CameraKitCameraScreen } from 'react-native-camera-kit';
 
 
 export default class Camera extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            image: ''
+        }
+    }
     onBottomButtonPressed(event) {
         let json = event.captureImages;
 
         let filePath = json[0].uri
+        this.setState({ image: filePath })
         Alert.alert(
             `${event.type} button pressed`,
-            `${filePath}`,
+            `${this.state}`,
 
             [
                 { text: 'OK', onPress: () => console.log('OK Pressed') },
