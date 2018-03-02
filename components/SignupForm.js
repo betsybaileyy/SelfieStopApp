@@ -12,7 +12,7 @@ export default class SignupForm extends Component {
             email: '',
             password: '',
             bio: '',
-            // image: ''
+            image: ''
         }
     }
 
