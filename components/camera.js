@@ -9,15 +9,18 @@ export default class Camera extends Component {
     onBottomButtonPressed(event) {
         let json = event.captureImages;
 
-
+        let filePath = json[0].uri
         Alert.alert(
             `${event.type} button pressed`,
-            `${json[0].uri}`,
+            `${filePath}`,
+
             [
                 { text: 'OK', onPress: () => console.log('OK Pressed') },
             ],
             { cancelable: false }
         )
+
+
     }
 
     render() {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView, TextInput, TouchableOpacity, } from 'react-native';
 import * as newUserService from './services/newUser';
+import CameraNav from '../components/cameraNav';
 
 export default class SignupForm extends Component {
     constructor(props) {
@@ -108,6 +109,7 @@ export default class SignupForm extends Component {
                     underlineColorAndroid='transparent'
                 />
 
+                <CameraNav />
                 <TouchableOpacity
                     style={styles.buttonContainer}
                     onPress={() => this.signUp(this.state)}
