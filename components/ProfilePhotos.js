@@ -302,7 +302,8 @@ const styles = StyleSheet.create({
     photoContainer: {
         justifyContent: 'center',
         flexDirection: 'row',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        marginTop: 10,
 
     },
 
