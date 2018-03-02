@@ -1,66 +1,76 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
-import * as getLocationsService from '../components/services/locations';
+import * as locationsService from '../components/services/locations';
 
 export default class LocationsScreen extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            images: [],
+            locations: [],
         };
     }
 
-    getLocations() {
-       getLocaionsService.all()
-            .then((images) => {
-                this.setState({
-                    images: images
-                });
-            }).catch((err) => {
-                console.log(err);
-            });
+    componentDidMount() {
+        this.getLocations();
     }
-    
 
-    // getImages(api call here){
-    //     render
-    // }
+    async getLocations() {
+        try {
+            console.log('getting locations');
+            console.log(Object.keys(locationsService));
+            const locations = await locationsService.all(1);
+
+            console.log(locations);
+            this.setState({
+                locations
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     render() {
         return (
             <View style={{ flex: 1 }}>
                 <View>
                     <RkCard>
                         <View rkCardHeader>
-                            <Text>Header</Text>
+                            <Text> Absolutley Fantastic Places to Take Pictures of Yourself</Text>
                         </View>
                         <Image rkCardImg source={require('../images/selfie3.jpg')} />
                         <View rkCardContent>
-                            <Text> quick brown fox jumps over the lazy dog</Text>
+                            <Text> Absolutley Fantastic Places to Take Pictures of Yourself</Text>
                         </View>
                         <View rkCardFooter>
                             <Text>Footer</Text>
                         </View>
                     </RkCard>
                 </View>
-                <View style={{ flex: 1, justifyContent: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap'}}>
-                <ScrollView>
-                    <RkCard>
-                        <View rkCardHeader>
-                            <Text>Header</Text>
-                        </View>
-                        <Image rkCardImg source={this.state.images} />
-                        <View rkCardContent>
-                            <Text> quick brown fox jumps over the lazy dog</Text>
-                        </View>
-                        <View rkCardFooter>
-                            <Text>Footer</Text>
-                        </View>
-                    </RkCard>
-                </ScrollView>
+                <View style={{
+                    flex: 1, justifyContent: 'center',
+                    flexDirection: 'row',
+                    flexWrap: 'wrap'
+                }}>
+                    <ScrollView>
+                        {this.state.locations.map((location, index) => {
+                            return (
+                                <RkCard>
+                                    <View rkCardHeader>
+                                        <Text>{location.name}</Text>
+                                    </View>
+                                    <Image rkCardImg source={location.image} />
+                                    <View rkCardContent>
+                                        <Text>{location.description}</Text>
+                                    </View>
+                                    <View rkCardFooter>
+                                        <Text>Footer</Text>
+                                    </View>
+                                </RkCard>
+                            );
+                        })}
+                    </ScrollView>
                 </View>
             </View>
         )
