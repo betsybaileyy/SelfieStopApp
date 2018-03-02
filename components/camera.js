@@ -19,7 +19,7 @@ export default class Camera extends Component {
         this.setState({ image: filePath })
         Alert.alert(
             `${event.type} button pressed`,
-            `${this.state}`,
+            `${this.state.image}`,
 
             [
                 { text: 'OK', onPress: () => console.log('OK Pressed') },
