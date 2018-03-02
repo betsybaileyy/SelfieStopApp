@@ -27,15 +27,18 @@ export default class ProfileCard extends Component {
                     </View>
 
                 </View>
+                <View style={styles.iconContainer}>
+                    <Image source={require('../images/galleryicon.png')}
+                        style={styles.galleryIcon} />
+                </View>
 
 
-
-                <Text style={styles.photoHeader}>My Photos</Text>
                 <View>
                     <ScrollView>
                         <ProfilePhotos />
                     </ScrollView>
                 </View>
+
 
             </View>
         )
@@ -83,12 +86,15 @@ const styles = StyleSheet.create({
     bioText: {
         color: '#747d8c',
     },
-    photoHeader: {
-        marginTop: 40,
-        fontSize: 15,
-        textAlign: 'center',
-        backgroundColor: '#dfe6e9',
-        color: 'black',
+    iconContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 20,
+
+    },
+    galleryIcon: {
+        height: 30,
+        width: 30,
     },
 
 
