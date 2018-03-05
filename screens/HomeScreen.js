@@ -13,10 +13,33 @@ import { MyCarousel } from '../components/carousel';
 import RecentSelfies from '../components/recentSelfies';
 import LocationCards from '../components/locationCards';
 import CameraNav from '../components/cameraNav';
+import * as imageService from '../components/services/images';
 
 export default class HomeScreen extends Component {
+    constructor(props) {
+        super(props);
+        // this.state = {
+        //     firstName: '',
+        //     lastName: '',
+        //     email: '',
+        //     password: '',
+        //     bio: '',
+        //     image: ''
+        // }
+    }
+
     componentDidUpdate() {
-        console.log('received image: ' + this.props.navigation.state.params.image);
+        let filePath = this.props.navigation.state.params.image
+        // console.log('received image: ' + filePath);
+        const data = new FormData();
+        data.append('image', {
+                image: filePath,
+                type: 'image/jpeg',
+                name: 'testPhotoName'
+        })
+        let imagePath = {image: filePath };
+        console.log(imagePath);
+        // imageService.post(data)
     }
 
     render() {

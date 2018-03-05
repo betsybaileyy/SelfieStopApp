@@ -12,6 +12,7 @@ export default class Camera extends Component {
             image: ''
         }
     }
+
     onBottomButtonPressed(event) {
         let json = event.captureImages;
 
