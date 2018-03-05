@@ -136,18 +136,22 @@ export default class SignupForm extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 20,
+        padding: 30,
+
     },
     input: {
         height: 40,
         marginBottom: 20,
-        paddingHorizontal: 10,
+        textAlign: 'center',
         backgroundColor: '#a4b0be',
-        color: '#f5f6fa'
+        color: '#f5f6fa',
+        borderRadius: 50,
     },
     buttonContainer: {
         paddingVertical: 15,
         backgroundColor: '#81ecec',
+        borderRadius: 50,
+
     },
     buttonText: {
         textAlign: 'center',
@@ -155,12 +159,16 @@ const styles = StyleSheet.create({
     },
     header: {
         textAlign: 'center',
-        color: '#747d8c'
+        color: '#747d8c',
+        paddingVertical: 10,
     },
     inputBio: {
         height: 60,
         marginBottom: 20,
         paddingHorizontal: 10,
+        borderRadius: 50,
+        textAlign: 'center',
+
         backgroundColor: '#dfe4ea',
         color: '#747d8c'
     }
