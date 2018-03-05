@@ -15,6 +15,8 @@ import LocationCards from '../components/locationCards';
 import CameraNav from '../components/cameraNav';
 import * as imageService from '../components/services/images';
 
+
+
 export default class HomeScreen extends Component {
     constructor(props) {
         super(props);
@@ -50,7 +52,7 @@ export default class HomeScreen extends Component {
                 >
                     <MyCarousel />
                     <RecentSelfies />
-                    <LocationCards />
+                    <LocationCards navigate={this.props.navigation.navigate}/>
                 </ScrollView>
                 <CameraNav />
             </View>
