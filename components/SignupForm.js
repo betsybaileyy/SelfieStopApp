@@ -147,7 +147,8 @@ const styles = StyleSheet.create({
     },
     header: {
         textAlign: 'center',
-        color: '#747d8c'
+        color: '#747d8c',
+        paddingVertical: 10,
     },
     inputBio: {
         height: 60,
