@@ -5,7 +5,7 @@ function one(id) {
 }
 
 function insert(data) {
-    return baseService.post('/api/images', data);
+    return baseService.postForm('/api/images', data);
 }
 
 export { one, insert };
