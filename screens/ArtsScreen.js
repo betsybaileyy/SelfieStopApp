@@ -20,7 +20,7 @@ export default class ArtsScreen extends Component {
         try {
             console.log('getting locations');
             console.log(Object.keys(locationsService));
-            const locations = await locationsService.all(1);
+            const locations = await locationsService.all(21);
 
             console.log(locations);
             this.setState({

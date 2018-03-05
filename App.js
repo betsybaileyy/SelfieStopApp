@@ -17,18 +17,18 @@ import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 
 
-export const LocationsNav = StackNavigator({
+export const HomeStack = StackNavigator({
+    Home: { screen: HomeScreen },
     Eats: { screen: EatsScreen },
     Arts: { screen: ArtsScreen },
     Views: { screen: ViewsScreen }
 })
 
 const RootNavigator = TabNavigator({
-    Home: { screen: HomeScreen },
+    Home: { screen: HomeStack },
     Signup: { screen: SignupScreen },
     Location: { screen: LocationScreen },
     Profile: { screen: ProfileScreen },
-    Eats: { screen: EatsScreen },
     Login: { screen: LoginScreen },
     Camera: { screen: CameraScreen },
 

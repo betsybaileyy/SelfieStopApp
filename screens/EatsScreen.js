@@ -36,9 +36,9 @@ export default class EatsScreen extends Component {
             <View style={{ flex: 1 }}>
                 <View>
                     <RkCard>
-                        <View rkCardHeader>
+                        {/* <View rkCardHeader>
                             <Text> Absolutley Fantastic Places to Take Pictures of Yourself</Text>
-                        </View>
+                        </View> */}
                         <Image rkCardImg source={require('../images/selfie3.jpg')} />
                         <View rkCardContent>
                             <Text> Absolutley Fantastic Places to Take Pictures of Yourself</Text>
