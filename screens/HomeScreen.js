@@ -33,13 +33,14 @@ export default class HomeScreen extends Component {
         // console.log('received image: ' + filePath);
         const data = new FormData();
         data.append('image', {
-                image: filePath,
+                uri: filePath,
                 type: 'image/jpeg',
                 name: 'testPhotoName'
         })
         let imagePath = {image: filePath };
-        console.log(imagePath);
-        // imageService.post(data)
+        console.log(data);
+
+        imageService.insert(data);
     }
 
     render() {
