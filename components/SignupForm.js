@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     input: {
         height: 40,
         marginBottom: 20,
-        paddingHorizontal: 10,
+        textAlign: 'center',
         backgroundColor: '#a4b0be',
         color: '#f5f6fa',
         borderRadius: 50,
@@ -153,6 +153,8 @@ const styles = StyleSheet.create({
         height: 60,
         marginBottom: 20,
         paddingHorizontal: 10,
+        borderRadius: 50,
+        textAlign: 'center',
 
         backgroundColor: '#dfe4ea',
         color: '#747d8c'
