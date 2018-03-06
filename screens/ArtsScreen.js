@@ -3,7 +3,7 @@ import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-nativ
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import * as locationsService from '../components/services/locations';
 
-export default class LocationsScreen extends Component {
+export default class ArtsScreen extends Component {
     constructor(props) {
         super(props);
 
@@ -20,7 +20,7 @@ export default class LocationsScreen extends Component {
         try {
             console.log('getting locations');
             console.log(Object.keys(locationsService));
-            const locations = await locationsService.all(1);
+            const locations = await locationsService.all(21);
 
             console.log(locations);
             this.setState({

@@ -5,21 +5,30 @@ import {
     Text,
     View
 } from 'react-native';
-import { TabNavigator } from 'react-navigation';
+import { TabNavigator, StackNavigator } from 'react-navigation';
 import CameraScreen from './screens/CameraScreen';
 import LocationScreen from './screens/LocationScreen';
+import ArtsScreen from './screens/ArtsScreen';
+import ViewsScreen from './screens/ViewsScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import SignupScreen from './screens/SignupScreen';
-import LocationsScreen from './screens/LocationsScreen';
+import EatsScreen from './screens/EatsScreen';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 
-const RootNavigator = TabNavigator({
+
+export const HomeStack = StackNavigator({
     Home: { screen: HomeScreen },
+    Eats: { screen: EatsScreen },
+    Arts: { screen: ArtsScreen },
+    Views: { screen: ViewsScreen }
+})
+
+const RootNavigator = TabNavigator({
+    Home: { screen: HomeStack },
     Signup: { screen: SignupScreen },
     Location: { screen: LocationScreen },
     Profile: { screen: ProfileScreen },
-    Locations: { screen: LocationsScreen },
     Login: { screen: LoginScreen },
     Camera: { screen: CameraScreen },
 
