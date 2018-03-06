@@ -65,7 +65,9 @@ async function json(url, method = 'GET', payload = {}) {
 async function form(url, method = 'GET', payload = {}) {
     const authToken = await getAuthToken();
     const headers = {
-        'Content-Type': 'multipart/form-data',
+
+
+
     };
 
     if (!!authToken) {
@@ -86,7 +88,7 @@ async function form(url, method = 'GET', payload = {}) {
     const contentType = response.headers.get('Content-Type');
 
     if (response.ok) {
-        if (contentType.indexOf('multipart/form-data') > -1) {
+        if (contentType.indexOf('application/json') > -1) {
             return await response.form();
         } else if (response.statusText) {
             return response.statusText;
@@ -94,7 +96,7 @@ async function form(url, method = 'GET', payload = {}) {
             return response.status;
         }
     } else {
-        if (contentType.indexOf('multipart/form-data') > -1) {
+        if (contentType.indexOf('application/json') > -1) {
             throw await response.form();
         } else if (response.statusText) {
             throw response.statusText;
