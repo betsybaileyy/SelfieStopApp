@@ -16,15 +16,7 @@ export default class SignupForm extends Component {
         }
     }
 
-    componentDidUpdate() {
-        let imagePath= this.props.navigation.state.params.image;
-        console.log(imagePath);
-        const data = new FormData();
-        data.append('firstName', this.state.firstName);
-        data.append('lastName', this.state.lastName);
-        console.log(data);
-         // this.setState(this.props.navigation.state.params.image);
-     }
+
 
     handleFirstNameChange(text) {
         this.setState({ firstName: text });
@@ -121,7 +113,7 @@ export default class SignupForm extends Component {
                     underlineColorAndroid='transparent'
                 />
 
-                <CameraNav />
+
                 <TouchableOpacity
                     style={styles.buttonContainer}
                     onPress={() => this.signUp(this.state)}
