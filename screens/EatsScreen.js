@@ -43,9 +43,9 @@ export default class EatsScreen extends Component {
                         <View rkCardContent>
                             <Text> Absolutley Fantastic Places to Take Pictures of Yourself</Text>
                         </View>
-                        <View rkCardFooter>
+                        {/* <View rkCardFooter>
                             <Text>Footer</Text>
-                        </View>
+                        </View> */}
                     </RkCard>
                 </View>
                 <View style={{

@@ -19,7 +19,9 @@ import HomeScreen from './screens/HomeScreen';
 
 export const HomeStack = StackNavigator({
     Home: { screen: HomeScreen },
-    Eats: { screen: EatsScreen },
+    Eats: { screen: EatsScreen, navigationOptions: {
+        title: 'Eats',
+    } },
     Arts: { screen: ArtsScreen },
     Views: { screen: ViewsScreen }
 })
