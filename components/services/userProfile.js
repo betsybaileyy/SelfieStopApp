@@ -8,4 +8,4 @@ function one(id) {
     return baseService.get(`/api/userProfile/${id}`);
 }
 
-export { all, one, getUser };
+export { all, one, };
