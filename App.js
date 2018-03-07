@@ -16,7 +16,7 @@ import EatsScreen from './screens/EatsScreen';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import CameraRoll from './screens/cameraRoll';
-// import LocationList from './components/locationList';
+import LocationList from './components/locationList';
 
 
 
