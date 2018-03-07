@@ -7,7 +7,7 @@ export default class ProfilePhotos extends Component {
         super(props);
         this.state = {
             selfies: [],
-            user: ''
+            userSelfies: ''
         };
     }
 
@@ -18,10 +18,10 @@ export default class ProfilePhotos extends Component {
 
     async all() {
         try {
-            const user = await UserService.all(1);
-            console.log(user);
+            const userSelfies = await UserService.all(1);
+            console.log(userSelfies);
             this.setState({
-                user
+                userSelfies
             });
         } catch (err) {
             console.log(err);
