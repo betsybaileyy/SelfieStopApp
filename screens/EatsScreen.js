@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, AppRegistry } from 'react-native';
+import { Platform, StyleSheet, Text, View, Image, ScrollView, AppRegistry } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import * as locationsService from '../components/services/locations';
 import { withNavigation, StackNavigator} from 'react-navigation';
-import { LocationScreen } from './LocationScreen';
 import { LocationList } from '../components/locationList';
 
 export default class EatsScreen extends Component {
@@ -35,6 +34,7 @@ export default class EatsScreen extends Component {
     render() {
         console.log(this.props.navigation);
         return (
+            <ScrollView>
             <View style={{ flex: 1 }}>
                 <View>
                     <RkCard>
@@ -49,25 +49,27 @@ export default class EatsScreen extends Component {
                     flexDirection: 'row',
                     flexWrap: 'wrap'
                 }}>
-                    <LocationList/>
+                    {/* <LocationList/> */}
                 </View>
-            </View>
+                </View>
+            </ScrollView>
+           
         )
     }
 }
 
-var styles = StyleSheet.create({
-    list: {
-        justifyContent: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap'
-    },
-    item: {
-        backgroundColor: '#CCC',
-        margin: 10,
-        width: 100,
-        height: 100
-    }
-});
+// var styles = StyleSheet.create({
+//     list: {
+//         justifyContent: 'center',
+//         flexDirection: 'row',
+//         flexWrap: 'wrap'
+//     },
+//     item: {
+//         backgroundColor: '#CCC',
+//         margin: 10,
+//         width: 100,
+//         height: 100
+//     }
+// });
 
-AppRegistry.registerComponent('SelfieStopApp', () => EatsScreen);
+// AppRegistry.registerComponent('SelfieStopApp', () => EatsScreen);

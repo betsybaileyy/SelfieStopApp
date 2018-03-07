@@ -17,7 +17,7 @@ import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import CameraRoll from './screens/cameraRoll';
 
-export const HomeStack = StackNavigator({
+const HomeStack = StackNavigator({
     Home: { screen: HomeScreen },
     Eats: { screen: EatsScreen, navigationOptions: {
         title: 'Eats',
