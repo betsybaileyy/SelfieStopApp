@@ -46,11 +46,9 @@ export default class Profile extends Component {
                             style={styles.profilePic} /> */}
                         <View>
                             <Text style={styles.fullName}>
-                                {this.state.user.firstname} {this.state.user.lastname}</Text>
+                                {this.state.user.firstName} {this.state.user.lastName}</Text>
                         </View>
-
                     </View>
-
                     <View style={styles.bioContainer}>
                         <View>
                             <Text style={styles.bioText}>
@@ -68,7 +66,7 @@ export default class Profile extends Component {
 
                 <View>
                     <ScrollView>
-                        <ProfilePhotos />
+                        {<ProfilePhotos />}
                     </ScrollView>
                 </View>
 
