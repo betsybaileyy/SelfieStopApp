@@ -3,7 +3,7 @@ import { Platform, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity} 
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import * as locationsService from '../components/services/locations';
 import { withNavigation, StackNavigator} from 'react-navigation';
-import { LocationScreen } from './LocationScreen';
+import { LocationScreen } from '../screens/LocationScreen';
 
 export default class LocationList extends Component {
     constructor(props) {
@@ -34,6 +34,7 @@ export default class LocationList extends Component {
     render() {
         console.log(this.props.navigation);
         return (
+            <Text>
             <View style={{ flex: 1 }}>
                
                 <View style={{
@@ -64,6 +65,7 @@ export default class LocationList extends Component {
                     </ScrollView>
                 </View>
             </View>
+            </Text>
         )
     }
 }

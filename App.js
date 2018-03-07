@@ -27,17 +27,12 @@ export const HomeStack = StackNavigator({
     Location: { screen: LocationScreen }
 })
 
-<<<<<<< HEAD
 // export const EatsStack = StackNavigator({
 //     Location: { screen: LocationScreen }
 // });
 
 const RootNavigator = TabNavigator({
     Home: { screen: HomeStack },
-=======
- const RootNavigator = TabNavigator({
-    Home: { screen: HomeScreen },
->>>>>>> b5be99d66b71598596ee795fa734046d2e800d4c
     Signup: { screen: SignupScreen },
     Location: { screen: LocationScreen },
     Profile: { screen: ProfileScreen },
