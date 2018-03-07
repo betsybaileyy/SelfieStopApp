@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { Platform, StyleSheet, Text, View, Image, ScrollView, AppRegistry } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import * as locationsService from '../components/services/locations';
+import { withNavigation, StackNavigator} from 'react-navigation';
+import LocationList from '../components/locationList';
+
+const EatsStack = StackNavigator({
+    // Home: { screen: EatsScreen },
+    LocationList: { screen: LocationList }
+});
 
 export default class EatsScreen extends Component {
     constructor(props) {
@@ -10,7 +17,7 @@ export default class EatsScreen extends Component {
         this.state = {
             locations: [],
         };
-    }
+    } 
 
     componentDidMount() {
         this.getLocations();
@@ -18,8 +25,6 @@ export default class EatsScreen extends Component {
 
     async getLocations() {
         try {
-            console.log('getting locations');
-            console.log(Object.keys(locationsService));
             const locations = await locationsService.all(1);
 
             console.log(locations);
@@ -32,19 +37,15 @@ export default class EatsScreen extends Component {
     }
 
     render() {
+        console.log(this.props.navigation);
         return (
+            <ScrollView>
             <View style={{ flex: 1 }}>
                 <View>
                     <RkCard>
-                        {/* <View rkCardHeader>
-                            <Text> Absolutley Fantastic Places to Take Pictures of Yourself</Text>
-                        </View> */}
                         <Image rkCardImg source={require('../images/selfie3.jpg')} />
                         <View rkCardContent>
                             <Text> Absolutley Fantastic Places to Take Pictures of Yourself</Text>
-                        </View>
-                        <View rkCardFooter>
-                            <Text>Footer</Text>
                         </View>
                     </RkCard>
                 </View>
@@ -53,40 +54,27 @@ export default class EatsScreen extends Component {
                     flexDirection: 'row',
                     flexWrap: 'wrap'
                 }}>
-                    <ScrollView>
-                        {this.state.locations.map((location, index) => {
-                            return (
-                                <RkCard>
-                                    <View rkCardHeader>
-                                        <Text>{location.name}</Text>
-                                    </View>
-                                    <Image rkCardImg source={location.image} />
-                                    <View rkCardContent>
-                                        <Text>{location.description}</Text>
-                                    </View>
-                                    <View rkCardFooter>
-                                        <Text>Footer</Text>
-                                    </View>
-                                </RkCard>
-                            );
-                        })}
-                    </ScrollView>
+                    <LocationList navigate={this.props.navigation.navigate} />
                 </View>
-            </View>
+                </View>
+            </ScrollView>
+           
         )
     }
 }
 
-var styles = StyleSheet.create({
-    list: {
-        justifyContent: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap'
-    },
-    item: {
-        backgroundColor: '#CCC',
-        margin: 10,
-        width: 100,
-        height: 100
-    }
-});
+// var styles = StyleSheet.create({
+//     list: {
+//         justifyContent: 'center',
+//         flexDirection: 'row',
+//         flexWrap: 'wrap'
+//     },
+//     item: {
+//         backgroundColor: '#CCC',
+//         margin: 10,
+//         width: 100,
+//         height: 100
+//     }
+// });
+
+// AppRegistry.registerComponent('SelfieStopApp', () => EatsScreen);
