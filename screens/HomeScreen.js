@@ -44,7 +44,7 @@ export default class HomeScreen extends Component {
             name: 'testPhotoName'
         })
         console.log(data);
-        fetch('https://wnikmcdrfq.localtunnel.me/api/images', {
+        fetch('https://cagjdlkoqc.localtunnel.me/api/images', {
             method: 'POST',
             body: data,
         }).then( res => {
