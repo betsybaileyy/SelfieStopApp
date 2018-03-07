@@ -1,10 +1,6 @@
 import { AsyncStorage } from 'react-native';
 const AUTH_TOKEN_KEY = 'authtoken';
-<<<<<<< HEAD
-const BASE_URL = 'https://ipzpycdtzv.localtunnel.me/';
-=======
-const BASE_URL = 'https://jldqfgxlhu.localtunnel.me/';
->>>>>>> b5be99d66b71598596ee795fa734046d2e800d4c
+const BASE_URL = 'https://wikshycxtz.localtunnel.me/';
 
 async function setAuthToken(token) {
     return await AsyncStorage.setItem(AUTH_TOKEN_KEY, `Bearer ${token}`);
