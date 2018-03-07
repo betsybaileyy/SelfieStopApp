@@ -3,6 +3,12 @@ import { Platform, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity} 
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import * as locationsService from '../components/services/locations';
 import { withNavigation, StackNavigator} from 'react-navigation';
+import LocationScreen from '../screens/LocationScreen';
+
+const LocationNav = StackNavigator({
+    // Home: { screen: EatsScreen },
+    LocationScreen: { screen: LocationScreen }
+});
 
 export default class LocationList extends Component {
     constructor(props) {
@@ -29,6 +35,7 @@ export default class LocationList extends Component {
             console.log(err);
         }
     }
+    
 
     render() {
         console.log(this.props.navigation);
@@ -44,7 +51,7 @@ export default class LocationList extends Component {
                         {this.state.locations.map((location, index) => {
                             return (
                                 <RkCard key={index} >
-                                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Location')} >
+                                    <TouchableOpacity onPress={() => {this.props.navigation.navigate('LocationScreen')}} >
                                         <View rkCardHeader>
                                             <Text>{location.name}</Text>
                                         </View>
