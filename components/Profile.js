@@ -15,12 +15,12 @@ export default class Profile extends Component {
 
     async componentDidMount() {
         console.log('did mount');
-        this.getUser();
+        this.one();
     }
 
-    async getUser() {
+    async one() {
         try {
-            const user = await UserService.getUser(1);
+            const user = await UserService.one(1);
             console.log(user);
             this.setState({
                 user
