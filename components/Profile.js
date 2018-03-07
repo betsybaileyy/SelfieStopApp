@@ -42,8 +42,8 @@ export default class Profile extends Component {
 
                     <View style={styles.headerContainer}>
 
-                        {/* <Image source={image.user}
-                            style={styles.profilePic} /> */}
+                        {<Image source={require('../images/bobdilly.jpeg')}
+                            style={styles.profilePic} />}
                         <View>
                             <Text style={styles.fullName}>
                                 {this.state.user.firstName} {this.state.user.lastName}</Text>
