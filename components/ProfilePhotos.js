@@ -466,15 +466,15 @@ const styles = StyleSheet.create({
         marginBottom: 1,
     },
     modal: {
-
-        justifyContent: 'center',
+        position: 'relative',
+        justifyContent: 'space-between',
         alignItems: 'center',
     },
     modalImg: {
-        height: 200,
-        width: 300,
-        justifyContent: 'center',
-        alignItems: 'center',
+        height: 300,
+        width: 400,
+        marginTop: 200,
+        // margin: 40,
     },
 
 })
