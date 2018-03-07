@@ -12,8 +12,7 @@ export default class ProfilePhotos extends Component {
                     style={styles.photoItems}
                     modalImgStyle={styles.modalImg}
                     modalStyle={styles.modal}
-                    transparent={false}
-                />
+                    transparent={false} />
                 <RkModalImg source={require('../images/banana2.jpeg')}
                     style={styles.photoItems}
                     modalImgStyle={styles.modalImg}
