@@ -47,7 +47,7 @@ export default class LocationScreen extends Component {
                 <View style={{ flex: 1, justifyContent: 'center',
         flexDirection: 'row',
         flexWrap: 'wrap'}}>
-                <ScrollView>
+                <ScrollView>rt
                     <RkCard>
                         <View rkCardHeader>
                             <Text>Header</Text>

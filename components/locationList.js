@@ -4,9 +4,8 @@ import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import * as locationsService from '../components/services/locations';
 import { withNavigation, StackNavigator} from 'react-navigation';
 import { LocationScreen } from './LocationScreen';
-import { LocationList } from '../components/locationList';
 
-export default class EatsScreen extends Component {
+export default class LocationList extends Component {
     constructor(props) {
         super(props);
 
@@ -36,20 +35,33 @@ export default class EatsScreen extends Component {
         console.log(this.props.navigation);
         return (
             <View style={{ flex: 1 }}>
-                <View>
-                    <RkCard>
-                        <Image rkCardImg source={require('../images/selfie3.jpg')} />
-                        <View rkCardContent>
-                            <Text> Absolutley Fantastic Places to Take Pictures of Yourself</Text>
-                        </View>
-                    </RkCard>
-                </View>
+               
                 <View style={{
                     flex: 1, justifyContent: 'center',
                     flexDirection: 'row',
                     flexWrap: 'wrap'
                 }}>
-                    <LocationList/>
+                    <ScrollView >
+                        {this.state.locations.map((location, index) => {
+                            return (
+                                <RkCard key={index} >
+                                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Location')} >
+                                        <View rkCardHeader>
+                                            <Text>{location.name}</Text>
+                                        </View>
+                                        {/* source={location.image} */}
+                                        <Image rkCardImg />
+                                        <View rkCardContent>
+                                            <Text>{location.description}</Text>
+                                        </View>
+                                        <View rkCardFooter>
+                                            <Text>Footer</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </RkCard>
+                            );
+                        })}
+                    </ScrollView>
                 </View>
             </View>
         )

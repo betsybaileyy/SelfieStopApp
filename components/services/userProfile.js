@@ -8,4 +8,4 @@ function one(id) {
     return baseService.get(`/api/users/${id}`);
 }
 
-export { all, one, insert, update, destroy };
+export { all, one }; //insert, update, destroy 
