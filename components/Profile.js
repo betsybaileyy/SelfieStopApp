@@ -2,31 +2,64 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import ProfilePhotos from './ProfilePhotos';
+import * as UserService from './services/userProfile';
 
 export default class Profile extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            images: [],
+            user: ''
+        };
+    }
+
+    async componentDidMount() {
+        console.log('did mount');
+        this.getUser();
+    }
+
+    async getUser() {
+        try {
+            const user = await UserService.getUser(1);
+            console.log(user);
+            this.setState({
+                user
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+
+
+
     render() {
         return (
             <View>
-                <Text style={styles.userName}>Bananas615</Text>
-
-
+                <Text style={styles.userName}>{this.state.user.firstName} {this.state.user.lastName} </Text>
 
                 <View style={styles.profileContainer}>
 
                     <View style={styles.headerContainer}>
 
-                        <Image source={require('../images/selfie4.jpg')}
-                            style={styles.profilePic} />
-
-                        <Text style={styles.fullName}>Harambe Smith</Text>
+                        {/* <Image source={image.user}
+                            style={styles.profilePic} /> */}
+                        <View>
+                            <Text style={styles.fullName}>
+                                {this.state.user.firstname} {this.state.user.lastname}</Text>
+                        </View>
 
                     </View>
 
                     <View style={styles.bioContainer}>
-                        <Text style={styles.bioText}>I like bananas and climbing trees. I sometimes like to pick bugs out of my friends hair. Did I mention that I like bananas and climbing trees?</Text>
+                        <View>
+                            <Text style={styles.bioText}>
+                                {this.state.user.bio}
+                            </Text>
+                        </View>
                     </View>
-
                 </View>
+
                 <View style={styles.iconContainer}>
                     <Image source={require('../images/galleryicon.png')}
                         style={styles.galleryIcon} />
