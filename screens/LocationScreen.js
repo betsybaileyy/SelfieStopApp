@@ -23,10 +23,6 @@ export default class LocationScreen extends Component {
             });
     }
     
-
-    // getImages(api call here){
-    //     render
-    // }
     render() {
         return (
             <View style={{ flex: 1 }}>
@@ -47,7 +43,7 @@ export default class LocationScreen extends Component {
                 <View style={{ flex: 1, justifyContent: 'center',
         flexDirection: 'row',
         flexWrap: 'wrap'}}>
-                <ScrollView>
+                <ScrollView>rt
                     <RkCard>
                         <View rkCardHeader>
                             <Text>Header</Text>
