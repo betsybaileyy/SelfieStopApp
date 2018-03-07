@@ -16,7 +16,6 @@ export default class SignupForm extends Component {
         }
     }
 
-<<<<<<< HEAD
     componentDidUpdate() {
         let imagePath = this.props.navigation.state.params.image;
         console.log(imagePath);
@@ -26,9 +25,6 @@ export default class SignupForm extends Component {
         console.log(data);
         // this.setState(this.props.navigation.state.params.image);
     }
-=======
-
->>>>>>> b5be99d66b71598596ee795fa734046d2e800d4c
 
     handleFirstNameChange(text) {
         this.setState({ firstName: text });
