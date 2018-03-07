@@ -31,7 +31,7 @@ export const HomeStack = StackNavigator({
     Location: { screen: LocationScreen },
     Profile: { screen: ProfileScreen },
     Login: { screen: LoginScreen },
-    Camera: { screen: CameraScreen },
+    // Camera: { screen: CameraScreen },
     CameraRoll: {screen: CameraRoll },
 
 },
