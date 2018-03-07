@@ -9,7 +9,7 @@ export default class LoginForm extends Component {
             email: 'bob@dylan.com',
             password: 'password123',
             feedbackMessage: '',
-            checkingLogin: 'true'
+            checkingLogin: true
         };
     }
 
@@ -24,8 +24,10 @@ export default class LoginForm extends Component {
     async componentDidMount() {
         try {
             await userService.checkLogin();
-            this.props.navigation.navigate('Home');
-            console.log('Hello Alex');
+            if (true) {
+                this.props.navigation.navigate('Home');
+                console.log('Hello Alex');
+            }
         } catch (err) {
             if (err.message) {
                 this.setState({ feedbackMessage: err.message });
@@ -38,7 +40,8 @@ export default class LoginForm extends Component {
     async login() {
         try {
             await userService.login(this.state.email, this.state.password);
-            this.props.navigation.navigate('Home');
+            this.setState({ checkingLogin: true });
+            // this.props.navigation.navigate('Home');
 
         } catch (err) {
             if (err.message) {

@@ -1,6 +1,6 @@
 import * as baseService from './base';
 
-function all() {
+function all(id) {
     return baseService.get(`/api/userProfile/${id}/selfies`);
 }
 
