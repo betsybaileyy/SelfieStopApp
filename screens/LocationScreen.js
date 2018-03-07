@@ -23,10 +23,6 @@ export default class LocationScreen extends Component {
             });
     }
     
-
-    // getImages(api call here){
-    //     render
-    // }
     render() {
         return (
             <View style={{ flex: 1 }}>

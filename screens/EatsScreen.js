@@ -3,7 +3,12 @@ import { Platform, StyleSheet, Text, View, Image, ScrollView, AppRegistry } from
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import * as locationsService from '../components/services/locations';
 import { withNavigation, StackNavigator} from 'react-navigation';
-import { LocationList } from '../components/locationList';
+import LocationList from '../components/locationList';
+
+const EatsStack = StackNavigator({
+    // Home: { screen: EatsScreen },
+    LocationList: { screen: LocationList }
+});
 
 export default class EatsScreen extends Component {
     constructor(props) {
@@ -49,7 +54,7 @@ export default class EatsScreen extends Component {
                     flexDirection: 'row',
                     flexWrap: 'wrap'
                 }}>
-                    {/* <LocationList/> */}
+                    <LocationList navigate={this.props.navigation.navigate} />
                 </View>
                 </View>
             </ScrollView>

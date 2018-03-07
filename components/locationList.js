@@ -3,7 +3,6 @@ import { Platform, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity} 
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import * as locationsService from '../components/services/locations';
 import { withNavigation, StackNavigator} from 'react-navigation';
-import { LocationScreen } from '../screens/LocationScreen';
 
 export default class LocationList extends Component {
     constructor(props) {
