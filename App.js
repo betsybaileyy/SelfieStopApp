@@ -16,6 +16,9 @@ import EatsScreen from './screens/EatsScreen';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import CameraRoll from './screens/cameraRoll';
+// import LocationList from './components/locationList';
+
+
 
 const HomeStack = StackNavigator({
     Home: { screen: HomeScreen },
@@ -39,6 +42,7 @@ const RootNavigator = TabNavigator({
     Login: { screen: LoginScreen },
     Camera: { screen: CameraScreen },
     CameraRoll: {screen: CameraRoll },
+    LocationList: { screen: LocationList },
 
 },
 {

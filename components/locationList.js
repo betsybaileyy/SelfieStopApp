@@ -34,9 +34,8 @@ export default class LocationList extends Component {
     render() {
         console.log(this.props.navigation);
         return (
-            <Text>
+     
             <View style={{ flex: 1 }}>
-               
                 <View style={{
                     flex: 1, justifyContent: 'center',
                     flexDirection: 'row',
@@ -65,7 +64,6 @@ export default class LocationList extends Component {
                     </ScrollView>
                 </View>
             </View>
-            </Text>
         )
     }
 }
