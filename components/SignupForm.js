@@ -16,19 +16,6 @@ export default class SignupForm extends Component {
         }
     }
 
-<<<<<<< HEAD
-    componentDidUpdate() {
-        let imagePath = this.props.navigation.state.params.image;
-        console.log(imagePath);
-        const data = new FormData();
-        data.append('firstName', this.state.firstName);
-        data.append('lastName', this.state.lastName);
-        console.log(data);
-        // this.setState(this.props.navigation.state.params.image);
-    }
-=======
-
->>>>>>> b5be99d66b71598596ee795fa734046d2e800d4c
 
     handleFirstNameChange(text) {
         this.setState({ firstName: text });
