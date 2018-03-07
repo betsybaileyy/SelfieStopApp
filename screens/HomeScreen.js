@@ -5,7 +5,8 @@ import {
     Text,
     View,
     Image,
-    ScrollView
+    ScrollView,
+
 } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import SignupScreen from './SignupScreen';
@@ -14,6 +15,9 @@ import RecentSelfies from '../components/recentSelfies';
 import LocationCards from '../components/locationCards';
 import CameraNav from '../components/cameraNav';
 import * as imageService from '../components/services/images';
+
+
+
 
 
 
@@ -32,17 +36,23 @@ export default class HomeScreen extends Component {
 
     componentDidUpdate() {
         let filePath = this.props.navigation.state.params.image
-        // console.log('received image: ' + filePath);
+        console.log(filePath);
         const data = new FormData();
         data.append('image', {
             uri: filePath,
             type: 'image/jpeg',
             name: 'testPhotoName'
         })
-        // let imagePath = {image: filePath };
         console.log(data);
+        fetch('https://xedmvsldbl.localtunnel.me/api/images', {
+            method: 'POST',
+            body: data,
+        }).then( res => {
+            console.log(res)
+        }).catch( (err) => {
+            console.log(err)
+        });
 
-        imageService.insert(data);
     }
 
     render() {

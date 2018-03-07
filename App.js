@@ -15,6 +15,7 @@ import SignupScreen from './screens/SignupScreen';
 import EatsScreen from './screens/EatsScreen';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
+import CameraRoll from './screens/cameraRoll';
 
 
 export const HomeStack = StackNavigator({
@@ -24,13 +25,14 @@ export const HomeStack = StackNavigator({
     Views: { screen: ViewsScreen }
 })
 
-const RootNavigator = TabNavigator({
-    Home: { screen: HomeStack },
+ const RootNavigator = TabNavigator({
+    Home: { screen: HomeScreen },
     Signup: { screen: SignupScreen },
     Location: { screen: LocationScreen },
     Profile: { screen: ProfileScreen },
     Login: { screen: LoginScreen },
     Camera: { screen: CameraScreen },
+    CameraRoll: {screen: CameraRoll },
 
 },
 {

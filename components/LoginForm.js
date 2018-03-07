@@ -21,6 +21,20 @@ export default class LoginForm extends Component {
         this.setState({ password: text });
     }
 
+    async componentDidMount() {
+        try {
+            await userService.checkLogin();
+            this.props.navigation.navigate('Home');
+            console.log('Hello Alex');
+        } catch (err) {
+            if (err.message) {
+                this.setState({ feedbackMessage: err.message });
+            }
+            console.log(err);
+        }
+
+    }
+
     async login() {
         try {
             await userService.login(this.state.email, this.state.password);
