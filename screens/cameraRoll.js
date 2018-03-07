@@ -14,12 +14,19 @@ import CameraRollPicker from 'react-native-camera-roll-picker';
 
 
 export default class CameraRoll extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            image: ''
+        };
+        imageProps = this.props;
+    }
 
     getSelectedImages(images) {
 
         let imagePath = images[0].uri
         console.log(imagePath);
-        this.props.navigation.navigate(this.props.navigation.state.params.key, {
+        imageProps.navigation.navigate(imageProps.navigation.state.params.key, {
             image: imagePath
         });
     }
