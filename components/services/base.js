@@ -1,6 +1,10 @@
 import { AsyncStorage } from 'react-native';
 const AUTH_TOKEN_KEY = 'authtoken';
+<<<<<<< HEAD
 const BASE_URL = 'https://ipzpycdtzv.localtunnel.me/';
+=======
+const BASE_URL = 'https://jldqfgxlhu.localtunnel.me/';
+>>>>>>> b5be99d66b71598596ee795fa734046d2e800d4c
 
 async function setAuthToken(token) {
     return await AsyncStorage.setItem(AUTH_TOKEN_KEY, `Bearer ${token}`);
@@ -76,7 +80,7 @@ async function form(url, method = 'GET', payload = {}) {
 
     const data = {
         method,
-        body: JSON.stringify(payload),
+        body: payload,
         headers,
     };
 
@@ -89,7 +93,7 @@ async function form(url, method = 'GET', payload = {}) {
 
     if (response.ok) {
         if (contentType.indexOf('application/json') > -1) {
-            return await response.form();
+            return await response.json();
         } else if (response.statusText) {
             return response.statusText;
         } else if (response.status) {
@@ -97,7 +101,7 @@ async function form(url, method = 'GET', payload = {}) {
         }
     } else {
         if (contentType.indexOf('application/json') > -1) {
-            throw await response.form();
+            throw await response.json();
         } else if (response.statusText) {
             throw response.statusText;
         } else if (response.status) {

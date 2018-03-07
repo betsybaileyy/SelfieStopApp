@@ -30,6 +30,7 @@ export default class Camera extends Component {
         //     ],
         //     { cancelable: false }
         // )
+
     }
 
     render() {
