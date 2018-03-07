@@ -17,7 +17,6 @@ export default class SignupForm extends Component {
     }
 
 
-
     handleFirstNameChange(text) {
         this.setState({ firstName: text });
     }
@@ -167,5 +166,6 @@ const styles = StyleSheet.create({
 
 
 })
+
 
 
