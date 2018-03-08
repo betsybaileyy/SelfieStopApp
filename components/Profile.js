@@ -49,6 +49,7 @@ export default class Profile extends Component {
                                 {this.state.user.firstName} {this.state.user.lastName}</Text>
                         </View>
                     </View>
+
                     <View style={styles.bioContainer}>
                         <View>
                             <Text style={styles.bioText}>
@@ -56,6 +57,7 @@ export default class Profile extends Component {
                             </Text>
                         </View>
                     </View>
+
                 </View>
 
                 <View style={styles.iconContainer}>
@@ -91,6 +93,7 @@ const styles = StyleSheet.create({
     headerContainer: {
         alignItems: 'center',
         justifyContent: 'center',
+        paddingLeft: 20,
     },
 
     userName: {
@@ -111,6 +114,7 @@ const styles = StyleSheet.create({
     bioContainer: {
         flexWrap: 'wrap',
         paddingRight: 100,
+        paddingLeft: 25,
         paddingTop: 15,
     },
 
