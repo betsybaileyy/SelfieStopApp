@@ -17,6 +17,9 @@ export default class LocationCards extends Component {
     //     this.props.navigation.navigate('LocationsScreen', locations)
     // }
 
+    navigate(category) {
+        this.props.navigation.navigate('LocationScreen', { location });
+    }
 
     render() {
         return (

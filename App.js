@@ -32,11 +32,10 @@ const HomeStack = StackNavigator({
 const Tabs = TabNavigator({
     Home: { screen: HomeStack },
     Signup: { screen: SignupScreen },
-    // Location: { screen: LocationScreen },
     Profile: { screen: ProfileScreen },
     Login: { screen: LoginScreen },
     CameraRoll: { screen: CameraRoll },
-    LocationList: { screen: LocationList },
+
 
 },
 
@@ -63,17 +62,14 @@ const RootNavigator = StackNavigator({
 
 export default class App extends Component {
 
-    eatsNavigate(location) {
-        this.props.navigation.navigate('LocationScreen', { location });
-    }
+    // eatsNavigate(location) {
+    //     this.props.navigation.navigate('LocationScreen', { location });
+    // }
     
     render() {
         return (
-            <View>
                 <RootNavigator
                 />
-                <EatsStack screenProps={() => this.eatsNavigate(location)} />
-            </View>
         );
     }
 }

@@ -57,42 +57,7 @@ export default class LocationScreen extends Component {
                             <Text>Footer</Text>
                         </View>
                     </RkCard>
-                    {/* <RkCard>
-                        <View rkCardHeader>
-                            <Text>Header</Text>
-                        </View>
-                        <Image rkCardImg source={require('../images/selfie4.jpg')} />
-                        <View rkCardContent>
-                            <Text> quick brown fox jumps over the lazy dog</Text>
-                        </View>
-                        <View rkCardFooter>
-                            <Text>Footer</Text>
-                        </View>
-                    </RkCard>
-                    <RkCard>
-                        <View rkCardHeader>
-                            <Text>Header</Text>
-                        </View>
-                        <Image rkCardImg source={require('../images/selfie3.jpg')} />
-                        <View rkCardContent>
-                            <Text> quick brown fox jumps over the lazy dog</Text>
-                        </View>
-                        <View rkCardFooter>
-                            <Text>Footer</Text>
-                        </View>
-                    </RkCard>
-                    <RkCard>
-                        <View rkCardHeader>
-                            <Text>Header</Text>
-                        </View>
-                        <Image rkCardImg source={require('../images/selfie2.jpg')} />
-                        <View rkCardContent>
-                            <Text> quick brown fox jumps over the lazy dog</Text>
-                        </View>
-                        <View rkCardFooter>
-                            <Text>Footer</Text>
-                        </View>
-                    </RkCard> */}
+
                 </ScrollView>
                 </View>
             </View>
@@ -100,23 +65,6 @@ export default class LocationScreen extends Component {
     }
 }
 
-{/* <SectionList
-  renderItem={({item}) => <ListItem title={item.title} />}
-  renderSectionHeader={({section}) => <H1 title={section.key} />}
-  sections={[ // homogeneous rendering between sections
-    {data: [...], key: ...},
-    {data: [...], key: ...},
-    {data: [...], key: ...},
-  ]}
-/>
-
-<SectionList
-  sections={[ // heterogeneous rendering between sections
-    {data: [...], key: ..., renderItem: ...},
-    {data: [...], key: ..., renderItem: ...},
-    {data: [...], key: ..., renderItem: ...},
-  ]}
-/> */}
 
 var styles = StyleSheet.create({
     list: {
