@@ -24,6 +24,7 @@ export default class LocationScreen extends Component {
     }
     
     render() {
+        console.log(this.props.location);
         return (
             <View style={{ flex: 1 }}>
                 <View>
