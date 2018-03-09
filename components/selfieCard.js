@@ -5,7 +5,7 @@ import { RkCard, RkTheme } from 'react-native-ui-kitten';
 export default function (props) {
     return (
         <RkCard rkType='heroImage'>
-            <Image rkCardImg source={props.selfie.image} />
+            <Image rkCardImg source={{ uri: props.selfie.image }} />
         </RkCard>
     );
 }
