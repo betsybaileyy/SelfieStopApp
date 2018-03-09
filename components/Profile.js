@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import ProfilePhotos from './ProfilePhotos';
-import * as UserService from './services/userProfile';
+import * as userService from './services/userProfile';
 
 export default class Profile extends Component {
     constructor(props) {
@@ -20,12 +20,26 @@ export default class Profile extends Component {
 
     async one() {
         try {
-            const user = await UserService.one(1);
+            const user = await userService.one(1);
             console.log(user);
             this.setState({
                 user
             });
         } catch (err) {
+            console.log(err);
+        }
+    }
+
+    updatePhoto() {
+
+
+        try {
+            await userService.update(this.state.user.id, data);
+            console.log('Updated on front-end');
+        } catch (err) {
+            if (err.message) {
+                this.setState({ feedbackMessage: err.message });
+            }
             console.log(err);
         }
     }
