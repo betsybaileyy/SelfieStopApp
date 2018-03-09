@@ -7,16 +7,35 @@ export default class LocationScreen extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            images: [],
-        };
+        // this.state = {
+        //     location
+        // };
     }
 
-    getLocationImages() {
-       getLocaionService.one()
-            .then((images) => {
+    componentDidMount() {
+        this.getLocation();
+        console.log(this.props.navigation.state.params.location)
+    }
+
+    // async getLocation() {
+    //     try {
+    //         const location = await getLocationService.one(41);
+
+    //         console.log(location);
+    //         this.setState({
+    //             location
+    //         });
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // }
+
+
+    getLocation() {
+       getLocationService.one(41)
+            .then((location) => {
                 this.setState({
-                    images: images
+                    location
                 });
             }).catch((err) => {
                 console.log(err);
@@ -30,18 +49,18 @@ export default class LocationScreen extends Component {
                 <View>
                     <RkCard>
                         <View rkCardHeader>
-                            <Text>Header</Text>
+                            <Text>{this.props.navigation.state.params.location.name}</Text>
                         </View>
                         <Image rkCardImg source={require('../images/selfie3.jpg')} />
                         <View rkCardContent>
-                            <Text> quick brown fox jumps over the lazy dog</Text>
+                            <Text>{this.props.navigation.state.params.location.description}</Text>
                         </View>
                         <View rkCardFooter>
-                            <Text>Footer</Text>
+                            <Text>{location.address}</Text>
                         </View>
                     </RkCard>
                 </View>
-                <View style={{ flex: 1, justifyContent: 'center',
+                {/* <View style={{ flex: 1, justifyContent: 'center',
         flexDirection: 'row',
         flexWrap: 'wrap'}}>
                 <ScrollView>
@@ -59,7 +78,7 @@ export default class LocationScreen extends Component {
                     </RkCard>
 
                 </ScrollView>
-                </View>
+                </View> */}
             </View>
         )
     }

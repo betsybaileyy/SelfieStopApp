@@ -60,7 +60,7 @@ export default class ArtsScreen extends Component {
                                     <View rkCardHeader>
                                         <Text>{location.name}</Text>
                                     </View>
-                                    <Image rkCardImg source={location.image} />
+                                    <Image rkCardImg source={{uri: location.image}} />
                                     <View rkCardContent>
                                         <Text>{location.description}</Text>
                                     </View>

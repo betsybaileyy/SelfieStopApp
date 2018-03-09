@@ -57,7 +57,7 @@ export default class EatsScreen extends Component {
                         {this.state.locations.map((location, index) => {
                             return (
                                 <RkCard key={index} >
-                                    <TouchableOpacity onPress={() => { this.props.navigation.navigate('LocationScreen') }} >
+                                    <TouchableOpacity onPress={() => { this.props.navigation.navigate('LocationScreen', { location }) }} >
                                         <View rkCardHeader>
                                             <Text>{location.name}</Text>
                                         </View>
