@@ -16,16 +16,11 @@ import LocationCards from '../components/locationCards';
 import CameraNav from '../components/cameraNav';
 import * as imageService from '../components/services/images';
 
-
-
-
-
-
 export default class HomeScreen extends Component {
     constructor(props) {
         super(props);
-
     }
+
     static navigationOptions = { header: null};
     
     componentDidUpdate() {
@@ -38,14 +33,7 @@ export default class HomeScreen extends Component {
             name: 'testPhotoName'
         })
         console.log(data);
-        fetch('https://kdbwirrqrj.localtunnel.me/api/images', {
-            method: 'POST',
-            body: data,
-        }).then( res => {
-            console.log(res)
-        }).catch( (err) => {
-            console.log(err)
-        });
+        imageService.insert(data);
 
     }
 
