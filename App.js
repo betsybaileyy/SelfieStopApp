@@ -29,16 +29,17 @@ const HomeStack = StackNavigator({
     } },
     Arts: { screen: ArtsScreen },
     Views: { screen: ViewsScreen },
+
 })
 
 const RootNavigator = TabNavigator({
-    Home: { screen: HomeStack },
+    Home: { screen: HomeScreen },
     Signup: { screen: SignupScreen },
     // Location: { screen: LocationScreen },
     Profile: { screen: ProfileScreen },
     Login: { screen: LoginScreen },
-    CameraRoll: {screen: CameraRoll },
     LocationList: { screen: LocationList },
+    CameraRoll: {screen: CameraRoll },
 
 },
 {
