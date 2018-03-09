@@ -7,7 +7,7 @@ export default class ProfilePhotos extends Component {
         super(props);
         this.state = {
             selfies: [],
-            userSelfies: ''
+            userSelfies: []
         };
     }
 
@@ -20,427 +20,30 @@ export default class ProfilePhotos extends Component {
         try {
             const userSelfies = await UserService.all(1);
             console.log(userSelfies);
+            console.log(userSelfies[0])
             this.setState({
                 userSelfies
             });
         } catch (err) {
             console.log(err);
         }
+        console.log(this.state)
     }
-
-
-
-
 
     render() {
         return (
 
             <View style={styles.photoContainer}>
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
-                <RkModalImg source={require('../images/bobdilly.jpeg')}
-                    style={styles.photoItems}
-                    modalImgStyle={styles.modalImg}
-                    modalStyle={styles.modal}
-                    transparent={false} />
+                {this.state.userSelfies.map((image, index) => {
+                    return (
+                        <RkModalImg source={{ uri: image.image }}
+                            style={styles.photoItems}
+                            modalImgStyle={styles.modalImg}
+                            modalStyle={styles.modal}
+                            transparent={false} />
+                    )
+                })}
+
             </View>
 
 
@@ -466,15 +69,15 @@ const styles = StyleSheet.create({
         marginBottom: 1,
     },
     modal: {
-
-        justifyContent: 'center',
+        position: 'relative',
+        justifyContent: 'space-between',
         alignItems: 'center',
     },
     modalImg: {
-        height: 200,
-        width: 300,
-        justifyContent: 'center',
-        alignItems: 'center',
+        height: 300,
+        width: 400,
+        marginTop: 200,
+        // margin: 40,
     },
 
 })

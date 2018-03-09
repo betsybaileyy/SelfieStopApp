@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import * as locationsService from '../components/services/locations';
@@ -60,7 +60,7 @@ export default class ArtsScreen extends Component {
                                     <View rkCardHeader>
                                         <Text>{location.name}</Text>
                                     </View>
-                                    <Image rkCardImg source={location.image} />
+                                    <Image rkCardImg source={{uri: location.image}} />
                                     <View rkCardContent>
                                         <Text>{location.description}</Text>
                                     </View>

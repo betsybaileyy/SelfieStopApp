@@ -7,16 +7,35 @@ export default class LocationScreen extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            images: [],
-        };
+        // this.state = {
+        //     location
+        // };
     }
 
-    getLocationImages() {
-       getLocaionService.one()
-            .then((images) => {
+    componentDidMount() {
+        this.getLocation();
+        console.log(this.props.navigation.state.params.location)
+    }
+
+    // async getLocation() {
+    //     try {
+    //         const location = await getLocationService.one(41);
+
+    //         console.log(location);
+    //         this.setState({
+    //             location
+    //         });
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // }
+
+
+    getLocation() {
+       getLocationService.one(41)
+            .then((location) => {
                 this.setState({
-                    images: images
+                    location
                 });
             }).catch((err) => {
                 console.log(err);
@@ -24,26 +43,27 @@ export default class LocationScreen extends Component {
     }
     
     render() {
+        console.log(this.props.location);
         return (
             <View style={{ flex: 1 }}>
                 <View>
                     <RkCard>
                         <View rkCardHeader>
-                            <Text>Header</Text>
+                            <Text>{this.props.navigation.state.params.location.name}</Text>
                         </View>
                         <Image rkCardImg source={require('../images/selfie3.jpg')} />
                         <View rkCardContent>
-                            <Text> quick brown fox jumps over the lazy dog</Text>
+                            <Text>{this.props.navigation.state.params.location.description}</Text>
                         </View>
                         <View rkCardFooter>
-                            <Text>Footer</Text>
+                            <Text>{location.address}</Text>
                         </View>
                     </RkCard>
                 </View>
-                <View style={{ flex: 1, justifyContent: 'center',
+                {/* <View style={{ flex: 1, justifyContent: 'center',
         flexDirection: 'row',
         flexWrap: 'wrap'}}>
-                <ScrollView>rt
+                <ScrollView>
                     <RkCard>
                         <View rkCardHeader>
                             <Text>Header</Text>
@@ -56,66 +76,14 @@ export default class LocationScreen extends Component {
                             <Text>Footer</Text>
                         </View>
                     </RkCard>
-                    {/* <RkCard>
-                        <View rkCardHeader>
-                            <Text>Header</Text>
-                        </View>
-                        <Image rkCardImg source={require('../images/selfie4.jpg')} />
-                        <View rkCardContent>
-                            <Text> quick brown fox jumps over the lazy dog</Text>
-                        </View>
-                        <View rkCardFooter>
-                            <Text>Footer</Text>
-                        </View>
-                    </RkCard>
-                    <RkCard>
-                        <View rkCardHeader>
-                            <Text>Header</Text>
-                        </View>
-                        <Image rkCardImg source={require('../images/selfie3.jpg')} />
-                        <View rkCardContent>
-                            <Text> quick brown fox jumps over the lazy dog</Text>
-                        </View>
-                        <View rkCardFooter>
-                            <Text>Footer</Text>
-                        </View>
-                    </RkCard>
-                    <RkCard>
-                        <View rkCardHeader>
-                            <Text>Header</Text>
-                        </View>
-                        <Image rkCardImg source={require('../images/selfie2.jpg')} />
-                        <View rkCardContent>
-                            <Text> quick brown fox jumps over the lazy dog</Text>
-                        </View>
-                        <View rkCardFooter>
-                            <Text>Footer</Text>
-                        </View>
-                    </RkCard> */}
+
                 </ScrollView>
-                </View>
+                </View> */}
             </View>
         )
     }
 }
 
-{/* <SectionList
-  renderItem={({item}) => <ListItem title={item.title} />}
-  renderSectionHeader={({section}) => <H1 title={section.key} />}
-  sections={[ // homogeneous rendering between sections
-    {data: [...], key: ...},
-    {data: [...], key: ...},
-    {data: [...], key: ...},
-  ]}
-/>
-
-<SectionList
-  sections={[ // heterogeneous rendering between sections
-    {data: [...], key: ..., renderItem: ...},
-    {data: [...], key: ..., renderItem: ...},
-    {data: [...], key: ..., renderItem: ...},
-  ]}
-/> */}
 
 var styles = StyleSheet.create({
     list: {
