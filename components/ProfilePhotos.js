@@ -36,7 +36,7 @@ export default class ProfilePhotos extends Component {
             <View style={styles.photoContainer}>
                 {this.state.userSelfies.map((image, index) => {
                     return (
-                        <RkModalImg source={{ uri: image.image }}
+                        <RkModalImg key={index} source={{ uri: image.image }}
                             style={styles.photoItems}
                             modalImgStyle={styles.modalImg}
                             modalStyle={styles.modal}
