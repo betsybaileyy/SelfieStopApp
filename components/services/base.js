@@ -1,6 +1,6 @@
 import { AsyncStorage } from 'react-native';
 const AUTH_TOKEN_KEY = 'authtoken';
-const BASE_URL = 'https://biquwzocct.localtunnel.me';
+const BASE_URL = 'https://cmgpkgrieh.localtunnel.me';
 
 async function setAuthToken(token) {
     return await AsyncStorage.setItem(AUTH_TOKEN_KEY, `Bearer ${token}`);
@@ -124,6 +124,10 @@ async function put(url, payload) {
     return json(url, 'PUT', payload);
 }
 
+async function putForm(url, payload) {
+    return form(url, 'PUT', payload);
+}
+
 async function destroy(url, payload) {
     return json(url, 'DELETE', payload);
 }
@@ -138,4 +142,5 @@ export {
     destroy,
     makeFetch,
     postForm,
+    putForm,
 };

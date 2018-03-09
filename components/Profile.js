@@ -3,6 +3,8 @@ import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-nativ
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import ProfilePhotos from './ProfilePhotos';
 import * as userService from './services/userProfile';
+import ProfileCameraNav from '../components/profileCameraNav';
+
 
 export default class Profile extends Component {
     constructor(props) {
@@ -14,7 +16,7 @@ export default class Profile extends Component {
     }
 
     async componentDidMount() {
-        console.log('did mount');
+
         this.one();
     }
 
@@ -30,19 +32,21 @@ export default class Profile extends Component {
         }
     }
 
-    updatePhoto() {
+    // componentDidUpdate() {
+    //     let filePath = this.props.navigation.state.params.image
+    //     console.log(filePath);
+    //     const data = new FormData();
+    //     data.append('image', {
+    //         uri: filePath,
+    //         type: 'image/jpeg',
+    //         name: 'testPhotoName'
+    //     })
+    //     console.log(data);
+    //      userService.update(this.state.user.id, data);
+    //      console.log('Updated on front-end');
 
+    // }
 
-        try {
-            await userService.update(this.state.user.id, data);
-            console.log('Updated on front-end');
-        } catch (err) {
-            if (err.message) {
-                this.setState({ feedbackMessage: err.message });
-            }
-            console.log(err);
-        }
-    }
 
 
 
@@ -56,8 +60,9 @@ export default class Profile extends Component {
 
                     <View style={styles.headerContainer}>
 
-                        {<Image source={require('../images/bobdilly.jpeg')}
+                        {<Image source={{uri: this.state.user.image}}
                             style={styles.profilePic} />}
+                        <ProfileCameraNav />
                         <View>
                             <Text style={styles.fullName}>
                                 {this.state.user.firstName} {this.state.user.lastName}</Text>
