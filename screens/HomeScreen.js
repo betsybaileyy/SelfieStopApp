@@ -34,7 +34,7 @@ export default class HomeScreen extends Component {
         // }
     }
 
-    componentDidUpdate() {
+componentDidUpdate() {
         let filePath = this.props.navigation.state.params.image
         console.log(filePath);
         const data = new FormData();
@@ -44,14 +44,18 @@ export default class HomeScreen extends Component {
             name: 'testPhotoName'
         })
         console.log(data);
-        fetch('https://kdbwirrqrj.localtunnel.me/api/images', {
-            method: 'POST',
-            body: data,
-        }).then( res => {
-            console.log(res)
-        }).catch( (err) => {
-            console.log(err)
-        });
+        imageService.insert(data);
+
+
+
+        // fetch('https://kdbwirrqrj.localtunnel.me/api/images', {
+        //     method: 'POST',
+        //     body: data,
+        // }).then( res => {
+        //     console.log(res)
+        // }).catch( (err) => {
+        //     console.log(err)
+        // });
 
     }
 

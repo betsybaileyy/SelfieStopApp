@@ -27,6 +27,7 @@ const HomeStack = StackNavigator({
 
     Arts: { screen: ArtsScreen },
     Views: { screen: ViewsScreen },
+
 })
 
 const Tabs = TabNavigator({
@@ -65,7 +66,7 @@ export default class App extends Component {
     // eatsNavigate(location) {
     //     this.props.navigation.navigate('LocationScreen', { location });
     // }
-    
+
     render() {
         return (
                 <RootNavigator
