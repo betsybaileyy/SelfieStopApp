@@ -21,8 +21,8 @@ export default class HomeScreen extends Component {
         super(props);
     }
 
-    static navigationOptions = { header: null};
-    
+    static navigationOptions = { header: null };
+
     componentDidUpdate() {
         let filePath = this.props.navigation.state.params.image
         console.log(filePath);

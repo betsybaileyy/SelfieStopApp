@@ -1,20 +1,33 @@
 import React from 'react';
-import { Image } from 'react-native';
-import { RkCard, RkTheme } from 'react-native-ui-kitten';
-
+import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { RkButton, RkCard, RkTheme, RkText, RkModalImg, } from 'react-native-ui-kitten';
 export default function (props) {
     return (
-        <RkCard rkType='heroImage'>
-            <Image rkCardImg source={{ uri: props.selfie.image }} />
-        </RkCard>
+        <RkModalImg source={{ uri: props.selfie.image }}
+            style={styles.photoItems}
+            modalImgStyle={styles.modalImg}
+            modalStyle={styles.modal}
+            transparent={false} />
     );
 }
 
-RkTheme.setType('RkCard', 'heroImage', {
-    img: {
+
+
+const styles = StyleSheet.create({
+
+    photoItems: {
         height: 100,
         width: 100,
-        opacity: 1,
-        marginTop: 0,
     },
-});
+    modal: {
+        position: 'relative',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    modalImg: {
+        height: 300,
+        width: 400,
+        marginTop: 200,
+    },
+
+})
