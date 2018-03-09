@@ -8,34 +8,53 @@ import {
     ScrollView
 } from 'react-native';
 import SwipeableParallaxCarousel from 'react-native-swipeable-parallax-carousel';
-
-const datacarousel = [
-    {
-        id: 339964,
-        title: "Sponsored Locations",
-        imagePath: "http://www.nashvillelifestyles.com/_scripts/img_pp_crop.php?w=632&h=475&img=/_uploads/articles/IMG_82.jpg",
-    },
-    {
-        id: 315635,
-        imagePath: "http://www.visitmusiccity.com/Content/cms/uploads/TwoOldHippies300x300.png",
-    },
-
-    {
-        id: 339403,
-        title: "The Gulch",
-        imagePath: "https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/27750846_10156795484380021_4193555394840914156_n.jpg?oh=67ebe617547dadff7f9a358a22fa333d&oe=5B49CA7A",
-    },
-];
-
+import * as locationService from './services/locations';
 
 export class MyCarousel extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            locations: []
+        }
+    }
 
+    async componentDidMount() {
+        try {
+            const locations = await locationService.allLocations()
+            this.setState({ locations });
+        } catch (err) {
+            if (err.message) {
+                this.setState({ feedbackMessage: err.message });
+            }
+            console.log(err);
+        }
+        console.log(this.state.locations);
+    }
 
 
     render() {
+
         return (
             <SwipeableParallaxCarousel
-                data={datacarousel}
+                data={
+                    [
+                        {
+                            id: 339964,
+                            title: "Sponsored Locations",
+                            imagePath: "http://www.nashvillelifestyles.com/_scripts/img_pp_crop.php?w=632&h=475&img=/_uploads/articles/IMG_82.jpg",
+                        },
+                        {
+                            id: 315635,
+                            imagePath: "http://www.visitmusiccity.com/Content/cms/uploads/TwoOldHippies300x300.png",
+                        },
+
+                        {
+                            id: 339403,
+                            title: "The Gulch",
+                            imagePath: "https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/27750846_10156795484380021_4193555394840914156_n.jpg?oh=67ebe617547dadff7f9a358a22fa333d&oe=5B49CA7A",
+                        },
+                    ]
+                }
                 titleColor={'white'}
                 navigation={'true'}
                 navigationType={'dots'}
