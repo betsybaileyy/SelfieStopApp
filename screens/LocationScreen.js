@@ -12,6 +12,8 @@ export default class LocationScreen extends Component {
         // };
     }
 
+    static navigationOptions = { header: null};
+
     componentDidMount() {
         this.getLocation();
         console.log(this.props.navigation.state.params.location)
@@ -43,6 +45,8 @@ export default class LocationScreen extends Component {
     }
     
     render() {
+        console.log(this.props.navigation.state.params.location);
+        console.log(this.props.navigation);
         console.log(this.props.location);
         return (
             <View style={{ flex: 1 }}>
@@ -51,7 +55,7 @@ export default class LocationScreen extends Component {
                         <View rkCardHeader>
                             <Text>{this.props.navigation.state.params.location.name}</Text>
                         </View>
-                        <Image rkCardImg source={require('../images/selfie3.jpg')} />
+                        <Image rkCardImg source={{uri: this.props.navigation.state.params.location.image}} />
                         <View rkCardContent>
                             <Text>{this.props.navigation.state.params.location.description}</Text>
                         </View>

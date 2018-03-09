@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView, AppRegistry, TouchableOpacity } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import * as locationsService from '../components/services/locations';
-import { withNavigation, StackNavigator} from 'react-navigation';
-
-// const EatsStack = StackNavigator({
-//     // Home: { screen: EatsScreen },
-//     LocationList: { screen: LocationList }
-// });
 
 export default class EatsScreen extends Component {
     constructor(props) {
@@ -17,6 +11,8 @@ export default class EatsScreen extends Component {
             locations: [],
         };
     } 
+
+    static navigationOptions = { header: null};
 
     componentDidMount() {
         this.getLocations();

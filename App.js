@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-import {
-    Platform,
-    StyleSheet,
-    Text,
-    View
-} from 'react-native';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import CameraScreen from './screens/CameraScreen';
 import ArtsScreen from './screens/ArtsScreen';
@@ -22,11 +17,21 @@ const EatsStack = StackNavigator({
     LocationScreen: { screen: LocationScreen },
 });
 
+const ArtsStack = StackNavigator({
+    Home: { screen: ArtsScreen },
+    LocationScreen: { screen: LocationScreen },
+})
+
+const ViewsStack = StackNavigator({
+    Home: { screen: ViewsScreen },
+    LocationScreen: { screen: LocationScreen },
+})
+
 const HomeStack = StackNavigator({
     Home: { screen: HomeScreen },
-
-    Arts: { screen: ArtsScreen },
-    Views: { screen: ViewsScreen },
+    Eats: { screen: EatsStack },
+    Arts: { screen: ArtsStack },
+    Views: { screen: ViewsStack },
 })
 
 const Tabs = TabNavigator({
@@ -35,10 +40,7 @@ const Tabs = TabNavigator({
     Profile: { screen: ProfileScreen },
     Login: { screen: LoginScreen },
     CameraRoll: { screen: CameraRoll },
-
-
 },
-
 
     {
         ...TabNavigator.Presets.iOSBottomTabs, // or iOSBottomTabs
@@ -52,20 +54,11 @@ const Tabs = TabNavigator({
 
 const RootNavigator = StackNavigator({
     Tabs: { screen: Tabs },
-    Eats: {
-        screen: EatsStack, navigationOptions: {
-            title: 'Eats',
-        }
-    }
 })
 
 
 export default class App extends Component {
 
-    // eatsNavigate(location) {
-    //     this.props.navigation.navigate('LocationScreen', { location });
-    // }
-    
     render() {
         return (
                 <RootNavigator

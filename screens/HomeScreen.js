@@ -24,16 +24,10 @@ import * as imageService from '../components/services/images';
 export default class HomeScreen extends Component {
     constructor(props) {
         super(props);
-        // this.state = {
-        //     firstName: '',
-        //     lastName: '',
-        //     email: '',
-        //     password: '',
-        //     bio: '',
-        //     image: ''
-        // }
-    }
 
+    }
+    static navigationOptions = { header: null};
+    
     componentDidUpdate() {
         let filePath = this.props.navigation.state.params.image
         console.log(filePath);

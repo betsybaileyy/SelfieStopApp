@@ -1,5 +1,5 @@
  import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { Platform, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import * as locationsService from '../components/services/locations';
 
@@ -11,6 +11,7 @@ export default class ArtsScreen extends Component {
             locations: [],
         };
     }
+    static navigationOptions = { header: null};
 
     componentDidMount() {
         this.getLocations();
@@ -18,8 +19,6 @@ export default class ArtsScreen extends Component {
 
     async getLocations() {
         try {
-            console.log('getting locations');
-            console.log(Object.keys(locationsService));
             const locations = await locationsService.all(21);
 
             console.log(locations);
@@ -32,14 +31,13 @@ export default class ArtsScreen extends Component {
     }
 
     render() {
+        console.log(this.props.navigation);
+
         return (
             <View style={{ flex: 1 }}>
                 <View>
                     <RkCard>
-                        <View rkCardHeader>
-                            <Text> Absolutley Fantastic Places to Take Pictures of Yourself</Text>
-                        </View>
-                        <Image rkCardImg source={require('../images/selfie3.jpg')} />
+                        {/* <Image rkCardImg source={require('../images/selfie3.jpg')} /> */}
                         <View rkCardContent>
                             <Text> Absolutley Fantastic Places to Take Pictures of Yourself</Text>
                         </View>
@@ -53,20 +51,23 @@ export default class ArtsScreen extends Component {
                     flexDirection: 'row',
                     flexWrap: 'wrap'
                 }}>
-                    <ScrollView>
+                     <ScrollView >
                         {this.state.locations.map((location, index) => {
                             return (
-                                <RkCard>
-                                    <View rkCardHeader>
-                                        <Text>{location.name}</Text>
-                                    </View>
-                                    <Image rkCardImg source={{uri: location.image}} />
-                                    <View rkCardContent>
-                                        <Text>{location.description}</Text>
-                                    </View>
-                                    <View rkCardFooter>
-                                        <Text>Footer</Text>
-                                    </View>
+                                <RkCard key={index} >
+                                    <TouchableOpacity onPress={() => { this.props.navigation.navigate('LocationScreen', { location }) }} >
+                                        <View rkCardHeader>
+                                            <Text>{location.name}</Text>
+                                        </View>
+                                        
+                                        <Image rkCardImg />
+                                        <View rkCardContent source={{uri: location.image}} >
+                                            <Text>{location.description}</Text>
+                                        </View>
+                                        <View rkCardFooter>
+                                            <Text>Footer</Text>
+                                        </View>
+                                    </TouchableOpacity>
                                 </RkCard>
                             );
                         })}
