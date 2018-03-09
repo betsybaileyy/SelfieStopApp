@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import SelfieCard from './selfieCard';
+import * as imageService from './services/images';
 
 
 export default class RecentSelfies extends Component {
@@ -17,24 +18,24 @@ export default class RecentSelfies extends Component {
         super(props);
 
         this.state = {
-            selfies: [
-                { image: require('../images/selfie3.jpg') },
-                { image: require('../images/selfie1.jpg') },
-                { image: require('../images/selfie2.jpg') },
-                { image: require('../images/selfie4.jpg') },
-                { image: require('../images/selfie2.jpg') },
-                { image: require('../images/selfie1.jpg') },
-                { image: require('../images/selfie3.jpg') },
-                { image: require('../images/selfie4.jpg') },
-                { image: require('../images/selfie2.jpg') },
-                { image: require('../images/selfie3.jpg') },
-                { image: require('../images/selfie1.jpg') }
-            ]
+            images: []
         };
     }
 
+    async componentDidMount() {
+        try {
+            let images = await imageService.all()
+            this.setState({ images });
+        } catch (err) {
+            if (err.message) {
+                this.setState({ feedbackMessage: err.message });
+            }
+            console.log(err);
+        }
+    }
+
     render() {
-        const selfies = this.state.selfies.map((selfie, index) => {
+        const selfies = this.state.images.map((selfie, index) => {
             return (
                 <SelfieCard key={index} selfie={selfie} />
             );
