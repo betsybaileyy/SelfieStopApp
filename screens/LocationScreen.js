@@ -19,19 +19,6 @@ export default class LocationScreen extends Component {
         console.log(this.props.navigation.state.params.location)
     }
 
-    // async getLocation() {
-    //     try {
-    //         const location = await getLocationService.one(41);
-
-    //         console.log(location);
-    //         this.setState({
-    //             location
-    //         });
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // }
-
 
     getLocation() {
        getLocationService.one(41)

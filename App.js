@@ -11,6 +11,12 @@ import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import CameraRoll from './screens/cameraRoll';
 import LocationScreen from './screens/LocationScreen';
+import Carousel from './components/carousel';
+
+const CarouselStack = StackNavigator({
+    Carousel: { screen: Carousel },
+    LocationScreen: { screen: LocationScreen },
+});
 
 const EatsStack = StackNavigator({
     Home: { screen: EatsScreen },
@@ -20,19 +26,20 @@ const EatsStack = StackNavigator({
 const ArtsStack = StackNavigator({
     Home: { screen: ArtsScreen },
     LocationScreen: { screen: LocationScreen },
-})
+});
 
 const ViewsStack = StackNavigator({
     Home: { screen: ViewsScreen },
     LocationScreen: { screen: LocationScreen },
-})
+});
 
 const HomeStack = StackNavigator({
     Home: { screen: HomeScreen },
+    Carousel: { screen: CarouselStack },
     Eats: { screen: EatsStack },
     Arts: { screen: ArtsStack },
     Views: { screen: ViewsStack },
-})
+});
 
 const Tabs = TabNavigator({
     Home: { screen: HomeStack },
