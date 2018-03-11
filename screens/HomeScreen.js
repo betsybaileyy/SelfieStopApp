@@ -43,11 +43,7 @@ export default class HomeScreen extends Component {
             <View style={{ flex: 1 }}>
                 <ScrollView
                     ref={(c) => { this.parentScrollView = c; }} >
-<<<<<<< HEAD
-                    {/* <Carousel navigate={this.props.navigation.navigate} /> */}
-=======
-                    <Carousel navigate={this.props.navigation.navigate}/>
->>>>>>> 7117c3fe898f1a8fb25b2a873a57d5ec6c099941
+                    <Carousel navigate={this.props.navigation.navigate} />
                     <RecentSelfies />
                     <LocationCards navigate={this.props.navigation.navigate} />
                 </ScrollView>

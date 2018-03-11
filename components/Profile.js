@@ -33,6 +33,7 @@ export default class Profile extends Component {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 7117c3fe898f1a8fb25b2a873a57d5ec6c099941
@@ -54,6 +55,8 @@ export default class Profile extends Component {
 =======
     // }
 =======
+=======
+>>>>>>> 3bb0c996b519b6917d867cc77604ed5349094350
     // componentDidUpdate() {
     //     let filePath = this.props.navigation.state.params.image
     //     console.log(filePath);
@@ -69,7 +72,6 @@ export default class Profile extends Component {
 
     // }
 
->>>>>>> 413110ca62ede61469f30cd8b8d1654a8e9242f4
 
 
 
