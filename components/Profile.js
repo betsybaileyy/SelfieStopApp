@@ -32,7 +32,6 @@ export default class Profile extends Component {
         }
     }
 
-<<<<<<< HEAD
     // updatePhoto() {
 
 
@@ -46,26 +45,6 @@ export default class Profile extends Component {
     //         console.log(err);
     //     }
     // }
-=======
-    // componentDidUpdate() {
-    //     let filePath = this.props.navigation.state.params.image
-    //     console.log(filePath);
-    //     const data = new FormData();
-    //     data.append('image', {
-    //         uri: filePath,
-    //         type: 'image/jpeg',
-    //         name: 'testPhotoName'
-    //     })
-    //     console.log(data);
-    //      userService.update(this.state.user.id, data);
-    //      console.log('Updated on front-end');
-
-    // }
-
-
-
-
->>>>>>> dc83c9998af2af4f87cb7aef12a191b803eb7367
 
     render() {
         return (
@@ -76,7 +55,7 @@ export default class Profile extends Component {
 
                     <View style={styles.headerContainer}>
 
-                        {<Image source={{uri: this.state.user.image}}
+                        {<Image source={{ uri: this.state.user.image }}
                             style={styles.profilePic} />}
                         <ProfileCameraNav />
                         <View>
