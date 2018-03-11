@@ -12,6 +12,7 @@ import HomeScreen from './screens/HomeScreen';
 import CameraRoll from './screens/cameraRoll';
 import LocationScreen from './screens/LocationScreen';
 import Carousel from './components/carousel';
+import ProfileCameraRoll from './screens/profileCameraRoll';
 
 const CarouselStack = StackNavigator({
     Carousel: { screen: Carousel },
@@ -47,6 +48,7 @@ const Tabs = TabNavigator({
     Profile: { screen: ProfileScreen },
     Login: { screen: LoginScreen },
     CameraRoll: { screen: CameraRoll },
+    ProfileCameraRoll: { screen: ProfileCameraRoll },
 },
 
     {

@@ -12,12 +12,14 @@ import {
 import { withNavigation } from 'react-navigation';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 
-class CameraNav extends Component {
+
+class ProfileCameraNav extends Component {
 
     onPressButton() {
         console.log(this.props)
         //Alert.alert('You tapped the button!')
-        this.props.navigation.navigate('CameraRoll', { ...this.props.navigation.state });
+        // this.props.navigation.navigate('ProfileCameraRoll');
+        this.props.navigation.navigate('ProfileCameraRoll', { ...this.props.navigation.key });
     }
 
     render() {
@@ -35,7 +37,7 @@ class CameraNav extends Component {
     }
 }
 
-export default withNavigation(CameraNav);
+export default withNavigation(ProfileCameraNav);
 
 
 
