@@ -20,19 +20,6 @@ export default class Carousel extends Component {
         }
     }
 
-    // async componentDidMount() {
-    //     try {
-    //         const locations = await locationService.allLocations()
-    //         this.setState({ locations }); //this.state.locations
-    //     } catch (err) {
-    //         if (err.message) {
-    //             this.setState({ feedbackMessage: err.message });
-    //         }
-    //         console.log(err);
-    //     }
-    //     console.log(this.state.locations);
-    // }
-
     async componentDidMount() {
         this.getLocations();
     }
@@ -63,23 +50,17 @@ export default class Carousel extends Component {
                     flexWrap: 'wrap'
                 }}>
 
-                    <ScrollView horizontal={true}>
+                    <ScrollView horizontal={true} height={300}>
                         {this.state.locations.map((location, index) => {
                             return (
-
                                 <RkCard key={index}>
                                     <TouchableOpacity onPress={() => { this.props.navigation.navigate('LocationScreen', { location }) }}>
-                                       
                                             <Text>{location.name}</Text>
-                                        
-
                                         <Image rkCardImg source={location.image} />
                                         <View rkCardContent>
                                             <Text>{location.description}</Text>
                                         </View>
-                                       
                                             <Text>Footer</Text>
-                                      
                                     </TouchableOpacity>
                                 </RkCard>
                             );
@@ -89,45 +70,4 @@ export default class Carousel extends Component {
             </View>
         )
     }
-    //     render() {
-    //         // const { navigate } = this.props.navigation;
-    //         console.log(this.props.navigation);
-    //         const dataCarousel = this.state.locations.map((location, id) => {
-    //             return ({
-    //                 id: location.index,
-    //                 title: location.name,
-    //                 imagePath: location.image
-    //             })
-    //             return (
-    //                 // <View>
-    //                 //     <TouchableOpacity 
-    //                 // onPress={() => {
-    //                 // this.setState({ location: dataCarousel });
-    //                 // console.log(this.props.navigation);
-
-    //                 // this.props.navigation.navigate('LocationScreen',
-    //                 //     { location })
-    //                 // }}
-    //                 //  >
-    //                 <SwipeableParallaxCarousel
-    //                     key={id}
-    //                     onPress={() => { this.props.navigation.navigate('LocationScreen', { location }) }}
-    //                     data={
-    //                         dataCarousel
-    //                     }
-    //                     titleColor={'white'}
-    //                     navigation={'true'}
-    //                     navigationType={'dots'}
-    //                     height={300}
-    //                     align={'center'}
-    //                 />
-    //                 // <Text> Click Me! </Text>
-    //                 //     {/* </TouchableOpacity>
-    //                 // </View> */}
-    //                 // );
-    //               )
-    //           })
-    //     }
-    // ;
-
 }

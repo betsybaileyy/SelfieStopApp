@@ -32,21 +32,6 @@ export default class Profile extends Component {
         }
     }
 
-<<<<<<< HEAD
-    // updatePhoto() {
-
-
-    //     try {
-    //         await userService.update(this.state.user.id, data);
-    //         console.log('Updated on front-end');
-    //     } catch (err) {
-    //         if (err.message) {
-    //             this.setState({ feedbackMessage: err.message });
-    //         }
-    //         console.log(err);
-    //     }
-    // }
-=======
     // componentDidUpdate() {
     //     let filePath = this.props.navigation.state.params.image
     //     console.log(filePath);
@@ -62,7 +47,6 @@ export default class Profile extends Component {
 
     // }
 
->>>>>>> 413110ca62ede61469f30cd8b8d1654a8e9242f4
 
 
 

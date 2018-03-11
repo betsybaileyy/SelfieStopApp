@@ -47,29 +47,10 @@ export default class LocationScreen extends Component {
                             <Text>{this.props.navigation.state.params.location.description}</Text>
                         </View>
                         <View rkCardFooter>
-                            <Text>{location.address}</Text>
+                            <Text>{this.props.navigation.state.params.location.address}</Text>
                         </View>
                     </RkCard>
                 </View>
-                {/* <View style={{ flex: 1, justifyContent: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap'}}>
-                <ScrollView>
-                    <RkCard>
-                        <View rkCardHeader>
-                            <Text>Header</Text>
-                        </View>
-                        <Image rkCardImg source={this.state.images} />
-                        <View rkCardContent>
-                            <Text> quick brown fox jumps over the lazy dog</Text>
-                        </View>
-                        <View rkCardFooter>
-                            <Text>Footer</Text>
-                        </View>
-                    </RkCard>
-
-                </ScrollView>
-                </View> */}
             </View>
         )
     }
