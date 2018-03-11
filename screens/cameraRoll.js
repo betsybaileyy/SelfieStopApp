@@ -6,11 +6,12 @@ import {
     View,
     Image,
     ScrollView,
-    TouchableOpacity
+    TouchableOpacity,
+    Alert
 } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import CameraRollPicker from 'react-native-camera-roll-picker';
-
+import * as imageService from '../components/services/images';
 
 
 export default class CameraRoll extends Component {
@@ -25,13 +26,28 @@ export default class CameraRoll extends Component {
     getSelectedImages(images) {
 
         let imagePath = images[0].uri
-        console.log(imagePath);
-        imageProps.navigation.navigate(imageProps.navigation.state.params.key, {
-            image: imagePath
-        });
+        const profileData = new FormData();
+        profileData.append('image', {
+            uri: imagePath,
+            type: 'image/jpeg',
+            name: 'testPhotoName'
+        })
+        imageService.insert(profileData)
+
+
+        Alert.alert(
+            'Congratulations!',
+            'Image upload successful...',
+            [
+                {
+                    text: 'OK', onPress: () =>
+                        imageProps.navigation.navigate('Home'),
+                },
+            ],
+            { cancelable: false }
+        )
+
     }
-
-
 
 
     render() {
@@ -40,9 +56,7 @@ export default class CameraRoll extends Component {
                 <CameraRollPicker
                     callback={this.getSelectedImages}
                     maximum={1}
-                     />
-
-
+                />
             </ScrollView>
         )
     }

@@ -32,6 +32,10 @@ export default class Profile extends Component {
         }
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 7117c3fe898f1a8fb25b2a873a57d5ec6c099941
     // updatePhoto() {
 
 
@@ -44,8 +48,33 @@ export default class Profile extends Component {
     //         }
     //         console.log(err);
     //     }
+<<<<<<< HEAD
     // }
 
+=======
+    // }
+=======
+    // componentDidUpdate() {
+    //     let filePath = this.props.navigation.state.params.image
+    //     console.log(filePath);
+    //     const data = new FormData();
+    //     data.append('image', {
+    //         uri: filePath,
+    //         type: 'image/jpeg',
+    //         name: 'testPhotoName'
+    //     })
+    //     console.log(data);
+    //      userService.update(this.state.user.id, data);
+    //      console.log('Updated on front-end');
+
+    // }
+
+>>>>>>> 413110ca62ede61469f30cd8b8d1654a8e9242f4
+
+
+
+
+>>>>>>> 7117c3fe898f1a8fb25b2a873a57d5ec6c099941
     render() {
         return (
             <View>
