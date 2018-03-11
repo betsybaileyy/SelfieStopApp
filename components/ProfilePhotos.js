@@ -12,22 +12,20 @@ export default class ProfilePhotos extends Component {
     }
 
     async componentDidMount() {
-        console.log('did mount');
+
         this.all();
     }
 
     async all() {
         try {
             const userSelfies = await UserService.all(1);
-            console.log(userSelfies);
-            console.log(userSelfies[0])
             this.setState({
                 userSelfies
             });
         } catch (err) {
             console.log(err);
         }
-        console.log(this.state)
+
     }
 
     render() {

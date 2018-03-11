@@ -8,8 +8,8 @@ function one(id) {
     return baseService.get(`/api/userProfile/${id}`);
 }
 
-function update(id) {
-    return baseService.put(`/api/userProfile/${id}`);
+function update(data) {
+    return baseService.putForm(`/api/userProfile/`, data);
 }
 
 export { all, one, update };
