@@ -12,7 +12,7 @@ export default class EatsScreen extends Component {
         };
     } 
 
-    static navigationOptions = { header: null};
+    static navigationOptions = { header: null };
 
     componentDidMount() {
         this.getLocations();

@@ -30,19 +30,19 @@ export default class Profile extends Component {
         }
     }
 
-    updatePhoto() {
+    // updatePhoto() {
 
 
-        try {
-            await userService.update(this.state.user.id, data);
-            console.log('Updated on front-end');
-        } catch (err) {
-            if (err.message) {
-                this.setState({ feedbackMessage: err.message });
-            }
-            console.log(err);
-        }
-    }
+    //     try {
+    //         await userService.update(this.state.user.id, data);
+    //         console.log('Updated on front-end');
+    //     } catch (err) {
+    //         if (err.message) {
+    //             this.setState({ feedbackMessage: err.message });
+    //         }
+    //         console.log(err);
+    //     }
+    // }
 
 
 
