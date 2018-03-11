@@ -10,9 +10,9 @@ export default class EatsScreen extends Component {
         this.state = {
             locations: [],
         };
-    } 
+    }
 
-    static navigationOptions = { header: null};
+    static navigationOptions = { header: null };
 
     componentDidMount() {
         this.getLocations();
@@ -34,7 +34,7 @@ export default class EatsScreen extends Component {
     render() {
         console.log(this.props.navigation);
         return (
-          
+
             <View style={{ flex: 1 }}>
                 <View>
                     <RkCard>
@@ -49,7 +49,7 @@ export default class EatsScreen extends Component {
                     flexDirection: 'row',
                     flexWrap: 'wrap'
                 }}>
-                     <ScrollView >
+                    <ScrollView >
                         {this.state.locations.map((location, index) => {
                             return (
                                 <RkCard key={index} >
@@ -71,9 +71,9 @@ export default class EatsScreen extends Component {
                         })}
                     </ScrollView>
                 </View>
-                </View>
-        
-           
+            </View>
+
+
         )
     }
 }
