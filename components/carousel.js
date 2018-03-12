@@ -9,6 +9,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
+import { withNavigation } from 'react-navigation';
 
 import * as locationsService from './services/locations';
 
@@ -24,6 +25,8 @@ export default class Carousel extends Component {
         this.getLocations();
     }
 
+
+
     async getLocations() {
         try {
             const locations = await locationsService.allLocations();
@@ -37,6 +40,15 @@ export default class Carousel extends Component {
         }
         console.log(this.state.locations);
     }
+
+    // onPressImage() {
+    //     this.props.navigation.navigate('LocationScreen', { location })
+    // }
+
+    navigate() {
+        this.props.navigation.navigate('LocationScreen', { location });
+    }
+
 
     render() {
         console.log(this.props.navigation);
@@ -54,9 +66,9 @@ export default class Carousel extends Component {
                         {this.state.locations.map((location, index) => {
                             return (
                                 <RkCard key={index}>
-                                    <TouchableOpacity onPress={() => { this.props.navigation.navigate('LocationScreen', { location }) }}>
+                                    <TouchableOpacity onPress={() => { this.props.navigate('LocationScreen', { location }) }} >
                                             <Text>{location.name}</Text>
-                                        <Image rkCardImg source={location.image} />
+                                        <Image rkCardImg source={{uri: location.image}} />
                                         <View rkCardContent>
                                             <Text>{location.description}</Text>
                                         </View>

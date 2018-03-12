@@ -12,11 +12,11 @@ export default class LocationScreen extends Component {
         // };
     }
 
-    static navigationOptions = { header: null};
+    static navigationOptions = { header: null };
 
     componentDidMount() {
         this.getLocation();
-        console.log(this.props.navigation.state.params.location)
+        // console.log(this.props.navigation.state.params.location)
     }
 
 
@@ -32,7 +32,7 @@ export default class LocationScreen extends Component {
     }
     
     render() {
-        console.log(this.props.navigation.state.params.location);
+        // console.log(this.props.navigation.state.params.location);
         console.log(this.props.navigation);
         console.log(this.props.location);
         return (
