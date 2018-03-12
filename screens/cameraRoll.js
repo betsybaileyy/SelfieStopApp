@@ -50,25 +50,27 @@ export default class CameraRoll extends Component {
             type: 'image/jpeg',
             name: 'testPhotoName'
         })
-        imageService.insert(profileData);
+        console.log(profileData);
+        // imageService.insert(profileData);
 
 
-        Alert.alert(
-            'Congratulations!',
-            'Image upload successful...',
-            [
-                {
-                    text: 'OK', onPress: () =>
-                        imageProps.navigation.navigate('Home'),
-                },
-            ],
-            { cancelable: false }
-        )
+        // Alert.alert(
+        //     'Congratulations!',
+        //     'Image upload successful...',
+        //     [
+        //         {
+        //             text: 'OK', onPress: () =>
+        //                 imageProps.navigation.navigate('Home'),
+        //         },
+        //     ],
+        //     { cancelable: false }
+        // )
 
     }
 
     locationChange(locationid) {
         this.setState({ locationid });
+        console.log(this.state.locationid);
     }
 
     render() {
