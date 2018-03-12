@@ -40,10 +40,11 @@ export default class CameraRoll extends Component {
     }
 
     getSelectedImages(images) {
-
+        let locationValue = this.state.locationid;
+        console.log(locationValue);
         let imagePath = images[0].uri
         const profileData = new FormData();
-        profileData.append('locationid', this.state.locationid);
+        profileData.append('locationid', locationValue);
         profileData.append('image', {
             uri: imagePath,
             type: 'image/jpeg',
