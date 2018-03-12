@@ -21,6 +21,7 @@ export default class CameraRoll extends Component {
         super(props);
         this.state = {
             locations: [],
+            locationid: ''
 
         };
         imageProps = this.props;
@@ -36,19 +37,20 @@ export default class CameraRoll extends Component {
             }
             console.log(err);
         }
-        console.log(this.state.locations);
     }
 
     getSelectedImages(images) {
-
+        let locationValue = this.state.locationid;
+        console.log(locationValue);
         let imagePath = images[0].uri
         const profileData = new FormData();
+        profileData.append('locationid', locationValue);
         profileData.append('image', {
             uri: imagePath,
             type: 'image/jpeg',
             name: 'testPhotoName'
         })
-        imageService.insert(profileData)
+        imageService.insert(profileData);
 
 
         Alert.alert(
@@ -65,8 +67,8 @@ export default class CameraRoll extends Component {
 
     }
 
-    handleLocationChange(location) {
-        console.log('test change');
+    locationChange(locationid) {
+        this.setState({ locationid });
     }
 
     render() {
@@ -74,23 +76,30 @@ export default class CameraRoll extends Component {
 
 
         return (
-            <View>
-                <ScrollView>
-                    <RkChoiceGroup
+            <View style={{ flex: 1 }}>
+                <ScrollView style={styles.container}>
+                    {/* <RkChoiceGroup
                         selectedIndex={1} radio
-                    >
-                        {this.state.locations.map((location, id) => {
-                            return (
-                                <TouchableOpacity onPress={(location) => this.handleLocationChange(location)} choiceTrigger >
-                                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                                        <RkChoice rkType='radio' />
-                                        <Text>{location.name}</Text>
-                                    </View>
-                                </TouchableOpacity>
-                            )
-                        })}
-                    </RkChoiceGroup>
+                    > */}
+                    {this.state.locations.map((location, id) => {
+                        let index = location.id
+                        return (
+                            <TouchableOpacity
+                                key={index}
+                                style={styles.buttonContainer}
+                                onPress={(index) => this.locationChange(location.id)}
+                            >
+                                {/* <RkChoice
+                                        rkType='radio'
+                                    /> */}
+                                <Text style={styles.buttonText}>{location.name}</Text>
+                            </TouchableOpacity>
+                        )
+                    })}
+                    {/* </RkChoiceGroup> */}
                 </ScrollView>
+
+
                 <ScrollView>
                     <CameraRollPicker
                         callback={this.getSelectedImages}
@@ -102,3 +111,22 @@ export default class CameraRoll extends Component {
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        padding: 40,
+    },
+    buttonContainer: {
+        marginBottom: 20,
+        paddingVertical: 15,
+        backgroundColor: '#a4b0be',
+        borderRadius: 50
+    },
+    buttonText: {
+        textAlign: 'center',
+        color: '#f5f6fa',
+
+    }
+
+
+})
