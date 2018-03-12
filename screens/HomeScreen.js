@@ -16,32 +16,59 @@ import RecentSelfies from '../components/recentSelfies';
 import LocationCards from '../components/locationCards';
 import CameraNav from '../components/cameraNav';
 import * as imageService from '../components/services/images';
+import * as locationsService from '../components/services/locations';
+import { withNavigation } from 'react-navigation';
 
 export default class HomeScreen extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            locations: [],
+        };
+
     }
 
     static navigationOptions = { header: null };
 
-    componentDidUpdate() {
-        let filePath = this.props.navigation.state.params.image
-        console.log(filePath);
-        const data = new FormData();
-        data.append('image', {
-            uri: filePath,
-            type: 'image/jpeg',
-            name: 'testPhotoName'
-        })
-        console.log(data);
-        imageService.insert(data);
-
+    async componentDidMount() {
+        this.getLocations();
     }
+
+    async getLocations() {
+        try {
+            const locations = await locationsService.allLocations();
+
+            console.log(locations);
+            this.setState({
+                locations
+            });
+        } catch (err) {
+            console.log(err);
+        }
+        console.log(this.state.locations);
+    }
+
+    // getLocations() {
+    //     LocationsService.allLocations()
+    //          .then((location) => {
+    //              this.setState({
+    //                  location
+    //              });
+    //          }).catch((err) => {
+    //              console.log(err);
+    //          });
+    //  }
+
+    async navigate(category) {
+        this.props.navigation.navigate('LocationScreen', { location });
+    }
+
 
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <ScrollView
+                <ScrollView 
                     ref={(c) => { this.parentScrollView = c; }} >
                     <Carousel navigate={this.props.navigation.navigate} />
                     <RecentSelfies />
