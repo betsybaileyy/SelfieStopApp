@@ -39,8 +39,8 @@ export default class LocationScreen extends Component {
             <View style={{ flex: 1 }}>
                 <View>
                     <RkCard>
-                        <View rkCardHeader>
-                            <Text>{this.props.navigation.state.params.location.name}</Text>
+                        <View rkCardHeader style={styles.headerContainer}>
+                            <Text style={styles.headerText}>{this.props.navigation.state.params.location.name}</Text>
                         </View>
                         <Image rkCardImg source={{ uri: this.props.navigation.state.params.location.image }} />
                         <View rkCardContent>
@@ -54,19 +54,19 @@ export default class LocationScreen extends Component {
             </View>
         )
     }
+
 }
-
-
-var styles = StyleSheet.create({
-    list: {
+const styles = StyleSheet.create({
+    headerContainer: {
+        alignItems: 'center',
         justifyContent: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap'
     },
-    item: {
-        backgroundColor: '#CCC',
-        margin: 10,
-        width: 100,
-        height: 100
-    }
-});
+    headerText: {
+
+        color: 'black',
+        fontSize: 40,
+        fontFamily: 'Cochin',
+        fontWeight: ('bold', '400'),
+        textDecorationLine: 'underline',
+    },
+})

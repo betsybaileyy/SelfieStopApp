@@ -85,5 +85,6 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 30,
         fontFamily: 'Cochin',
+        fontWeight: ('bold', '400'),
     },
 })
