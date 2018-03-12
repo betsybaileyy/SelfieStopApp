@@ -82,7 +82,10 @@ export default class Profile extends Component {
 
                         {<Image source={{ uri: this.state.user.image }}
                             style={styles.profilePic} />}
+
+                        <View style={styles.changeImage}>
                         <ProfileCameraNav />
+                        </View>
                         <View>
                             <Text style={styles.fullName}>
                                 {this.state.user.firstName} {this.state.user.lastName}</Text>
@@ -171,5 +174,10 @@ const styles = StyleSheet.create({
         width: 30,
     },
 
+    changeImage: {
+        position: 'absolute',
+        top: 60,
+        left: 35,
+    },
 
 })
