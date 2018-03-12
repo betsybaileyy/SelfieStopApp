@@ -16,7 +16,7 @@ export default class LocationScreen extends Component {
 
     componentDidMount() {
         this.getLocation();
-        // console.log(this.props.navigation.state.params.location)
+        console.log(this.props.navigation.state.params.location)
     }
 
 
@@ -32,22 +32,19 @@ export default class LocationScreen extends Component {
     }
 
     render() {
-        // console.log(this.props.navigation.state.params.location);
+        console.log(this.props.navigation.state.params.location);
         console.log(this.props.navigation);
         console.log(this.props.location);
         return (
             <View style={{ flex: 1 }}>
                 <View>
                     <RkCard>
-                        <View rkCardHeader style={styles.headerContainer}>
-                            <Text style={styles.headerText}>{this.props.navigation.state.params.location.name}</Text>
-                        </View>
+
                         <Image rkCardImg source={{ uri: this.props.navigation.state.params.location.image }} />
                         <View rkCardContent>
+                            <Text style={styles.headerText}>{this.props.navigation.state.params.location.name}</Text>
                             <Text>{this.props.navigation.state.params.location.description}</Text>
-                        </View>
-                        <View rkCardFooter>
-                            <Text>{this.props.navigation.state.params.location.address}</Text>
+                            <Text style={styles.addressText}>{this.props.navigation.state.params.location.address}</Text>
                         </View>
                     </RkCard>
                 </View>
@@ -57,16 +54,14 @@ export default class LocationScreen extends Component {
 
 }
 const styles = StyleSheet.create({
-    headerContainer: {
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
     headerText: {
-
-        color: 'black',
-        fontSize: 40,
-        fontFamily: 'Cochin',
-        fontWeight: ('bold', '400'),
+        fontSize: 20,
+        fontWeight: 'bold',
         textDecorationLine: 'underline',
+        paddingBottom: 3,
+    },
+    addressText: {
+        fontStyle: 'italic',
+        paddingTop: 9,
     },
 })
