@@ -36,14 +36,13 @@ export default class LocationScreen extends Component {
         console.log(this.props.navigation);
         console.log(this.props.location);
         return (
-            <View style={{ flex: 1 }}>
+            <View>
                 <View>
                     <RkCard>
-
-                        <Image rkCardImg source={{ uri: this.props.navigation.state.params.location.image }} />
+                        <Image rkCardImg style={styles.img} source={{ uri: this.props.navigation.state.params.location.image }} />
                         <View rkCardContent>
                             <Text style={styles.headerText}>{this.props.navigation.state.params.location.name}</Text>
-                            <Text>{this.props.navigation.state.params.location.description}</Text>
+                            <Text style={styles.descriptionText}>{this.props.navigation.state.params.location.description}</Text>
                             <Text style={styles.addressText}>{this.props.navigation.state.params.location.address}</Text>
                         </View>
                     </RkCard>
@@ -54,14 +53,21 @@ export default class LocationScreen extends Component {
 
 }
 const styles = StyleSheet.create({
+    img: {
+        height: 200,
+    },
     headerText: {
-        fontSize: 20,
+        fontSize: 13,
         fontWeight: 'bold',
         textDecorationLine: 'underline',
         paddingBottom: 3,
     },
+    descriptionText: {
+        fontSize: 12,
+    },
     addressText: {
+        fontSize: 12,
         fontStyle: 'italic',
-        paddingTop: 9,
+        paddingTop: 5,
     },
 })
