@@ -6,7 +6,7 @@ import SignupForm from './SignupForm';
 export default class Signup extends Component {
     render() {
         return (
-            <KeyboardAvoidingView behavior='padding'>
+            <KeyboardAvoidingView style={styles.signupContainer} behavior='padding'>
 
                 <View style={styles.logoContainer}>
 
@@ -28,6 +28,9 @@ export default class Signup extends Component {
 }
 
 const styles = StyleSheet.create({
+    signupContainer: {
+        backgroundColor: 'white',
+    },
     logoContainer: {
         alignItems: 'center',
         flexGrow: 10,

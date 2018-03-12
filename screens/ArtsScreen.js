@@ -1,4 +1,4 @@
- import React, { Component } from 'react';
+import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import * as locationsService from '../components/services/locations';
@@ -11,7 +11,7 @@ export default class ArtsScreen extends Component {
             locations: [],
         };
     }
-    static navigationOptions = { header: null};
+    static navigationOptions = { header: null };
 
     componentDidMount() {
         this.getLocations();
@@ -35,38 +35,24 @@ export default class ArtsScreen extends Component {
 
         return (
             <View style={{ flex: 1 }}>
-                <View>
-                    <RkCard>
-                        {/* <Image rkCardImg source={require('../images/selfie3.jpg')} /> */}
-                        <View rkCardContent>
-                            <Text> Absolutley Fantastic Places to Take Pictures of Yourself</Text>
-                        </View>
-                        <View rkCardFooter>
-                            <Text>Footer</Text>
-                        </View>
-                    </RkCard>
-                </View>
                 <View style={{
                     flex: 1, justifyContent: 'center',
                     flexDirection: 'row',
                     flexWrap: 'wrap'
                 }}>
-                     <ScrollView >
+                    <ScrollView >
                         {this.state.locations.map((location, index) => {
                             return (
-                                <RkCard key={index} >
+                                <RkCard key={index} rkType='shadowed' >
                                     <TouchableOpacity onPress={() => { this.props.navigation.navigate('LocationScreen', { location }) }} >
-                                        <View rkCardHeader>
-                                            <Text>{location.name}</Text>
+                                        <View rkCardImgOverlay>
+                                            <Text style={styles.overlayText}>{location.name}</Text>
+
                                         </View>
-                                        
-                                        <Image rkCardImg />
-                                        <View rkCardContent source={{uri: location.image}} >
-                                            <Text>{location.description}</Text>
-                                        </View>
-                                        <View rkCardFooter>
-                                            <Text>Footer</Text>
-                                        </View>
+
+                                        <Image rkCardImg source={{ uri: location.image }} />
+
+
                                     </TouchableOpacity>
                                 </RkCard>
                             );
@@ -78,17 +64,27 @@ export default class ArtsScreen extends Component {
     }
 }
 
-var styles = StyleSheet.create({
-    list: {
-        justifyContent: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap'
+RkTheme.setType('RkCard', 'shadowed', {
+    img: {
+        height: 200,
     },
-    item: {
-        backgroundColor: '#CCC',
-        margin: 10,
-        width: 100,
-        height: 100
-    }
+    content: {
+        alignSelf: 'center',
+    },
+    imgOverlay: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
 });
+const styles = StyleSheet.create({
+    overlayText: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'white',
+        textShadowColor: 'black',
+        textShadowRadius: 30,
+        fontSize: 30,
+        fontFamily: 'Cochin',
+    },
+})
 

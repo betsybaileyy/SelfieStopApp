@@ -72,7 +72,7 @@ export default class Carousel extends Component {
                                         <View rkCardContent>
                                             <Text>{location.description}</Text>
                                         </View>
-                                            <Text>Footer</Text>
+                                        <Text>Footer</Text>
                                     </TouchableOpacity>
                                 </RkCard>
                             );

@@ -21,7 +21,7 @@ export default class LocationScreen extends Component {
 
 
     getLocation() {
-       getLocationService.one(41)
+        getLocationService.one(41)
             .then((location) => {
                 this.setState({
                     location
@@ -30,7 +30,7 @@ export default class LocationScreen extends Component {
                 console.log(err);
             });
     }
-    
+
     render() {
         // console.log(this.props.navigation.state.params.location);
         console.log(this.props.navigation);
@@ -42,7 +42,7 @@ export default class LocationScreen extends Component {
                         <View rkCardHeader>
                             <Text>{this.props.navigation.state.params.location.name}</Text>
                         </View>
-                        <Image rkCardImg source={{uri: this.props.navigation.state.params.location.image}} />
+                        <Image rkCardImg source={{ uri: this.props.navigation.state.params.location.image }} />
                         <View rkCardContent>
                             <Text>{this.props.navigation.state.params.location.description}</Text>
                         </View>
