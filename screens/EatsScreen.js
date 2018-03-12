@@ -12,7 +12,7 @@ export default class EatsScreen extends Component {
         };
     } 
 
-    static navigationOptions = { header: null};
+    static navigationOptions = { header: null };
 
     componentDidMount() {
         this.getLocations();
@@ -77,19 +77,3 @@ export default class EatsScreen extends Component {
         )
     }
 }
-
-// var styles = StyleSheet.create({
-//     list: {
-//         justifyContent: 'center',
-//         flexDirection: 'row',
-//         flexWrap: 'wrap'
-//     },
-//     item: {
-//         backgroundColor: '#CCC',
-//         margin: 10,
-//         width: 100,
-//         height: 100
-//     }
-// });
-
-// AppRegistry.registerComponent('SelfieStopApp', () => EatsScreen);
