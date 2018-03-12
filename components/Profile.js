@@ -32,11 +32,7 @@ export default class Profile extends Component {
         }
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7117c3fe898f1a8fb25b2a873a57d5ec6c099941
+
     // updatePhoto() {
 
 
@@ -49,14 +45,12 @@ export default class Profile extends Component {
     //         }
     //         console.log(err);
     //     }
-<<<<<<< HEAD
+
     // }
 
-=======
+
     // }
-=======
-=======
->>>>>>> 3bb0c996b519b6917d867cc77604ed5349094350
+
     // componentDidUpdate() {
     //     let filePath = this.props.navigation.state.params.image
     //     console.log(filePath);
@@ -76,7 +70,7 @@ export default class Profile extends Component {
 
 
 
->>>>>>> 7117c3fe898f1a8fb25b2a873a57d5ec6c099941
+
     render() {
         return (
             <View>

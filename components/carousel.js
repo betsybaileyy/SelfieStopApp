@@ -55,12 +55,12 @@ export default class Carousel extends Component {
                             return (
                                 <RkCard key={index}>
                                     <TouchableOpacity onPress={() => { this.props.navigation.navigate('LocationScreen', { location }) }}>
-                                            <Text>{location.name}</Text>
+                                        <Text>{location.name}</Text>
                                         <Image rkCardImg source={location.image} />
                                         <View rkCardContent>
                                             <Text>{location.description}</Text>
                                         </View>
-                                            <Text>Footer</Text>
+                                        <Text>Footer</Text>
                                     </TouchableOpacity>
                                 </RkCard>
                             );
