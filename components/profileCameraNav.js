@@ -27,10 +27,10 @@ class ProfileCameraNav extends Component {
             <View style={{ marginTop: 10, alignItems: 'center' }}>
                <TouchableOpacity onPress={() => { this.onPressButton() }}>
                     <Image
-                        style={{ marginHorizontal: 65 }}
-                        source={require('../images/camera/openCamera.png')}
+                        style={{ marginHorizontal: 65, width: 20, height: 20}}
+                        source={require('../images/icons/plusSign.png')}
                     />
-                    <Text style={{ marginHorizontal: 55 }}>Take Selfie</Text>
+                    {/* <Text style={{ marginHorizontal: 55 }}>Take Selfie</Text> */}
                 </TouchableOpacity>
             </View >
         );
