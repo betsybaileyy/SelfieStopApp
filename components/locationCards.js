@@ -13,10 +13,6 @@ import { withNavigation } from 'react-navigation';
 
 export default class LocationCards extends Component {
 
-    // onLearnMore = (locations) => {
-    //     this.props.navigation.navigate('LocationsScreen', locations)
-    // }
-
     navigate(category) {
         this.props.navigation.navigate('LocationScreen', { location });
     }
@@ -50,7 +46,6 @@ export default class LocationCards extends Component {
                 </TouchableOpacity>
 
             </View>
-
 
         )
     }

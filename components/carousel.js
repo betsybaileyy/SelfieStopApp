@@ -8,9 +8,8 @@ import {
     ScrollView,
     TouchableOpacity
 } from 'react-native';
-import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
+import { RkButton, RkCard, RkTheme, RkText, RkCardContainer } from 'react-native-ui-kitten';
 import { withNavigation } from 'react-navigation';
-
 import * as locationsService from './services/locations';
 
 export default class Carousel extends Component {
@@ -21,11 +20,11 @@ export default class Carousel extends Component {
         }
     }
 
+    static navigationOptions = { header: null };
+
     async componentDidMount() {
         this.getLocations();
     }
-
-
 
     async getLocations() {
         try {
@@ -41,14 +40,9 @@ export default class Carousel extends Component {
         console.log(this.state.locations);
     }
 
-    // onPressImage() {
-    //     this.props.navigation.navigate('LocationScreen', { location })
-    // }
-
     navigate() {
         this.props.navigation.navigate('LocationScreen', { location });
     }
-
 
     render() {
         console.log(this.props.navigation);
@@ -62,17 +56,15 @@ export default class Carousel extends Component {
                     flexWrap: 'wrap'
                 }}>
 
-                    <ScrollView horizontal={true} height={300}>
+                    <ScrollView horizontal={true} height={225} >
                         {this.state.locations.map((location, index) => {
                             return (
-                                <RkCard key={index}>
+                                <RkCard key={index} width={400}>
                                     <TouchableOpacity onPress={() => { this.props.navigate('LocationScreen', { location }) }} >
-                                            <Text>{location.name}</Text>
-                                        <Image rkCardImg source={{uri: location.image}} />
-                                        <View rkCardContent>
-                                            <Text>{location.description}</Text>
+                                        <View rkCardImgOverlay>
+                                            <Text style={styles.overlayText}>  {location.name}</Text>
                                         </View>
-                                        <Text>Footer</Text>
+                                        <Image rkCardImg source={{ uri: location.image }} />
                                     </TouchableOpacity>
                                 </RkCard>
                             );
@@ -83,3 +75,25 @@ export default class Carousel extends Component {
         )
     }
 }
+
+RkTheme.setType('RkCard', 'shadowed', {
+    img: {
+        height: 200,
+    },
+    content: {
+        alignSelf: 'center',
+    },
+    imgOverlay: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
+const styles = StyleSheet.create({
+    overlayText: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'white',
+        fontSize: 30,
+        fontFamily: 'Cochin',
+    },
+})
