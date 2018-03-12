@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         color: 'black',
 
+
     },
 
     fullName: {
