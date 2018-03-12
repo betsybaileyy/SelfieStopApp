@@ -12,7 +12,7 @@ export default class ViewsScreen extends Component {
         };
     }
 
-    static navigationOptions = { header: null};
+    static navigationOptions = { header: null };
 
     componentDidMount() {
         this.getLocations();
@@ -55,7 +55,7 @@ export default class ViewsScreen extends Component {
                     flexDirection: 'row',
                     flexWrap: 'wrap'
                 }}>
-                     <ScrollView >
+                    <ScrollView >
                         {this.state.locations.map((location, index) => {
                             return (
                                 <RkCard key={index} >

@@ -1,4 +1,4 @@
- import React, { Component } from 'react';
+import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import * as locationsService from '../components/services/locations';
@@ -11,7 +11,7 @@ export default class ArtsScreen extends Component {
             locations: [],
         };
     }
-    static navigationOptions = { header: null};
+    static navigationOptions = { header: null };
 
     componentDidMount() {
         this.getLocations();
@@ -51,7 +51,7 @@ export default class ArtsScreen extends Component {
                     flexDirection: 'row',
                     flexWrap: 'wrap'
                 }}>
-                     <ScrollView >
+                    <ScrollView >
                         {this.state.locations.map((location, index) => {
                             return (
                                 <RkCard key={index} >
@@ -59,9 +59,9 @@ export default class ArtsScreen extends Component {
                                         <View rkCardHeader>
                                             <Text>{location.name}</Text>
                                         </View>
-                                        
+
                                         <Image rkCardImg />
-                                        <View rkCardContent source={{uri: location.image}} >
+                                        <View rkCardContent source={{ uri: location.image }} >
                                             <Text>{location.description}</Text>
                                         </View>
                                         <View rkCardFooter>

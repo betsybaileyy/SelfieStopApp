@@ -5,7 +5,7 @@ import LoginForm from './LoginForm';
 export default class Login extends Component {
     render() {
         return (
-            <KeyboardAvoidingView behavior='padding' style={styles.container}>
+            <KeyboardAvoidingView behavior='padding' style={styles.loginContainer}>
                 <View style={styles.logoContainer}>
 
                     <Image
@@ -27,8 +27,9 @@ export default class Login extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
+    loginContainer: {
         flex: 1,
+        backgroundColor: 'white',
     },
     logoContainer: {
         alignItems: 'center',
