@@ -40,6 +40,8 @@ const HomeStack = StackNavigator({
     Eats: { screen: EatsStack },
     Arts: { screen: ArtsStack },
     Views: { screen: ViewsStack },
+    CameraRoll: { screen: CameraRoll },
+    ProfileCameraRoll: { screen: ProfileCameraRoll },
 });
 
 const Tabs = TabNavigator({
@@ -47,8 +49,7 @@ const Tabs = TabNavigator({
     Signup: { screen: SignupScreen },
     Profile: { screen: ProfileScreen },
     Login: { screen: LoginScreen },
-    CameraRoll: { screen: CameraRoll },
-    ProfileCameraRoll: { screen: ProfileCameraRoll },
+
 },
 
     {
