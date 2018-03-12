@@ -16,7 +16,7 @@ export default class LocationScreen extends Component {
 
     componentDidMount() {
         this.getLocation();
-        // console.log(this.props.navigation.state.params.location)
+        console.log(this.props.navigation.state.params.location)
     }
 
 
@@ -32,41 +32,36 @@ export default class LocationScreen extends Component {
     }
 
     render() {
-        // console.log(this.props.navigation.state.params.location);
+        console.log(this.props.navigation.state.params.location);
         console.log(this.props.navigation);
         console.log(this.props.location);
         return (
             <View style={{ flex: 1 }}>
                 <View>
                     <RkCard>
-                        <View rkCardHeader>
-                            <Text>{this.props.navigation.state.params.location.name}</Text>
-                        </View>
+
                         <Image rkCardImg source={{ uri: this.props.navigation.state.params.location.image }} />
                         <View rkCardContent>
+                            <Text style={styles.headerText}>{this.props.navigation.state.params.location.name}</Text>
                             <Text>{this.props.navigation.state.params.location.description}</Text>
-                        </View>
-                        <View rkCardFooter>
-                            <Text>{this.props.navigation.state.params.location.address}</Text>
+                            <Text style={styles.addressText}>{this.props.navigation.state.params.location.address}</Text>
                         </View>
                     </RkCard>
                 </View>
             </View>
         )
     }
+
 }
-
-
-var styles = StyleSheet.create({
-    list: {
-        justifyContent: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap'
+const styles = StyleSheet.create({
+    headerText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        textDecorationLine: 'underline',
+        paddingBottom: 3,
     },
-    item: {
-        backgroundColor: '#CCC',
-        margin: 10,
-        width: 100,
-        height: 100
-    }
-});
+    addressText: {
+        fontStyle: 'italic',
+        paddingTop: 9,
+    },
+})
