@@ -10,11 +10,9 @@ import {
 
 } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
-import SignupScreen from './SignupScreen';
 import Carousel from '../components/carousel';
 import RecentSelfies from '../components/recentSelfies';
 import LocationCards from '../components/locationCards';
-import CameraNav from '../components/cameraNav';
 import * as imageService from '../components/services/images';
 import * as locationsService from '../components/services/locations';
 import { withNavigation } from 'react-navigation';
@@ -48,17 +46,6 @@ export default class HomeScreen extends Component {
         }
     }
 
-    // getLocations() {
-    //     LocationsService.allLocations()
-    //          .then((location) => {
-    //              this.setState({
-    //                  location
-    //              });
-    //          }).catch((err) => {
-    //              console.log(err);
-    //          });
-    //  }
-
     async navigate(category) {
         this.props.navigation.navigate('LocationScreen', { location });
     }
@@ -77,7 +64,6 @@ export default class HomeScreen extends Component {
                     <RecentSelfies />
                     <LocationCards navigate={this.props.navigation.navigate} />
                 </ScrollView>
-                {/* <CameraNav /> */}
             </View>
 
         );
