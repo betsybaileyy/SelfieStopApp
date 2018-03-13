@@ -12,6 +12,17 @@ import { RkButton, RkCard, RkTheme, RkText, RkCardContainer } from 'react-native
 import { withNavigation } from 'react-navigation';
 import * as locationsService from './services/locations';
 
+function shuffleArray(array) {
+    let i = array.length - 1;
+    for (; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+
 export default class Carousel extends Component {
     constructor(props) {
         super(props);
@@ -45,7 +56,7 @@ export default class Carousel extends Component {
     }
 
     render() {
-        console.log(this.props.navigation);
+        const shuffledPosts = shuffleArray(this.state.locations);
         return (
 
             <View style={{ flex: 1 }}>
@@ -57,12 +68,12 @@ export default class Carousel extends Component {
                 }}>
 
                     <ScrollView horizontal={true} height={225} >
-                        {this.state.locations.map((location, index) => {
+                        {shuffledPosts.map((location, index) => {
                             return (
                                 <RkCard key={index} width={400}>
                                     <TouchableOpacity onPress={() => { this.props.navigate('LocationScreen', { location }) }} >
                                         <View rkCardImgOverlay>
-                                            <Text style={styles.overlayText}>  {location.name}</Text>
+                                            <Text style={styles.overlayText}>  {(location.name).toUpperCase()} </Text>
                                         </View>
                                         <Image rkCardImg source={{ uri: location.image }} />
                                     </TouchableOpacity>
@@ -93,7 +104,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         color: 'white',
-        fontSize: 30,
+        fontSize: 18,
         fontFamily: 'Cochin',
+        paddingTop: 5
     },
 })
