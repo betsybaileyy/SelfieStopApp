@@ -4,7 +4,7 @@ function all() {
     return baseService.get(`/api/images/`);
 }
 
-function one(id) {
+function allImages(id) {
     return baseService.get(`/api/images/${id}`);
 }
 
@@ -12,4 +12,4 @@ function insert(data) {
     return baseService.postForm('/api/images', data);
 }
 
-export { one, insert, all };
+export { allImages, insert, all };

@@ -1,40 +1,38 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
-import * as getLocationService from '../components/services/locations';
+import * as imageService from '../components/services/images';
 
 export default class LocationScreen extends Component {
     constructor(props) {
         super(props);
 
-        // this.state = {
-        //     location
-        // };
+        this.state = {
+            userImages: []
+        };
     }
 
     static navigationOptions = { header: null };
 
-    componentDidMount() {
-        this.getLocation();
-        console.log(this.props.navigation.state.params.location)
+    async componentDidMount() {
+        this.getLocationImages(); // Sets the state
     }
 
 
-    getLocation() {
-        getLocationService.one(41)
-            .then((location) => {
-                this.setState({
-                    location
-                });
-            }).catch((err) => {
-                console.log(err);
+    async getLocationImages() {
+        try {
+            const userImages = imageService.allImages(this.props.navigation.state.params.location.id)
+            this.setState({
+                userImages
             });
+        } catch (err) {
+            console.log(err);
+        };
     }
 
     render() {
         console.log(this.props.navigation.state.params.location);
         console.log(this.props.navigation);
-        console.log(this.props.location);
         return (
             <View>
                 <View>
