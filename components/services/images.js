@@ -5,7 +5,7 @@ function all() {
 }
 
 function allImages(id) {
-    return baseService.get(`/api/images/${id}`);
+    return baseService.get(`/api/images/${id}/locationImages`);
 }
 
 function insert(data) {

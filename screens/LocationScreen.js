@@ -16,23 +16,27 @@ export default class LocationScreen extends Component {
 
     async componentDidMount() {
         this.getLocationImages(); // Sets the state
+        console.log(this.state.userImages);
+    }
+
+    componentDidUpdate() {
+        console.log(this.state.userImages);
     }
 
 
     async getLocationImages() {
         try {
-            const userImages = imageService.allImages(this.props.navigation.state.params.location.id)
+            const userImages = await imageService.allImages(this.props.navigation.state.params.location.id)
             this.setState({
                 userImages
             });
+            console.log(this.state.userImages);
         } catch (err) {
             console.log(err);
-        };
+        }
     }
 
     render() {
-        console.log(this.props.navigation.state.params.location);
-        console.log(this.props.navigation);
         return (
             <View>
                 <View>
@@ -42,7 +46,16 @@ export default class LocationScreen extends Component {
                             <Text style={styles.headerText}>{this.props.navigation.state.params.location.name}</Text>
                             <Text style={styles.descriptionText}>{this.props.navigation.state.params.location.description}</Text>
                             <Text style={styles.addressText}>{this.props.navigation.state.params.location.address}</Text>
+
                         </View>
+                        <ScrollView>
+                            {this.state.userImages.map((userImage, id) => {
+                                let index = userImage.id;
+                                return (
+                                    <Image key={index} source={{ uri: userImage.image }} />
+                                )
+                            })}
+                        </ScrollView>
                     </RkCard>
                 </View>
             </View>
