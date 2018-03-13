@@ -54,28 +54,17 @@ export default class HomeScreen extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-<<<<<<< HEAD
             <View>
                 <HeaderBar />
             </View>
-                <View
-=======
-                <View>
-                    <HeaderBar />
-                </View>
                 <ScrollView
->>>>>>> 5e08103890f3fd853adac1be16b66c88153c2574
                     style={{ marginTop: 55 }}
                     ref={(c) => { this.parentScrollView = c; }} >
                     <Carousel navigate={this.props.navigation.navigate} />
                     <RecentSelfies />
                     <LocationCards navigate={this.props.navigation.navigate} />
-<<<<<<< HEAD
-                </View>
-                {/* <CameraNav /> */}
-=======
                 </ScrollView>
->>>>>>> 5e08103890f3fd853adac1be16b66c88153c2574
+                {/* <CameraNav /> */}
             </View>
 
         );
