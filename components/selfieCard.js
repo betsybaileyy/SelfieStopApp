@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 
     photoItems: {
         height: 100,
-        width: 100,
+        width: 120,
     },
     modal: {
         position: 'relative',

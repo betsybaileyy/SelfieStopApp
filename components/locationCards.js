@@ -37,7 +37,7 @@ export default class LocationCards extends Component {
                     <Text style={{ marginHorizontal: 55 }}>Arts</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => { this.props.navigate('Eats') }} >
+                <TouchableOpacity onPress={() => { this.props.navigate('Views') }} >
                     <Image
                         style={{ marginHorizontal: 20 }}
                         source={require('../images/icons/views.png')}
