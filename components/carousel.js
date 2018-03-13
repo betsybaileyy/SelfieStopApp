@@ -58,23 +58,23 @@ export default class Carousel extends Component {
         const shuffledPosts = shuffleArray(this.state.locations);
         return (
 
-            <View style={{ flex: 1 }}>
+            <View>
 
                 <View style={{
-                    flex: 1, justifyContent: 'center',
+                    justifyContent: 'center',
                     flexDirection: 'row',
                     flexWrap: 'wrap'
                 }}>
 
-                    <ScrollView horizontal={true} height={225} >
+                    <ScrollView horizontal={true} height={190}>
                         {shuffledPosts.map((location, index) => {
                             return (
                                 <RkCard key={index} width={400}>
                                     <TouchableOpacity onPress={() => { this.props.navigate('LocationScreen', { location }) }} >
-                                        <View rkCardImgOverlay>
+                                        <View style={styles.overlayContainer} rkCardImgOverlay>
                                             <Text style={styles.overlayText}>  {(location.name).toUpperCase()} </Text>
                                         </View>
-                                        <Image rkCardImg source={{ uri: location.image }} />
+                                        <Image style={styles.img} rkCardImg source={{ uri: location.image }} />
                                     </TouchableOpacity>
                                 </RkCard>
                             );
@@ -92,6 +92,7 @@ RkTheme.setType('RkCard', 'shadowed', {
     },
     content: {
         alignSelf: 'center',
+
     },
     imgOverlay: {
         alignItems: 'center',
@@ -99,6 +100,14 @@ RkTheme.setType('RkCard', 'shadowed', {
     },
 });
 const styles = StyleSheet.create({
+    img: {
+        height: 220,
+        width: 400,
+    },
+    overlayContainer: {
+        height: 220,
+        width: 400,
+    },
     overlayText: {
         alignItems: 'center',
         justifyContent: 'center',
