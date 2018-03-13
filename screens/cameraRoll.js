@@ -43,14 +43,17 @@ export default class CameraRoll extends Component {
         // let locationValue = this.state.locationid;
         // console.log(locationValue);
         let imagePath = images[0].uri
-        const profileData = new FormData();
+        if (imagePath) {
+            console.log(this.state.locationid);
+        }
+        // const profileData = new FormData();
         // profileData.append('locationid', locationValue);
-        profileData.append('image', {
-            uri: imagePath,
-            type: 'image/jpeg',
-            name: 'testPhotoName'
-        })
-        console.log(profileData);
+        // profileData.append('image', {
+        //     uri: imagePath,
+        //     type: 'image/jpeg',
+        //     name: 'testPhotoName'
+        // })
+        // console.log(profileData);
         // imageService.insert(profileData);
 
 
