@@ -20,29 +20,30 @@ export default class LocationCards extends Component {
     render() {
         return (
 
-            <View style={{ marginTop: 20, flexDirection: 'row', height: 120, justifyContent: 'center', }}>
-                <TouchableOpacity onPress={() => { this.props.navigate('Eats') }} >
-                    <Image
-                        style={{ marginHorizontal: 20 }}
-                        source={require('../images/icons/food.png')}
-                    />
-                    <Text style={{ marginHorizontal: 55 }}>Eats</Text>
-                </TouchableOpacity>
+            <View style={{ marginTop: 10, flexDirection: 'row',  justifyContent: 'center', }}>
 
                 <TouchableOpacity onPress={() => { this.props.navigate('Arts') }} >
                     <Image
-                        style={{ marginHorizontal: 20 }}
-                        source={require('../images/icons/arts.png')}
+                        style={{ height: 250, marginHorizontal: 10 }}
+                        source={require('../images/Arts_Black.jpg')}
                     />
-                    <Text style={{ marginHorizontal: 55 }}>Arts</Text>
+                    {/* <Text style={{ marginHorizontal: 55 }}>Arts</Text> */}
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => { this.props.navigate('Eats') }} >
+                    <Image
+                        style={{ height: 250, marginHorizontal: 10 }}
+                        source={require('../images/Eats_Black.jpg')}
+                    />
+                    {/* <Text style={{ marginHorizontal: 55 }}>Eats</Text> */}
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => { this.props.navigate('Views') }} >
                     <Image
-                        style={{ marginHorizontal: 20 }}
-                        source={require('../images/icons/views.png')}
+                        style={{ height: 250, marginHorizontal: 10 }}
+                        source={require('../images/Views_Black.jpg')}
                     />
-                    <Text style={{ marginHorizontal: 55 }}>Views</Text>
+                    {/* <Text style={{ marginHorizontal: 55 }}>Views</Text> */}
                 </TouchableOpacity>
 
             </View>
