@@ -58,15 +58,15 @@ export default class Carousel extends Component {
         const shuffledPosts = shuffleArray(this.state.locations);
         return (
 
-            <View style={{ flex: 1 }}>
+            <View>
 
                 <View style={{
-                    flex: 1, justifyContent: 'center',
+                    justifyContent: 'center',
                     flexDirection: 'row',
                     flexWrap: 'wrap'
                 }}>
 
-                    <ScrollView horizontal={true} height={225}>
+                    <ScrollView horizontal={true} height={190}>
                         {shuffledPosts.map((location, index) => {
                             return (
                                 <RkCard key={index} width={400}>
