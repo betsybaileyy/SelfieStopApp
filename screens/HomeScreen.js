@@ -18,6 +18,7 @@ import CameraNav from '../components/cameraNav';
 import * as imageService from '../components/services/images';
 import * as locationsService from '../components/services/locations';
 import { withNavigation } from 'react-navigation';
+import HeaderBar from '../components/header';
 
 export default class HomeScreen extends Component {
     constructor(props) {
@@ -68,7 +69,11 @@ export default class HomeScreen extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
+            <View>
+                <HeaderBar />
+            </View>
                 <ScrollView
+                    style={{ marginTop: 55 }}
                     ref={(c) => { this.parentScrollView = c; }} >
                     <Carousel navigate={this.props.navigation.navigate} />
                     <RecentSelfies />
@@ -76,6 +81,7 @@ export default class HomeScreen extends Component {
                 </ScrollView>
                 {/* <CameraNav /> */}
             </View>
+
         );
     }
 }
