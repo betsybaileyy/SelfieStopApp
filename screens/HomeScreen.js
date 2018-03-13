@@ -72,13 +72,13 @@ export default class HomeScreen extends Component {
             <View>
                 <HeaderBar />
             </View>
-                <ScrollView
+                <View
                     style={{ marginTop: 55 }}
                     ref={(c) => { this.parentScrollView = c; }} >
                     <Carousel navigate={this.props.navigation.navigate} />
                     <RecentSelfies />
                     <LocationCards navigate={this.props.navigation.navigate} />
-                </ScrollView>
+                </View>
                 {/* <CameraNav /> */}
             </View>
 
