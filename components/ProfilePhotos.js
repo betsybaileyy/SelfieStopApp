@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText, RkModalImg, } from 'react-native-ui-kitten';
 import * as UserService from './services/userProfile';
+import PhotographerName from './photographerName';
 export default class ProfilePhotos extends Component {
     constructor(props) {
         super(props);
@@ -24,13 +25,23 @@ export default class ProfilePhotos extends Component {
             });
         } catch (err) {
             console.log(err);
+            console.log()
         }
 
     }
 
-    render() {
+    _renderFooter(options) {
         return (
+            <View style={styles.name}>
+                <PhotographerName />
+            </View>
 
+        );
+    }
+
+    render() {
+
+        return (
             <View style={styles.photoContainer}>
                 {this.state.userSelfies.map((image, index) => {
                     return (
@@ -38,7 +49,7 @@ export default class ProfilePhotos extends Component {
                             style={styles.photoItems}
                             modalImgStyle={styles.modalImg}
                             modalStyle={styles.modal}
-                            transparent={false} />
+                            renderFooter={this._renderFooter} />
                     )
                 })}
 
@@ -76,6 +87,10 @@ const styles = StyleSheet.create({
         width: 400,
         marginTop: 200,
         // margin: 40,
+    },
+    name: {
+        alignItems: 'flex-end',
+        paddingBottom: 150,
     },
 
 })

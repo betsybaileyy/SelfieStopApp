@@ -74,7 +74,7 @@ export default class Profile extends Component {
     render() {
         return (
             <View>
-                <Text style={styles.userName}>{this.state.user.firstName} {this.state.user.lastName} </Text>
+                {/* <Text style={styles.userName}>{this.state.user.firstName} {this.state.user.lastName} </Text> */}
 
                 <View style={styles.profileContainer}>
 
@@ -84,7 +84,7 @@ export default class Profile extends Component {
                             style={styles.profilePic} />}
 
                         <View style={styles.changeImage}>
-                        <ProfileCameraNav />
+                            <ProfileCameraNav />
                         </View>
                         <View>
                             <Text style={styles.fullName}>
@@ -122,9 +122,9 @@ export default class Profile extends Component {
 
 const styles = StyleSheet.create({
     profilePic: {
-        height: 100,
-        width: 100,
-        borderRadius: 50,
+        height: 80,
+        width: 80,
+        borderRadius: 40,
     },
 
     profileContainer: {
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 20,
         marginTop: 20,
-        marginBottom: 10,
+        // marginBottom: 10,
         paddingTop: 10,
         color: 'black',
 
@@ -167,18 +167,17 @@ const styles = StyleSheet.create({
     iconContainer: {
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 20,
 
     },
     galleryIcon: {
-        height: 30,
-        width: 30,
+        height: 20,
+        width: 20,
     },
 
     changeImage: {
         position: 'absolute',
-        top: 60,
-        left: 35,
+        top: 45,
+        left: 18,
     },
 
 })
