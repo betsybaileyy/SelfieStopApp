@@ -48,16 +48,16 @@ export default class LocationScreen extends Component {
                             <Text style={styles.addressText}>{this.props.navigation.state.params.location.address}</Text>
 
                         </View>
-                        <ScrollView>
-                            {this.state.userImages.map((userImage, id) => {
-                                let index = userImage.id;
-                                return (
-                                    <Image key={index} source={{ uri: userImage.image }} />
-                                )
-                            })}
-                        </ScrollView>
                     </RkCard>
                 </View>
+                <ScrollView>
+                    {this.state.userImages.map((userImage, id) => {
+                        let index = userImage.id;
+                        return (
+                            <Image key={index} source={{ uri: userImage.image }} />
+                        )
+                    })}
+                </ScrollView>
             </View>
         )
     }
