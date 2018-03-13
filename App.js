@@ -40,15 +40,16 @@ const HomeStack = StackNavigator({
     Eats: { screen: EatsStack },
     Arts: { screen: ArtsStack },
     Views: { screen: ViewsStack },
-    CameraRoll: { screen: CameraRoll },
     ProfileCameraRoll: { screen: ProfileCameraRoll },
 });
 
 const Tabs = TabNavigator({
     Home: { screen: HomeStack },
     Signup: { screen: SignupScreen },
+    CameraRoll: { screen: CameraRoll },
     Profile: { screen: ProfileScreen },
     Login: { screen: LoginScreen },
+
 
 },
 
@@ -71,6 +72,7 @@ export default class App extends Component {
 
     render() {
         return (
+
                 <RootNavigator
                 />
         );
