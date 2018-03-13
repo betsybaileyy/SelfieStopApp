@@ -54,9 +54,9 @@ export default class HomeScreen extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <View>
-                    <HeaderBar />
-                </View>
+            <View>
+                <HeaderBar />
+            </View>
                 <ScrollView
                     style={{ marginTop: 55 }}
                     ref={(c) => { this.parentScrollView = c; }} >
@@ -64,6 +64,7 @@ export default class HomeScreen extends Component {
                     <RecentSelfies />
                     <LocationCards navigate={this.props.navigation.navigate} />
                 </ScrollView>
+                {/* <CameraNav /> */}
             </View>
 
         );
