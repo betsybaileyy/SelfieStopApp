@@ -10,11 +10,9 @@ import {
 
 } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
-import SignupScreen from './SignupScreen';
 import Carousel from '../components/carousel';
 import RecentSelfies from '../components/recentSelfies';
 import LocationCards from '../components/locationCards';
-import CameraNav from '../components/cameraNav';
 import * as imageService from '../components/services/images';
 import * as locationsService from '../components/services/locations';
 import { withNavigation } from 'react-navigation';
@@ -40,26 +38,13 @@ export default class HomeScreen extends Component {
         try {
             const locations = await locationsService.allLocations();
 
-            console.log(locations);
             this.setState({
                 locations
             });
         } catch (err) {
             console.log(err);
         }
-        console.log(this.state.locations);
     }
-
-    // getLocations() {
-    //     LocationsService.allLocations()
-    //          .then((location) => {
-    //              this.setState({
-    //                  location
-    //              });
-    //          }).catch((err) => {
-    //              console.log(err);
-    //          });
-    //  }
 
     async navigate(category) {
         this.props.navigation.navigate('LocationScreen', { location });
@@ -69,17 +54,28 @@ export default class HomeScreen extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
+<<<<<<< HEAD
             <View>
                 <HeaderBar />
             </View>
                 <View
+=======
+                <View>
+                    <HeaderBar />
+                </View>
+                <ScrollView
+>>>>>>> 5e08103890f3fd853adac1be16b66c88153c2574
                     style={{ marginTop: 55 }}
                     ref={(c) => { this.parentScrollView = c; }} >
                     <Carousel navigate={this.props.navigation.navigate} />
                     <RecentSelfies />
                     <LocationCards navigate={this.props.navigation.navigate} />
+<<<<<<< HEAD
                 </View>
                 {/* <CameraNav /> */}
+=======
+                </ScrollView>
+>>>>>>> 5e08103890f3fd853adac1be16b66c88153c2574
             </View>
 
         );
