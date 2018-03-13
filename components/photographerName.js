@@ -39,8 +39,9 @@ export default class PhotographerName extends Component {
 const styles = StyleSheet.create({
     name: {
         color: 'white',
-        fontSize: 20,
+        fontSize: 15,
         fontStyle: 'italic',
+
     },
 })
 
