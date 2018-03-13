@@ -21,10 +21,12 @@ export default class CameraRoll extends Component {
         super(props);
         this.state = {
             locations: [],
-            locationid: ''
+            locationid: '',
+            imagePath: ''
 
         };
         imageProps = this.props;
+        let imageState;
     }
 
     async componentDidMount() {
@@ -37,45 +39,56 @@ export default class CameraRoll extends Component {
             }
             console.log(err);
         }
+        // console.log(this.state)
+    }
+
+
+    componentDidUpdate() {
+        imageState = this;
     }
 
     getSelectedImages(images) {
         // let locationValue = this.state.locationid;
         // console.log(locationValue);
         let imagePath = images[0].uri
-        if (imagePath) {
-            console.log(this.state.locationid);
-        }
-        // const profileData = new FormData();
-        // profileData.append('locationid', locationValue);
-        // profileData.append('image', {
-        //     uri: imagePath,
-        //     type: 'image/jpeg',
-        //     name: 'testPhotoName'
-        // })
-        // console.log(profileData);
-        // imageService.insert(profileData);
+        imageState.setState({imagePath});
 
 
-        // Alert.alert(
-        //     'Congratulations!',
-        //     'Image upload successful...',
-        //     [
-        //         {
-        //             text: 'OK', onPress: () =>
-        //                 imageProps.navigation.navigate('Home'),
-        //         },
-        //     ],
-        //     { cancelable: false }
-        // )
+
+
 
     }
 
     locationChange(locationid) {
         this.setState({ locationid });
-        console.log(this.state.locationid);
+        // console.log(this.state.locationid);
     }
 
+    submitPost() {
+        let locationValue = this.state.locationid;
+        let imageLocation = this.state.imagePath;
+        const profileData = new FormData();
+        profileData.append('locationid', locationValue);
+        profileData.append('image', {
+            uri: imageLocation,
+            type: 'image/jpeg',
+            name: 'testPhotoName'
+        })
+        console.log(profileData);
+        imageService.insert(profileData);
+        Alert.alert(
+            'Congratulations!',
+            'Image upload successful...',
+            [
+                {
+                    text: 'OK', onPress: () =>
+                        imageProps.navigation.navigate('Home'),
+                },
+            ],
+            { cancelable: false }
+        )
+
+    }
     render() {
 
 
@@ -103,7 +116,15 @@ export default class CameraRoll extends Component {
                     })}
                     {/* </RkChoiceGroup> */}
                 </ScrollView>
+                    <View>
+                        <TouchableOpacity
+                            style={styles.buttonContainer}
+                            onPress={() => this.submitPost()}
 
+                        >
+                        <Text style={styles.buttonText}>Submit</Text>
+                        </TouchableOpacity>
+                    </View>
 
                 <ScrollView>
                     <CameraRollPicker
