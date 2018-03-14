@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { Platform, StyleSheet, Text, View, Image, ScrollView, ActivityIndicator } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import ProfilePhotos from './ProfilePhotos';
 import * as userService from './services/userProfile';
@@ -10,6 +10,7 @@ export default class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading: true,
             images: [],
             user: ''
         };
@@ -24,7 +25,8 @@ export default class Profile extends Component {
         try {
             const user = await userService.one(1);
             this.setState({
-                user
+                user,
+                loading: false
             });
         } catch (err) {
             console.log(err);
@@ -32,52 +34,54 @@ export default class Profile extends Component {
     }
 
     render() {
-        return (
-            <View>
-                <HeaderBar />
-                <View style={{ marginTop: 70 }}>
-                    <View style={styles.profileContainer}>
+        if (this.state.loading === true) {
+            return <ActivityIndicator size="large" color="#0000ff" />
+        } else {
+            return (
+                <View style={{ flex: 1 }}>
+                    <HeaderBar />
+                    <View style={{ marginTop: 70 }}>
+                        <View style={styles.profileContainer}>
 
-                        <View style={styles.headerContainer}>
+                            <View style={styles.headerContainer}>
 
-                            {<Image source={{ uri: this.state.user.image }}
-                                style={styles.profilePic} />}
+                                {<Image source={{ uri: this.state.user.image }}
+                                    style={styles.profilePic} />}
 
-                            <View style={styles.changeImage}>
-                                <ProfileCameraNav />
+                                <View style={styles.changeImage}>
+                                    <ProfileCameraNav />
+                                </View>
+                                <View>
+                                    <Text style={styles.fullName}>
+                                        {this.state.user.firstName} {this.state.user.lastName}</Text>
+                                </View>
                             </View>
-                            <View>
-                                <Text style={styles.fullName}>
-                                    {this.state.user.firstName} {this.state.user.lastName}</Text>
+
+                            <View style={styles.bioContainer}>
+                                <View>
+                                    <Text style={styles.bioText}>
+                                        {this.state.user.bio}
+                                    </Text>
+                                </View>
                             </View>
+
                         </View>
 
-                        <View style={styles.bioContainer}>
-                            <View>
-                                <Text style={styles.bioText}>
-                                    {this.state.user.bio}
-                                </Text>
-                            </View>
+                        <View style={styles.iconContainer}>
+                            <Image source={require('../images/galleryicon.png')}
+                                style={styles.galleryIcon} />
                         </View>
 
+
+                        <ScrollView>
+                            {<ProfilePhotos />}
+                        </ScrollView>
+
+
                     </View>
-
-                    <View style={styles.iconContainer}>
-                        <Image source={require('../images/galleryicon.png')}
-                            style={styles.galleryIcon} />
-                    </View>
-
-
-                    <ScrollView>
-
-                        {<ProfilePhotos />}
-
-                    </ScrollView>
-
-
                 </View>
-            </View>
-        )
+            )
+        }
     }
 }
 
@@ -118,7 +122,7 @@ const styles = StyleSheet.create({
     bioContainer: {
         flexWrap: 'wrap',
         paddingRight: 100,
-        paddingLeft: 25,
+        paddingLeft: 10,
         paddingTop: 15,
     },
 
@@ -137,7 +141,7 @@ const styles = StyleSheet.create({
 
     changeImage: {
         position: 'absolute',
-        top: 45,
+        top: 55,
         left: 18,
     },
 

@@ -13,6 +13,9 @@ export default class LoginForm extends Component {
         };
     }
 
+    static navigationOptions = { header: null };
+
+
     handleEmailChange(text) {
         this.setState({ email: text });
     }
@@ -25,7 +28,7 @@ export default class LoginForm extends Component {
         try {
             await userService.checkLogin();
             if (true) {
-                this.props.navigation.navigate('Home');
+
                 console.log('Hello Alex');
             }
         } catch (err) {
@@ -41,7 +44,7 @@ export default class LoginForm extends Component {
         try {
             await userService.login(this.state.email, this.state.password);
             this.setState({ checkingLogin: true });
-            // this.props.navigation.navigate('Home');
+            this.props.navigation.navigate('Home');
 
         } catch (err) {
             if (err.message) {

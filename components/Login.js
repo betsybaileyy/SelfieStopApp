@@ -3,6 +3,9 @@ import { Platform, StyleSheet, Text, View, Image, ScrollView, TextInput, Keyboar
 import LoginForm from './LoginForm';
 
 export default class Login extends Component {
+    
+    static navigationOptions = { header: null };
+
     render() {
         return (
             <KeyboardAvoidingView behavior='padding' style={styles.loginContainer}>

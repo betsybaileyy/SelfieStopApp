@@ -17,13 +17,7 @@ export default class LocationScreen extends Component {
 
     async componentDidMount() {
         this.getLocationImages(); // Sets the state
-        console.log(this.state.userImages);
     }
-
-    componentDidUpdate() {
-        console.log(this.state.userImages);
-    }
-
 
     async getLocationImages() {
         try {
@@ -31,7 +25,6 @@ export default class LocationScreen extends Component {
             this.setState({
                 userImages
             });
-            console.log(this.state.userImages);
         } catch (err) {
             console.log(err);
         }
@@ -47,7 +40,7 @@ export default class LocationScreen extends Component {
 
     render() {
         return (
-            <View>
+            <View style={{ flex: 1 }}>
                 <View>
                     <RkCard>
                         <Image rkCardImg style={styles.img} source={{ uri: this.props.navigation.state.params.location.image }} />
@@ -63,13 +56,7 @@ export default class LocationScreen extends Component {
                     <View style={styles.photoContainer}>
                         {this.state.userImages.map((userImage, id) => {
                             let index = userImage.id;
-                            console.log(userImage.image);
                             return (
-                                // <Image
-                                //     key={index}
-                                //     style={{ width: 66, height: 58 }}
-                                //     source={{ uri: userImage.image }} />
-
                                 <RkModalImg key={index} source={{ uri: userImage.image }}
                                     style={styles.photoItems}
                                     modalImgStyle={styles.modalImg}

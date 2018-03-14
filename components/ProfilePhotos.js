@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { Platform, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText, RkModalImg, } from 'react-native-ui-kitten';
 import * as UserService from './services/userProfile';
 import PhotographerName from './photographerName';
+
 export default class ProfilePhotos extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading: true,
             selfies: [],
             userSelfies: []
         };
@@ -21,13 +23,25 @@ export default class ProfilePhotos extends Component {
         try {
             const userSelfies = await UserService.all(1);
             this.setState({
-                userSelfies
+                userSelfies,
+                loading: false
             });
         } catch (err) {
             console.log(err);
-            console.log()
         }
 
+    }
+
+    deletePhoto(imageId) {
+        Alert.alert(
+            'Warning!',
+            'Are you sure you want to delete this image?',
+            [
+                { text: 'OK', onPress: () => UserService.destroy(imageId) },
+                { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+            ],
+            { cancelable: false }
+        )
     }
 
     _renderFooter(options) {
@@ -40,25 +54,38 @@ export default class ProfilePhotos extends Component {
     }
 
     render() {
+        if (this.state.loading === true) {
+            return <ActivityIndicator size="large" color="#0000ff" />
+        } else {
+            return (
+                <View style={styles.photoContainer}>
+                    {this.state.userSelfies.map((image, index) => {
+                        return (
+                            <View key={index}>
+                                <RkModalImg source={{ uri: image.image }}
+                                    style={styles.photoItems}
+                                    modalImgStyle={styles.modalImg}
+                                    modalStyle={styles.modal}
+                                    renderFooter={this._renderFooter}
+                                />
+                                <TouchableOpacity onPress={() => this.deletePhoto(image.id)}
+                                    style={styles.changeImage}
+                                >
+                                    <Image
+                                        style={{ marginHorizontal: 65, width: 20, height: 20 }}
+                                        source={require('../images/icons/plusSign.png')}
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                        )
+                    })}
 
-        return (
-            <View style={styles.photoContainer}>
-
-                {this.state.userSelfies.map((image, index) => {
-                    return (
-                        <RkModalImg key={index} source={{ uri: image.image }}
-                            style={styles.photoItems}
-                            modalImgStyle={styles.modalImg}
-                            modalStyle={styles.modal}
-                            renderFooter={this._renderFooter} />
-                    )
-                })}
-
-            </View>
+                </View>
 
 
 
-        )
+            )
+        }
 
     }
 }
@@ -70,7 +97,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         marginTop: 10,
-        flex: 1,
     },
 
     photoItems: {
@@ -88,12 +114,16 @@ const styles = StyleSheet.create({
         height: 300,
         width: 400,
         marginTop: 200,
-        // margin: 40,
     },
     name: {
         alignItems: 'flex-end',
         paddingBottom: 150,
     },
-
+    changeImage: {
+        position: 'absolute',
+        top: 1,
+        left: 3,
+    },
 })
+
 
