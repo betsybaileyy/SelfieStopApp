@@ -44,15 +44,6 @@ export default class ProfilePhotos extends Component {
         )
     }
 
-    _renderFooter(options) {
-        return (
-            <View style={styles.name}>
-                <PhotographerName />
-            </View>
-
-        );
-    }
-
     render() {
         if (this.state.loading === true) {
             return <ActivityIndicator size="large" color="#0000ff" />
@@ -66,7 +57,6 @@ export default class ProfilePhotos extends Component {
                                     style={styles.photoItems}
                                     modalImgStyle={styles.modalImg}
                                     modalStyle={styles.modal}
-                                    renderFooter={this._renderFooter}
                                 />
                                 <TouchableOpacity onPress={() => this.deletePhoto(image.id)}
                                     style={styles.changeImage}
