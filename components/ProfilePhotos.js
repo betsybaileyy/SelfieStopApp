@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { Platform, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText, RkModalImg, } from 'react-native-ui-kitten';
 import * as UserService from './services/userProfile';
 import PhotographerName from './photographerName';
@@ -29,6 +29,18 @@ export default class ProfilePhotos extends Component {
 
     }
 
+    deletePhoto(imageId) {
+        Alert.alert(
+            'Warning!',
+            'Are you sure you want to delete this image?',
+            [
+                { text: 'OK', onPress: () => UserService.destroy(imageId) },
+                { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+            ],
+            { cancelable: false }
+        )
+    }
+
     _renderFooter(options) {
         return (
             <View style={styles.name}>
@@ -44,11 +56,22 @@ export default class ProfilePhotos extends Component {
             <View style={styles.photoContainer}>
                 {this.state.userSelfies.map((image, index) => {
                     return (
-                        <RkModalImg key={index} source={{ uri: image.image }}
-                            style={styles.photoItems}
-                            modalImgStyle={styles.modalImg}
-                            modalStyle={styles.modal}
-                            renderFooter={this._renderFooter} />
+                        <View key={index}>
+                            <RkModalImg source={{ uri: image.image }}
+                                style={styles.photoItems}
+                                modalImgStyle={styles.modalImg}
+                                modalStyle={styles.modal}
+                                renderFooter={this._renderFooter}
+                            />
+                            <TouchableOpacity onPress={() => this.deletePhoto(image.id)}
+                                style={styles.changeImage}
+                            >
+                                <Image
+                                    style={{ marginHorizontal: 65, width: 20, height: 20 }}
+                                    source={require('../images/icons/plusSign.png')}
+                                />
+                            </TouchableOpacity>
+                        </View>
                     )
                 })}
 
@@ -91,6 +114,11 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
         paddingBottom: 150,
     },
-
+    changeImage: {
+        position: 'absolute',
+        top: 1,
+        left: 5,
+    },
 })
+
 
