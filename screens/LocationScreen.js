@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText, RkModalImg } from 'react-native-ui-kitten';
 import * as imageService from '../components/services/images';
+import PhotographerName from '../components/photographerName';
 
 export default class LocationScreen extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            userImages: []
+            userImages: [],
         };
     }
 
@@ -35,6 +36,14 @@ export default class LocationScreen extends Component {
             console.log(err);
         }
     }
+    _renderFooter(options) {
+        return (
+            <View style={styles.name}>
+                <PhotographerName />
+            </View>
+
+        );
+    }
 
     render() {
         return (
@@ -51,21 +60,25 @@ export default class LocationScreen extends Component {
                     </RkCard>
                 </View>
                 <ScrollView>
-                    {this.state.userImages.map((userImage, id) => {
-                        let index = userImage.id;
-                        console.log(userImage.image);
-                        return (
-                            <Image
-                                key={index}
-                                style={{ width: 66, height: 58 }}
-                                source={{ uri: userImage.image }} />
-                            // <RkModalImg key={index} source={{ uri: userImage.image }}
-                            //     style={styles.photoItems}
-                            //     modalImgStyle={styles.modalImg}
-                            //     modalStyle={styles.modal}
-                            // />
-                        )
-                    })}
+                    <View style={styles.photoContainer}>
+                        {this.state.userImages.map((userImage, id) => {
+                            let index = userImage.id;
+                            console.log(userImage.image);
+                            return (
+                                // <Image
+                                //     key={index}
+                                //     style={{ width: 66, height: 58 }}
+                                //     source={{ uri: userImage.image }} />
+
+                                <RkModalImg key={index} source={{ uri: userImage.image }}
+                                    style={styles.photoItems}
+                                    modalImgStyle={styles.modalImg}
+                                    modalStyle={styles.modal}
+                                    renderFooter={this._renderFooter}
+                                />
+                            )
+                        })}
+                    </View>
                 </ScrollView>
             </View>
         )
@@ -113,5 +126,9 @@ const styles = StyleSheet.create({
         width: 400,
         marginTop: 200,
         // margin: 40,
+    },
+    name: {
+        alignItems: 'flex-end',
+        paddingBottom: 150,
     },
 })
