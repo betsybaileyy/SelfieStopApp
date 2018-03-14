@@ -25,7 +25,6 @@ export default class ProfilePhotos extends Component {
             });
         } catch (err) {
             console.log(err);
-            console.log()
         }
 
     }
