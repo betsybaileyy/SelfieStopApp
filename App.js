@@ -64,11 +64,19 @@ const Tabs = TabNavigator({
         ...TabNavigator.Presets.iOSBottomTabs, // or iOSBottomTabs
         // Defining options as usual
         tabBarPosition: 'bottom',
+        tabBarOptions: {
+            activeTintColor: 'black',
+            inactiveTintColor: 'black',
+            activeBackgroundColor: '#81ecec',
+            inactiveBackgroundColor: '#bdbdbd',
+
+          },
 
     },
     {
         initialRouteName: 'Home'
     });
+
 
 const RootNavigator = StackNavigator({
     Tabs: { screen: Tabs },

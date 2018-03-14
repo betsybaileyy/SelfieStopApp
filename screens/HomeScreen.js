@@ -7,6 +7,7 @@ import {
     Image,
     ScrollView,
     TouchableOpacity,
+    StatusBar,
 
 } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
@@ -53,6 +54,7 @@ export default class HomeScreen extends Component {
 
     render() {
         return (
+
             <View style={{ flex: 1 }}>
             <View>
                 <HeaderBar />
