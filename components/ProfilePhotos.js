@@ -43,7 +43,6 @@ export default class ProfilePhotos extends Component {
 
         return (
             <View style={styles.photoContainer}>
-
                 {this.state.userSelfies.map((image, index) => {
                     return (
                         <RkModalImg key={index} source={{ uri: image.image }}
@@ -70,7 +69,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         marginTop: 10,
-        flex: 1,
     },
 
     photoItems: {
