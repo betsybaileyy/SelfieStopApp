@@ -108,7 +108,7 @@ export default class CameraRoll extends Component {
                 </ScrollView>
                 <ScrollView style={styles.container}>
                     <Text>Choose Location</Text>
-                    <View style={{ borderRadius: 10, borderColor: '#000', borderWidth: 2, marginBottom: 60 }}>
+                    <View style={{ borderRadius: 10, borderColor: '#000', borderWidth: 2, marginBottom: 60, backgroundColor: '#e8e8e8' }}>
                         <Picker
                             selectedValue={this.state.locationid}
                             onValueChange={(itemValue) => this.locationChange(itemValue)}
@@ -146,6 +146,7 @@ export default class CameraRoll extends Component {
 const styles = StyleSheet.create({
     container: {
         padding: 40,
+        backgroundColor: '#423e3c'
     },
     buttonContainer: {
         marginBottom: 20,

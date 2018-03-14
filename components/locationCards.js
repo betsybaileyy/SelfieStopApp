@@ -20,7 +20,7 @@ export default class LocationCards extends Component {
     render() {
         return (
 
-            <View style={{ marginTop: 10, flexDirection: 'row',  justifyContent: 'center', }}>
+            <View style={{ flexDirection: 'row',  justifyContent: 'center', backgroundColor: '#423e3c' }}>
 
                 <TouchableOpacity onPress={() => { this.props.navigate('Arts') }} >
                     <Image
