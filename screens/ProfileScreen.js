@@ -4,6 +4,7 @@ import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import Profile from '../components/Profile'
 
 export default class ProfileScreen extends Component {
+    static navigationOptions = { header: null };
     render() {
         return (
             <Profile />
