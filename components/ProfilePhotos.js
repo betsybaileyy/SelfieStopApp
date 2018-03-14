@@ -15,13 +15,8 @@ export default class ProfilePhotos extends Component {
     }
 
     async componentDidMount() {
-
-        this.all();
-    }
-
-    async all() {
         try {
-            const userSelfies = await UserService.all(1);
+            const userSelfies = await UserService.all(this.props.user.id);
             this.setState({
                 userSelfies,
                 loading: false
@@ -29,7 +24,6 @@ export default class ProfilePhotos extends Component {
         } catch (err) {
             console.log(err);
         }
-
     }
 
     deletePhoto(imageId) {
