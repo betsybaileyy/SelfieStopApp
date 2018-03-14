@@ -47,7 +47,7 @@ export default class LocationScreen extends Component {
 
     render() {
         return (
-            <View>
+            <View style={{ flex: 1 }}>
                 <View>
                     <RkCard>
                         <Image rkCardImg style={styles.img} source={{ uri: this.props.navigation.state.params.location.image }} />
