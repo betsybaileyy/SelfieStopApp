@@ -12,4 +12,8 @@ function update(data) {
     return baseService.putForm(`/api/userProfile/`, data);
 }
 
-export { all, one, update };
+function destroy(id) {
+    return baseService.destroy(`/api/userProfile/${id}/selfies`);
+}
+
+export { all, one, update, destroy };

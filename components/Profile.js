@@ -4,7 +4,7 @@ import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import ProfilePhotos from './ProfilePhotos';
 import * as userService from './services/userProfile';
 import ProfileCameraNav from '../components/profileCameraNav';
-
+import HeaderBar from '../components/header';
 
 export default class Profile extends Component {
     constructor(props) {
@@ -23,7 +23,6 @@ export default class Profile extends Component {
     async one() {
         try {
             const user = await userService.one(1);
-            console.log(user);
             this.setState({
                 user
             });
@@ -32,89 +31,49 @@ export default class Profile extends Component {
         }
     }
 
-
-    // updatePhoto() {
-
-
-    //     try {
-    //         await userService.update(this.state.user.id, data);
-    //         console.log('Updated on front-end');
-    //     } catch (err) {
-    //         if (err.message) {
-    //             this.setState({ feedbackMessage: err.message });
-    //         }
-    //         console.log(err);
-    //     }
-
-    // }
-
-
-    // }
-
-    // componentDidUpdate() {
-    //     let filePath = this.props.navigation.state.params.image
-    //     console.log(filePath);
-    //     const data = new FormData();
-    //     data.append('image', {
-    //         uri: filePath,
-    //         type: 'image/jpeg',
-    //         name: 'testPhotoName'
-    //     })
-    //     console.log(data);
-    //      userService.update(this.state.user.id, data);
-    //      console.log('Updated on front-end');
-
-    // }
-
-
-
-
-
-
     render() {
         return (
-            <View>
-                {/* <Text style={styles.userName}>{this.state.user.firstName} {this.state.user.lastName} </Text> */}
+            <View style={{ flex: 1 }}>
+                <HeaderBar />
+                <View style={{ marginTop: 70 }}>
+                    <View style={styles.profileContainer}>
 
-                <View style={styles.profileContainer}>
+                        <View style={styles.headerContainer}>
 
-                    <View style={styles.headerContainer}>
+                            {<Image source={{ uri: this.state.user.image }}
+                                style={styles.profilePic} />}
 
-                        {<Image source={{ uri: this.state.user.image }}
-                            style={styles.profilePic} />}
-
-                        <View style={styles.changeImage}>
-                            <ProfileCameraNav />
+                            <View style={styles.changeImage}>
+                                <ProfileCameraNav />
+                            </View>
+                            <View>
+                                <Text style={styles.fullName}>
+                                    {this.state.user.firstName} {this.state.user.lastName}</Text>
+                            </View>
                         </View>
-                        <View>
-                            <Text style={styles.fullName}>
-                                {this.state.user.firstName} {this.state.user.lastName}</Text>
+
+                        <View style={styles.bioContainer}>
+                            <View>
+                                <Text style={styles.bioText}>
+                                    {this.state.user.bio}
+                                </Text>
+                            </View>
                         </View>
+
                     </View>
 
-                    <View style={styles.bioContainer}>
-                        <View>
-                            <Text style={styles.bioText}>
-                                {this.state.user.bio}
-                            </Text>
-                        </View>
+                    <View style={styles.iconContainer}>
+                        <Image source={require('../images/galleryicon.png')}
+                            style={styles.galleryIcon} />
                     </View>
 
-                </View>
 
-                <View style={styles.iconContainer}>
-                    <Image source={require('../images/galleryicon.png')}
-                        style={styles.galleryIcon} />
-                </View>
-
-
-                <View>
                     <ScrollView>
                         {<ProfilePhotos />}
                     </ScrollView>
+
+
                 </View>
-
-
             </View>
         )
     }

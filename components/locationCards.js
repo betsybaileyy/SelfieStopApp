@@ -19,26 +19,26 @@ export default class LocationCards extends Component {
     render() {
         return (
 
-            <View style={{ marginTop: 10, flexDirection: 'row',  justifyContent: 'center', }}>
+            <View style={{ flexDirection: 'row',  justifyContent: 'center', backgroundColor: '#423e3c' }}>
 
                 <TouchableOpacity onPress={() => { this.props.navigate('Arts') }} >
                     <Image
                         style={{ height: 250, marginHorizontal: 10 }}
-                        source={require('../images/Arts_Black.jpg')}
+                        source={require('../images/Arts_Blue.jpg')}
                     />
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => { this.props.navigate('Eats') }} >
                     <Image
                         style={{ height: 250, marginHorizontal: 10 }}
-                        source={require('../images/Eats_Black.jpg')}
+                        source={require('../images/Eats_Blue.jpg')}
                     />
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => { this.props.navigate('Views') }} >
                     <Image
                         style={{ height: 250, marginHorizontal: 10 }}
-                        source={require('../images/Views_Black.jpg')}
+                        source={require('../images/Views_Blue.jpg')}
                     />
                 </TouchableOpacity>
 

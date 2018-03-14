@@ -37,7 +37,8 @@ export default class CameraRoll extends Component {
     async componentDidMount() {
         try {
             const locations = await locationService.allLocations()
-            this.setState({ locations }); //this.state.locations
+            let locationid = locations[0].id
+            this.setState({ locations, locationid }); //this.state.locations
         } catch (err) {
             if (err.message) {
                 this.setState({ feedbackMessage: err.message });
@@ -57,7 +58,7 @@ export default class CameraRoll extends Component {
 
     locationChange(locationid) {
         this.setState({ locationid });
-        console.log(locationid)
+        // console.log(locationid)
     }
 
     submitPost() {
@@ -85,27 +86,36 @@ export default class CameraRoll extends Component {
         )
 
     }
+
+
+
     render() {
 
 
 
         return (
             <View style={{ flex: 1 }}>
-                {/* <Header /> */}
-                <ScrollView>
+                <View>
+                    <Header />
+                </View>
+                <ScrollView
+                    style={{ marginTop: 45, }}
+                >
                     <CameraRollPicker
                         callback={this.getSelectedImages}
                         maximum={1}
                     />
                 </ScrollView>
                 <ScrollView style={styles.container}>
-                    <Text>Choose Location</Text>
-                    <View style={{ borderRadius: 10, borderColor: '#000', borderWidth: 2, marginBottom: 60 }}>
+                    <Text style={{ color: '#f5f6fa' }}>Choose Location</Text>
+                    <View style={{ borderRadius: 10, borderColor: '#000', borderWidth: 2, marginBottom: 60, backgroundColor: '#e8e8e8' }}>
                         <Picker
-                            selectedValue={this.state.location}
-                            onValueChange={(itemValue) => this.locationChange(itemValue)}>
+                            selectedValue={this.state.locationid}
+                            onValueChange={(itemValue) => this.locationChange(itemValue)}
+                        >
                             {this.state.locations.map((location, id) => {
                                 let index = location.id
+
                                 return (
                                     <Picker.Item key={index} label={location.name} value={location.id} />
                                     // <TouchableOpacity
@@ -120,7 +130,7 @@ export default class CameraRoll extends Component {
                         </Picker>
                     </View>
                 </ScrollView>
-                <View>
+                <View style={{backgroundColor: '#423e3c'}}>
                     <TouchableOpacity
                         style={styles.submitContainer}
                         onPress={() => this.submitPost()}
@@ -136,6 +146,7 @@ export default class CameraRoll extends Component {
 const styles = StyleSheet.create({
     container: {
         padding: 40,
+        backgroundColor: '#423e3c'
     },
     buttonContainer: {
         marginBottom: 20,
@@ -151,7 +162,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         textAlign: 'center',
-        color: '#f5f6fa',
+        color: '#000',
 
     }
 })

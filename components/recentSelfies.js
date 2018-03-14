@@ -6,7 +6,8 @@ import {
     View,
     Image,
     ScrollView,
-    TouchableOpacity
+    TouchableOpacity,
+    ActivityIndicator,
 } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import SelfieCard from './selfieCard';
@@ -18,6 +19,7 @@ export default class RecentSelfies extends Component {
         super(props);
 
         this.state = {
+            loading: true,
             images: []
         };
     }
@@ -25,7 +27,10 @@ export default class RecentSelfies extends Component {
     async componentDidMount() {
         try {
             let images = await imageService.all()
-            this.setState({ images });
+            this.setState({
+                images,
+                loading: false
+            });
         } catch (err) {
             if (err.message) {
                 this.setState({ feedbackMessage: err.message });
@@ -35,20 +40,24 @@ export default class RecentSelfies extends Component {
     }
 
     render() {
-        const selfies = this.state.images.map((selfie, index) => {
+        if (this.state.loading === true) {
+            return <ActivityIndicator size="large" color="#0000ff" />
+        } else {
+            const selfies = this.state.images.map((selfie, index) => {
+                return (
+                    <SelfieCard key={index} selfie={selfie} />
+                );
+            });
+
             return (
-                <SelfieCard key={index} selfie={selfie} />
-            );
-        });
 
-        return (
-
-            <View>
-                <ScrollView horizontal={true}>
-                    {selfies}
-                </ScrollView>
-            </View>
-        )
+                <View>
+                    <ScrollView horizontal={true}>
+                        {selfies}
+                    </ScrollView>
+                </View>
+            )
+        }
     }
 }
 
