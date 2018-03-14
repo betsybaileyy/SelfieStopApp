@@ -32,6 +32,8 @@ export default class CameraRoll extends Component {
         let imageState;
     }
 
+    static navigationOptions = { header: null };
+
     async componentDidMount() {
         try {
             const locations = await locationService.allLocations()

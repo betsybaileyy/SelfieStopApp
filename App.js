@@ -13,6 +13,8 @@ import CameraRoll from './screens/cameraRoll';
 import LocationScreen from './screens/LocationScreen';
 import Carousel from './components/carousel';
 import ProfileCameraRoll from './screens/profileCameraRoll';
+import HeaderBar from './components/header';
+
 
 const CarouselStack = StackNavigator({
     Carousel: { screen: Carousel },
@@ -34,8 +36,13 @@ const ViewsStack = StackNavigator({
     LocationScreen: { screen: LocationScreen },
 });
 
+const HeaderStack = StackNavigator({
+    LoginScreen: { screen: LoginScreen },
+})
+
 const HomeStack = StackNavigator({
     Home: { screen: HomeScreen },
+    Header: { screen: HeaderStack },
     Carousel: { screen: CarouselStack },
     Eats: { screen: EatsStack },
     Arts: { screen: ArtsStack },
