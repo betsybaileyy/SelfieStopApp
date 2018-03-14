@@ -6,7 +6,8 @@ import {
     View,
     Image,
     ScrollView,
-    TouchableOpacity
+    TouchableOpacity,
+    ActivityIndicator
 } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText, RkCardContainer } from 'react-native-ui-kitten';
 import { withNavigation } from 'react-navigation';
@@ -27,6 +28,7 @@ export default class Carousel extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading: true,
             locations: [],
         }
     }
@@ -42,7 +44,8 @@ export default class Carousel extends Component {
             const locations = await locationsService.allLocations();
 
             this.setState({
-                locations
+                locations,
+                loading: false
             });
         } catch (err) {
             console.log(err);
@@ -56,33 +59,52 @@ export default class Carousel extends Component {
 
     render() {
         const shuffledPosts = shuffleArray(this.state.locations);
-        return (
+        if (this.state.loading === true) {
+            return (
+                <View>
 
-            <View>
+                    <View style={{
+                        justifyContent: 'center',
+                        flexDirection: 'row',
+                        flexWrap: 'wrap'
+                    }}>
 
-                <View style={{
-                    justifyContent: 'center',
-                    flexDirection: 'row',
-                    flexWrap: 'wrap'
-                }}>
+                        <ScrollView horizontal={true} height={190}>
+                            <ActivityIndicator size="large" color="#0000ff" />
 
-                    <ScrollView horizontal={true} height={190}>
-                        {shuffledPosts.map((location, index) => {
-                            return (
-                                <RkCard key={index} width={400}>
-                                    <TouchableOpacity onPress={() => { this.props.navigate('LocationScreen', { location }) }} >
-                                        <View style={styles.overlayContainer} rkCardImgOverlay>
-                                            <Text style={styles.overlayText}>  {(location.name).toUpperCase()} </Text>
-                                        </View>
-                                        <Image style={styles.img} rkCardImg source={{ uri: location.image }} />
-                                    </TouchableOpacity>
-                                </RkCard>
-                            );
-                        })}
-                    </ScrollView>
+                        </ScrollView>
+                    </View>
                 </View>
-            </View>
-        )
+            )
+        } else {
+            return (
+
+                <View>
+
+                    <View style={{
+                        justifyContent: 'center',
+                        flexDirection: 'row',
+                        flexWrap: 'wrap'
+                    }}>
+
+                        <ScrollView horizontal={true} height={190}>
+                            {shuffledPosts.map((location, index) => {
+                                return (
+                                    <RkCard key={index} width={400}>
+                                        <TouchableOpacity onPress={() => { this.props.navigate('LocationScreen', { location }) }} >
+                                            <View style={styles.overlayContainer} rkCardImgOverlay>
+                                                <Text style={styles.overlayText}>  {(location.name).toUpperCase()} </Text>
+                                            </View>
+                                            <Image style={styles.img} rkCardImg source={{ uri: location.image }} />
+                                        </TouchableOpacity>
+                                    </RkCard>
+                                );
+                            })}
+                        </ScrollView>
+                    </View>
+                </View>
+            )
+        }
     }
 }
 
