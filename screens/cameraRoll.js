@@ -107,7 +107,7 @@ export default class CameraRoll extends Component {
                     />
                 </ScrollView>
                 <ScrollView style={styles.container}>
-                    <Text>Choose Location</Text>
+                    <Text style={{ color: '#f5f6fa' }}>Choose Location</Text>
                     <View style={{ borderRadius: 10, borderColor: '#000', borderWidth: 2, marginBottom: 60, backgroundColor: '#e8e8e8' }}>
                         <Picker
                             selectedValue={this.state.locationid}
@@ -130,7 +130,7 @@ export default class CameraRoll extends Component {
                         </Picker>
                     </View>
                 </ScrollView>
-                <View>
+                <View style={{backgroundColor: '#423e3c'}}>
                     <TouchableOpacity
                         style={styles.submitContainer}
                         onPress={() => this.submitPost()}
