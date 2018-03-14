@@ -7,11 +7,8 @@ import {
     Image,
     ScrollView,
     TouchableOpacity,
-<<<<<<< HEAD
-=======
     StatusBar,
 
->>>>>>> 0207de01547d49ef4b15856ee4bce06acb16c070
 } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import Carousel from '../components/carousel';
