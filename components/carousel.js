@@ -66,13 +66,21 @@ export default class Carousel extends Component {
                     <View style={{
                         justifyContent: 'center',
                         flexDirection: 'row',
-                        flexWrap: 'wrap'
+                        flexWrap: 'wrap',
+                        alignItems: 'center'
                     }}>
 
-                        <ScrollView horizontal={true} height={190}>
+                        <View
+                            style={{
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}
+                            horizontal={true}
+                            height={190}
+                        >
                             <ActivityIndicator size="large" color="#0000ff" />
 
-                        </ScrollView>
+                        </View>
                     </View>
                 </View>
             )
