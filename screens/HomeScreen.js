@@ -7,7 +7,6 @@ import {
     Image,
     ScrollView,
     TouchableOpacity,
-
 } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import Carousel from '../components/carousel';
@@ -46,16 +45,15 @@ export default class HomeScreen extends Component {
         }
     }
 
-    async navigate(category) {
-        this.props.navigation.navigate('LocationScreen', { location });
+    navigate() {
+        this.props.navigation.navigate('LoginScreen');
     }
-
 
     render() {
         return (
             <View style={{ flex: 1 }}>
             <View>
-                <HeaderBar />
+                <HeaderBar navigate={this.props.navigation.navigate} />
             </View>
                 <ScrollView
                     style={{ marginTop: 55 }}
