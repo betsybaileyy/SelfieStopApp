@@ -34,45 +34,48 @@ export default class Profile extends Component {
     render() {
         return (
             <View>
-                <View style={styles.profileContainer}>
+                <HeaderBar />
+                <View style={{ marginTop: 70 }}>
+                    <View style={styles.profileContainer}>
 
-                    <View style={styles.headerContainer}>
+                        <View style={styles.headerContainer}>
 
-                        {<Image source={{ uri: this.state.user.image }}
-                            style={styles.profilePic} />}
+                            {<Image source={{ uri: this.state.user.image }}
+                                style={styles.profilePic} />}
 
-                        <View style={styles.changeImage}>
-                            <ProfileCameraNav />
+                            <View style={styles.changeImage}>
+                                <ProfileCameraNav />
+                            </View>
+                            <View>
+                                <Text style={styles.fullName}>
+                                    {this.state.user.firstName} {this.state.user.lastName}</Text>
+                            </View>
                         </View>
-                        <View>
-                            <Text style={styles.fullName}>
-                                {this.state.user.firstName} {this.state.user.lastName}</Text>
+
+                        <View style={styles.bioContainer}>
+                            <View>
+                                <Text style={styles.bioText}>
+                                    {this.state.user.bio}
+                                </Text>
+                            </View>
                         </View>
+
                     </View>
 
-                    <View style={styles.bioContainer}>
-                        <View>
-                            <Text style={styles.bioText}>
-                                {this.state.user.bio}
-                            </Text>
-                        </View>
+                    <View style={styles.iconContainer}>
+                        <Image source={require('../images/galleryicon.png')}
+                            style={styles.galleryIcon} />
                     </View>
 
+
+                    <View>
+                        <ScrollView>
+                            {<ProfilePhotos />}
+                        </ScrollView>
+                    </View>
+
+
                 </View>
-
-                <View style={styles.iconContainer}>
-                    <Image source={require('../images/galleryicon.png')}
-                        style={styles.galleryIcon} />
-                </View>
-
-
-                <View>
-                    <ScrollView>
-                        {<ProfilePhotos />}
-                    </ScrollView>
-                </View>
-
-
             </View>
         )
     }
