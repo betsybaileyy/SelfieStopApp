@@ -70,6 +70,9 @@ export default class HomeScreen extends Component {
                         style={{ borderColor: '#423e3c', borderWidth: 8 }}
                     >
                         <RecentSelfies />
+                        <View style={{alignItems: 'center', backgroundColor: '#423e3c'}}>
+                        <Text style={{color: '#fff', backgroundColor: '#423e3c' }}>Recent Selfies</Text>
+                        </View>
                     </View>
                     <LocationCards navigate={this.props.navigation.navigate} />
                 </ScrollView>
