@@ -14,6 +14,7 @@ import LocationScreen from './screens/LocationScreen';
 import Carousel from './components/carousel';
 import ProfileCameraRoll from './screens/profileCameraRoll';
 import HeaderBar from './components/header';
+import FontAwesome, { Icons } from "react-native-fontawesome";
 
 
 const CarouselStack = StackNavigator({
@@ -51,7 +52,11 @@ const HomeStack = StackNavigator({
 });
 
 const Tabs = TabNavigator({
-    Home: { screen: HomeStack },
+    Home: { screen: HomeStack,
+            navigationOptions: ({ navigation }) =>({
+            icon: ({ tintColor }) => <FontAwesome>{Icons.chevronLeft}</FontAwesome>
+        })
+     },
     Signup: { screen: SignupScreen },
     CameraRoll: { screen: CameraRoll },
     Profile: { screen: ProfileScreen },
@@ -69,6 +74,7 @@ const Tabs = TabNavigator({
             inactiveTintColor: 'black',
             activeBackgroundColor: '#81ecec',
             inactiveBackgroundColor: '#bdbdbd',
+            showIcon: 'true',
 
           },
 
