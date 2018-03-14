@@ -14,6 +14,7 @@ import LocationScreen from './screens/LocationScreen';
 import Carousel from './components/carousel';
 import ProfileCameraRoll from './screens/profileCameraRoll';
 import HeaderBar from './components/header';
+// import LoginLogoutButton from './components/LoginLogoutButton';
 
 
 const CarouselStack = StackNavigator({
@@ -37,7 +38,9 @@ const ViewsStack = StackNavigator({
 });
 
 const HeaderStack = StackNavigator({
+    HeaderBar: { screen: HeaderBar },
     LoginScreen: { screen: LoginScreen },
+    // navigationOptions = { header: null }
 })
 
 const HomeStack = StackNavigator({

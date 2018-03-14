@@ -9,7 +9,6 @@ import {
     TouchableOpacity
 } from 'react-native';
 import { withNavigation } from 'react-navigation';
-// import LocationsScreen from '../../screens/locationsscreen';
 
 export default class LocationCards extends Component {
 
@@ -27,7 +26,6 @@ export default class LocationCards extends Component {
                         style={{ height: 250, marginHorizontal: 10 }}
                         source={require('../images/Arts_Blue.jpg')}
                     />
-                    {/* <Text style={{ marginHorizontal: 55 }}>Arts</Text> */}
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => { this.props.navigate('Eats') }} >
@@ -35,7 +33,6 @@ export default class LocationCards extends Component {
                         style={{ height: 250, marginHorizontal: 10 }}
                         source={require('../images/Eats_Blue.jpg')}
                     />
-                    {/* <Text style={{ marginHorizontal: 55 }}>Eats</Text> */}
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => { this.props.navigate('Views') }} >
@@ -43,7 +40,6 @@ export default class LocationCards extends Component {
                         style={{ height: 250, marginHorizontal: 10 }}
                         source={require('../images/Views_Blue.jpg')}
                     />
-                    {/* <Text style={{ marginHorizontal: 55 }}>Views</Text> */}
                 </TouchableOpacity>
 
             </View>
