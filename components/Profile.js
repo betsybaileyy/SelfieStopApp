@@ -33,7 +33,7 @@ export default class Profile extends Component {
 
     render() {
         return (
-            <View>
+            <View style={{ flex: 1 }}>
                 <HeaderBar />
                 <View style={{ marginTop: 70 }}>
                     <View style={styles.profileContainer}>
@@ -69,9 +69,7 @@ export default class Profile extends Component {
 
 
                     <ScrollView>
-
                         {<ProfilePhotos />}
-
                     </ScrollView>
 
 
