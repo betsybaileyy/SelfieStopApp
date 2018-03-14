@@ -61,7 +61,11 @@ export default class HomeScreen extends Component {
                     style={{ marginTop: 55 }}
                     ref={(c) => { this.parentScrollView = c; }} >
                     <Carousel navigate={this.props.navigation.navigate} />
+                    <View
+                        style={{borderColor: '#423e3c', borderWidth: 8 }}
+                    >
                     <RecentSelfies />
+                    </View>
                     <LocationCards navigate={this.props.navigation.navigate} />
                 </ScrollView>
                 {/* <CameraNav /> */}
