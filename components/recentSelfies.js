@@ -51,7 +51,7 @@ export default class RecentSelfies extends Component {
 
             return (
 
-                <View>
+                <View style={{ backgroundColor: 'black' }}>
                     <ScrollView horizontal={true}>
                         {selfies}
                     </ScrollView>
