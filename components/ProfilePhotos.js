@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { Platform, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText, RkModalImg, } from 'react-native-ui-kitten';
 import * as UserService from './services/userProfile';
 import PhotographerName from './photographerName';
+import profileCameraNav from './profileCameraNav';
 export default class ProfilePhotos extends Component {
     constructor(props) {
         super(props);
@@ -13,7 +14,10 @@ export default class ProfilePhotos extends Component {
     }
 
     async componentDidMount() {
+        this.all();
+    }
 
+    async componentDidUpdate() {
         this.all();
     }
 
@@ -25,9 +29,7 @@ export default class ProfilePhotos extends Component {
             });
         } catch (err) {
             console.log(err);
-            console.log()
         }
-
     }
 
     _renderFooter(options) {
@@ -39,17 +41,40 @@ export default class ProfilePhotos extends Component {
         );
     }
 
+    deletePhoto(imageId) {
+        Alert.alert(
+            'Warning!',
+            'Are you sure you want to delete this image?',
+            [
+                { text: 'OK', onPress: () => UserService.destroy(imageId) },
+                { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+            ],
+            { cancelable: false }
+        )
+    }
+
     render() {
 
         return (
             <View style={styles.photoContainer}>
                 {this.state.userSelfies.map((image, index) => {
                     return (
-                        <RkModalImg key={index} source={{ uri: image.image }}
-                            style={styles.photoItems}
-                            modalImgStyle={styles.modalImg}
-                            modalStyle={styles.modal}
-                            renderFooter={this._renderFooter} />
+                        <View key={index}>
+                            <RkModalImg source={{ uri: image.image }}
+                                style={styles.photoItems}
+                                modalImgStyle={styles.modalImg}
+                                modalStyle={styles.modal}
+                                renderFooter={this._renderFooter}
+                            />
+                            <TouchableOpacity onPress={() => this.deletePhoto(image.id)}
+                                style={styles.changeImage}
+                            >
+                                <Image
+                                    style={{ marginHorizontal: 65, width: 20, height: 20 }}
+                                    source={require('../images/icons/plusSign.png')}
+                                />
+                            </TouchableOpacity>
+                        </View>
                     )
                 })}
 
@@ -91,6 +116,11 @@ const styles = StyleSheet.create({
     name: {
         alignItems: 'flex-end',
         paddingBottom: 150,
+    },
+    changeImage: {
+        position: 'absolute',
+        top: 1,
+        left: 5,
     },
 
 })
