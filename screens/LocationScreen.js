@@ -29,14 +29,6 @@ export default class LocationScreen extends Component {
             console.log(err);
         }
     }
-    _renderFooter(options) {
-        return (
-            <View style={styles.name}>
-                <PhotographerName />
-            </View>
-
-        );
-    }
 
     render() {
         return (
@@ -61,7 +53,6 @@ export default class LocationScreen extends Component {
                                     style={styles.photoItems}
                                     modalImgStyle={styles.modalImg}
                                     modalStyle={styles.modal}
-                                    renderFooter={this._renderFooter}
                                 />
                             )
                         })}
