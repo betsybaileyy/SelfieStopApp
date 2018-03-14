@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     bioContainer: {
         flexWrap: 'wrap',
         paddingRight: 100,
-        paddingLeft: 25,
+        paddingLeft: 10,
         paddingTop: 15,
     },
 
