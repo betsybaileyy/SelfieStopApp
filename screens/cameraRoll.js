@@ -7,13 +7,16 @@ import {
     Image,
     ScrollView,
     TouchableOpacity,
-    Alert
+    TouchableHighlight,
+    Alert,
+    Picker
 } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import CameraRollPicker from 'react-native-camera-roll-picker';
 import * as imageService from '../components/services/images';
 import * as locationService from '../components/services/locations';
 import { RkButton, RkCard, RkTheme, RkText, RkChoice, RkChoiceGroup } from 'react-native-ui-kitten';
+import Header from '../components/header';
 
 
 export default class CameraRoll extends Component {
@@ -39,29 +42,20 @@ export default class CameraRoll extends Component {
             }
             console.log(err);
         }
-        // console.log(this.state)
     }
-
 
     componentDidUpdate() {
         imageState = this;
     }
 
     getSelectedImages(images) {
-        // let locationValue = this.state.locationid;
-        // console.log(locationValue);
         let imagePath = images[0].uri
-        imageState.setState({imagePath});
-
-
-
-
-
+        imageState.setState({ imagePath });
     }
 
     locationChange(locationid) {
         this.setState({ locationid });
-        // console.log(this.state.locationid);
+        console.log(locationid)
     }
 
     submitPost() {
@@ -95,44 +89,43 @@ export default class CameraRoll extends Component {
 
         return (
             <View style={{ flex: 1 }}>
-                <ScrollView style={styles.container}>
-                    {/* <RkChoiceGroup
-                        selectedIndex={1} radio
-                    > */}
-                    {this.state.locations.map((location, id) => {
-                        let index = location.id
-                        return (
-                            <TouchableOpacity
-                                key={index}
-                                style={styles.buttonContainer}
-                                onPress={(index) => this.locationChange(location.id)}
-                            >
-                                {/* <RkChoice
-                                        rkType='radio'
-                                    /> */}
-                                <Text style={styles.buttonText}>{location.name}</Text>
-                            </TouchableOpacity>
-                        )
-                    })}
-                    {/* </RkChoiceGroup> */}
-                </ScrollView>
-                    <View>
-                        <TouchableOpacity
-                            style={styles.buttonContainer}
-                            onPress={() => this.submitPost()}
-
-                        >
-                        <Text style={styles.buttonText}>Submit</Text>
-                        </TouchableOpacity>
-                    </View>
-
+                {/* <Header /> */}
                 <ScrollView>
                     <CameraRollPicker
                         callback={this.getSelectedImages}
                         maximum={1}
                     />
                 </ScrollView>
-
+                <ScrollView style={styles.container}>
+                    <Text>Choose Location</Text>
+                    <View style={{ borderRadius: 10, borderColor: '#000', borderWidth: 2, marginBottom: 60 }}>
+                        <Picker
+                            selectedValue={this.state.location}
+                            onValueChange={(itemValue) => this.locationChange(itemValue)}>
+                            {this.state.locations.map((location, id) => {
+                                let index = location.id
+                                return (
+                                    <Picker.Item key={index} label={location.name} value={location.id} />
+                                    // <TouchableOpacity
+                                    //     key={index}
+                                    //     style={styles.buttonContainer}
+                                    //     onPress={(index) => this.locationChange(location.id)}
+                                    // >
+                                    //     <Text style={styles.buttonText}>{location.name}</Text>
+                                    // </TouchableOpacity>
+                                )
+                            })}
+                        </Picker>
+                    </View>
+                </ScrollView>
+                <View>
+                    <TouchableOpacity
+                        style={styles.submitContainer}
+                        onPress={() => this.submitPost()}
+                    >
+                        <Text style={styles.buttonText}>Submit</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         )
     }
@@ -146,6 +139,12 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         paddingVertical: 15,
         backgroundColor: '#a4b0be',
+        borderRadius: 50,
+    },
+    submitContainer: {
+        marginBottom: 20,
+        paddingVertical: 15,
+        backgroundColor: '#81ecec',
         borderRadius: 50
     },
     buttonText: {
@@ -153,6 +152,6 @@ const styles = StyleSheet.create({
         color: '#f5f6fa',
 
     }
-
-
 })
+
+
