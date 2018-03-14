@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
-import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
+import { RkButton, RkCard, RkTheme, RkText, RkModalImg } from 'react-native-ui-kitten';
 import * as imageService from '../components/services/images';
 
 export default class LocationScreen extends Component {
@@ -53,8 +53,17 @@ export default class LocationScreen extends Component {
                 <ScrollView>
                     {this.state.userImages.map((userImage, id) => {
                         let index = userImage.id;
+                        console.log(userImage.image);
                         return (
-                            <Image key={index} source={{ uri: userImage.image }} />
+                            <Image
+                                key={index}
+                                style={{ width: 66, height: 58 }}
+                                source={{ uri: userImage.image }} />
+                            // <RkModalImg key={index} source={{ uri: userImage.image }}
+                            //     style={styles.photoItems}
+                            //     modalImgStyle={styles.modalImg}
+                            //     modalStyle={styles.modal}
+                            // />
                         )
                     })}
                 </ScrollView>
@@ -80,5 +89,29 @@ const styles = StyleSheet.create({
         fontSize: 12,
         fontStyle: 'italic',
         paddingTop: 5,
+    },
+    photoContainer: {
+        justifyContent: 'center',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        marginTop: 10,
+    },
+
+    photoItems: {
+        height: 80,
+        width: 87,
+        marginTop: 1,
+        marginBottom: 1,
+    },
+    modal: {
+        position: 'relative',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    modalImg: {
+        height: 300,
+        width: 400,
+        marginTop: 200,
+        // margin: 40,
     },
 })
