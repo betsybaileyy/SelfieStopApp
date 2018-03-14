@@ -4,6 +4,7 @@ import { RkButton, RkCard, RkTheme, RkText, RkModalImg, } from 'react-native-ui-
 import * as UserService from './services/userProfile';
 import PhotographerName from './photographerName';
 import profileCameraNav from './profileCameraNav';
+
 export default class ProfilePhotos extends Component {
     constructor(props) {
         super(props);
@@ -17,9 +18,9 @@ export default class ProfilePhotos extends Component {
         this.all();
     }
 
-    async componentDidUpdate() {
-        this.all();
-    }
+    // shouldComponentUpdate() {
+    //     this.all();
+    // }
 
     async all() {
         try {
