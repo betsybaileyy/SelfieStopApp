@@ -68,11 +68,11 @@ export default class Profile extends Component {
                     </View>
 
 
-                    <View>
-                        <ScrollView>
-                            {<ProfilePhotos />}
-                        </ScrollView>
-                    </View>
+                    <ScrollView>
+
+                        {<ProfilePhotos />}
+
+                    </ScrollView>
 
 
                 </View>
