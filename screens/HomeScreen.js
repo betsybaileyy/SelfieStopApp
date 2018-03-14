@@ -7,11 +7,6 @@ import {
     Image,
     ScrollView,
     TouchableOpacity,
-<<<<<<< HEAD
-=======
-    StatusBar,
-
->>>>>>> 0207de01547d49ef4b15856ee4bce06acb16c070
 } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import Carousel from '../components/carousel';
@@ -58,17 +53,17 @@ export default class HomeScreen extends Component {
         return (
 
             <View style={{ flex: 1 }}>
-            <View>
-                <HeaderBar navigate={this.props.navigation.navigate} />
-            </View>
+                <View>
+                    <HeaderBar navigate={this.props.navigation.navigate} />
+                </View>
                 <ScrollView
                     style={{ marginTop: 55 }}
                     ref={(c) => { this.parentScrollView = c; }} >
                     <Carousel navigate={this.props.navigation.navigate} />
                     <View
-                        style={{borderColor: '#423e3c', borderWidth: 8 }}
+                        style={{ borderColor: '#423e3c', borderWidth: 8 }}
                     >
-                    <RecentSelfies />
+                        <RecentSelfies />
                     </View>
                     <LocationCards navigate={this.props.navigation.navigate} />
                 </ScrollView>
