@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView, ActivityIndicator } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import ProfilePhotos from './ProfilePhotos';
-import * as userService from './services/userProfile';
+import * as userProfileService from './services/userProfile';
+import * as userService from './services/user';
 import ProfileCameraNav from '../components/profileCameraNav';
 import HeaderBar from '../components/header';
 
@@ -17,20 +18,26 @@ export default class Profile extends Component {
     }
 
     async componentDidMount() {
-
-        this.one();
-    }
-
-    async one() {
         try {
-            const user = await userService.one(1);
+            const isLoggedIn = await userService.isLoggedIn();
+
+            if (!isLoggedIn) {
+                return;
+            }
+            const user = await userService.me();
+            console.log(user);
             this.setState({
                 user,
                 loading: false
             });
+
         } catch (err) {
+            if (err.message) {
+                this.setState({ feedbackMessage: err.message });
+            }
             console.log(err);
         }
+
     }
 
     render() {
