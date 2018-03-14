@@ -25,7 +25,7 @@ export default class LocationCards extends Component {
                 <TouchableOpacity onPress={() => { this.props.navigate('Arts') }} >
                     <Image
                         style={{ height: 250, marginHorizontal: 10 }}
-                        source={require('../images/Arts_Black.jpg')}
+                        source={require('../images/Arts_Blue.jpg')}
                     />
                     {/* <Text style={{ marginHorizontal: 55 }}>Arts</Text> */}
                 </TouchableOpacity>
@@ -33,7 +33,7 @@ export default class LocationCards extends Component {
                 <TouchableOpacity onPress={() => { this.props.navigate('Eats') }} >
                     <Image
                         style={{ height: 250, marginHorizontal: 10 }}
-                        source={require('../images/Eats_Black.jpg')}
+                        source={require('../images/Eats_Blue.jpg')}
                     />
                     {/* <Text style={{ marginHorizontal: 55 }}>Eats</Text> */}
                 </TouchableOpacity>
@@ -41,7 +41,7 @@ export default class LocationCards extends Component {
                 <TouchableOpacity onPress={() => { this.props.navigate('Views') }} >
                     <Image
                         style={{ height: 250, marginHorizontal: 10 }}
-                        source={require('../images/Views_Black.jpg')}
+                        source={require('../images/Views_Blue.jpg')}
                     />
                     {/* <Text style={{ marginHorizontal: 55 }}>Views</Text> */}
                 </TouchableOpacity>
