@@ -7,6 +7,8 @@ import {
     Image,
     ScrollView,
     TouchableOpacity,
+
+
 } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import Carousel from '../components/carousel';
@@ -71,7 +73,6 @@ export default class HomeScreen extends Component {
                     </View>
                     <LocationCards navigate={this.props.navigation.navigate} />
                 </ScrollView>
-                {/* <CameraNav /> */}
             </View>
 
         );
