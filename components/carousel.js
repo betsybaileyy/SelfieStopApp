@@ -87,7 +87,7 @@ export default class Carousel extends Component {
         } else {
             return (
 
-                <View>
+                <View >
 
                     <View style={{
                         justifyContent: 'center',
@@ -95,10 +95,10 @@ export default class Carousel extends Component {
                         flexWrap: 'wrap'
                     }}>
 
-                        <ScrollView horizontal={true} height={200}>
+                        <ScrollView horizontal={true}>
                             {shuffledPosts.map((location, index) => {
                                 return (
-                                    <RkCard key={index} width={400}>
+                                    <RkCard key={index} style={{ backgroundColor: 'black' }} width={400}>
                                         <TouchableOpacity onPress={() => { this.props.navigate('LocationScreen', { location }) }} >
                                             <View style={styles.overlayContainer} rkCardImgOverlay>
                                                 <Text style={styles.overlayText}>  {(location.name).toUpperCase()} </Text>
@@ -136,8 +136,8 @@ const styles = StyleSheet.create({
         width: 400,
     },
     overlayContainer: {
-        height: 230,
-        width: 400,
+        height: 300,
+        width: 420,
     },
     overlayText: {
         alignItems: 'center',
