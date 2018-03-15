@@ -50,7 +50,7 @@ export default class ArtsScreen extends Component {
                         <ScrollView >
                             {this.state.locations.map((location, index) => {
                                 return (
-                                    <RkCard key={index} rkType='shadowed' >
+                                    <RkCard key={index} rkType='story' >
                                         <TouchableOpacity onPress={() => { this.props.navigation.navigate('LocationScreen', { location }) }} >
                                             <View rkCardImgOverlay>
                                                 <Text style={styles.overlayText}>{location.name}</Text>
@@ -72,7 +72,7 @@ export default class ArtsScreen extends Component {
     }
 }
 
-RkTheme.setType('RkCard', 'shadowed', {
+RkTheme.setType('RkCard', 'story', {
     img: {
         height: 200,
     },
