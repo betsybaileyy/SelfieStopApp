@@ -41,7 +41,7 @@ export default class SignupForm extends Component {
         try {
             console.log(user);
             await newUserService.insert(user);
-            this.props.navigation.navigate('Home');
+            this.props.navigation.navigate('LoginScreen');
 
         } catch (err) {
             if (err.message) {
