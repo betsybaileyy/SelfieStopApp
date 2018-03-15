@@ -26,12 +26,18 @@ export default class ProfilePhotos extends Component {
         }
     }
 
+    async onConfirmDelete(imageId) {
+        await UserService.destroy(imageId);
+
+        this.componentDidMount();
+    }
+
     deletePhoto(imageId) {
         Alert.alert(
             'Warning!',
             'Are you sure you want to delete this image?',
             [
-                { text: 'OK', onPress: () => UserService.destroy(imageId) },
+                { text: 'OK', onPress: () => this.onConfirmDelete(imageId) },
                 { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
             ],
             { cancelable: false }
@@ -81,6 +87,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         marginTop: 10,
+        marginBottom: 122
     },
 
     photoItems: {
