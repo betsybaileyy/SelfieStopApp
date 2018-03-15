@@ -47,8 +47,7 @@ const HeaderStack = StackNavigator({
 
 const HomeStack = StackNavigator({
     Home: { screen: HomeScreen },
-    Header: { screen: HeaderStack,
-        navigationOptions:{ header:{ visible:false }} },
+    Header: { screen: HeaderStack },
     Carousel: { screen: CarouselStack },
     Eats: { screen: EatsStack },
     Arts: { screen: ArtsStack },
