@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-import { TabNavigator, StackNavigator } from 'react-navigation';
+import { Platform, StyleSheet, Text, View,  } from 'react-native';
+import { TabNavigator, StackNavigator, } from 'react-navigation';
 import CameraScreen from './screens/CameraScreen';
 import ArtsScreen from './screens/ArtsScreen';
 import ViewsScreen from './screens/ViewsScreen';
@@ -41,12 +41,14 @@ const HeaderStack = StackNavigator({
     HeaderBar: { screen: HeaderBar },
     LoginScreen: { screen: LoginScreen },
     SignupScreen: { screen: SignupScreen },
+    
     // navigationOptions = { header: null }
 })
 
 const HomeStack = StackNavigator({
     Home: { screen: HomeScreen },
-    Header: { screen: HeaderStack },
+    Header: { screen: HeaderStack,
+        navigationOptions:{ header:{ visible:false }} },
     Carousel: { screen: CarouselStack },
     Eats: { screen: EatsStack },
     Arts: { screen: ArtsStack },
