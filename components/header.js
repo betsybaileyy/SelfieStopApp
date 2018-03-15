@@ -69,7 +69,7 @@ export default class HeaderBar extends Component {
                             style={{ paddingTop: 5, alignItems: 'center', justifyContent: 'center', }}
                         >
                             <Image
-                                style={{ marginLeft: 100, width: 65, height: 65, }}
+                                style={{ marginLeft: 100, width: 250, height: 65, }}
                                 source={require('../images/headerLogo.png')}
                             />
                         </Body>
