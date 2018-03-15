@@ -50,7 +50,10 @@ export default class Profile extends Component {
             return (
                 <View style={{ flex: 1 }}>
                     <HeaderBar />
-                    <View style={{ marginTop: 70 }}>
+                    <View style={{
+                        marginTop: 70,
+                        marginBottom: 30
+                    }}>
                         <View style={styles.profileContainer}>
 
                             <View style={styles.headerContainer}>

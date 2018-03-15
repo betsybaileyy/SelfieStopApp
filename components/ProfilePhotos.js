@@ -87,6 +87,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         marginTop: 10,
+        marginBottom: 122
     },
 
     photoItems: {
