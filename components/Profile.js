@@ -50,7 +50,7 @@ export default class Profile extends Component {
             return (
                 <View style={{ flex: 1 }}>
                     <HeaderBar />
-                    <View style={{ marginTop: 70 }}>
+                    <View style={{ marginTop: 70, flex: 1 }}>
                         <View style={styles.profileContainer}>
 
                             <View style={styles.headerContainer}>
@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingLeft: 20,
+        flex: 1,
     },
 
     userName: {
@@ -134,6 +135,7 @@ const styles = StyleSheet.create({
         paddingRight: 100,
         paddingLeft: 10,
         paddingTop: 15,
+        flex: 1,
     },
 
     bioText: {
@@ -142,6 +144,7 @@ const styles = StyleSheet.create({
     iconContainer: {
         alignItems: 'center',
         justifyContent: 'center',
+        flex: 1,
 
     },
     galleryIcon: {
