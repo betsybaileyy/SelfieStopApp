@@ -40,6 +40,7 @@ const ViewsStack = StackNavigator({
 const HeaderStack = StackNavigator({
     HeaderBar: { screen: HeaderBar },
     LoginScreen: { screen: LoginScreen },
+    SignupScreen: { screen: SignupScreen },
     // navigationOptions = { header: null }
 })
 

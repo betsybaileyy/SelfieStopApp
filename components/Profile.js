@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView, ActivityIndicator } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import ProfilePhotos from './ProfilePhotos';
-import * as userProfileService from './services/userProfile';
 import * as userService from './services/user';
 import ProfileCameraNav from '../components/profileCameraNav';
 import HeaderBar from '../components/header';
@@ -25,7 +24,6 @@ export default class Profile extends Component {
                 return;
             }
             const user = await userService.me();
-            console.log(user);
             this.setState({
                 user,
                 loading: false
@@ -41,8 +39,13 @@ export default class Profile extends Component {
     }
 
     render() {
+        const currentUser = this.state.user;
         if (this.state.loading === true) {
-            return <ActivityIndicator size="large" color="#0000ff" />
+            return (
+                <View style={{ marginTop: 100 }}>
+                    <ActivityIndicator size="large" color="#0000ff" />
+                </View>
+            )
         } else {
             return (
                 <View style={{ flex: 1 }}>
@@ -81,7 +84,7 @@ export default class Profile extends Component {
 
 
                         <ScrollView>
-                            {<ProfilePhotos />}
+                            <ProfilePhotos user={currentUser} />
                         </ScrollView>
 
 
