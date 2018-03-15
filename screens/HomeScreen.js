@@ -72,8 +72,8 @@ export default class HomeScreen extends Component {
                             <Text style={{ color: '#fff', backgroundColor: '#423e3c' }}>Featured Locations</Text>
                         </View> */}
                         <RecentSelfies />
-                        <View style={{ alignItems: 'center', backgroundColor: '#423e3c' }}>
-                            <Text style={{ color: '#fff', backgroundColor: '#423e3c' }}>Recent Selfies</Text>
+                        <View style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: '#423e3c' }}>
+                            <Text style={{ paddingTop: 10, color: '#fff', backgroundColor: '#423e3c' }}>Recent Selfies</Text>
                         </View>
                     </View>
                     <LocationCards navigate={this.props.navigation.navigate} />
