@@ -41,7 +41,11 @@ export default class Profile extends Component {
 
     render() {
         if (this.state.loading === true) {
-            return <ActivityIndicator size="large" color="#0000ff" />
+            return (
+                <View style={{ marginTop: 100 }}>
+                    <ActivityIndicator size="large" color="#808080" />
+                </View>
+            )
         } else {
             return (
                 <View style={{ flex: 1 }}>
