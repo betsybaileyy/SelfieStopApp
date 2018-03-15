@@ -40,7 +40,7 @@ export default class ProfilePhotos extends Component {
 
     render() {
         if (this.state.loading === true) {
-            return <ActivityIndicator size="large" color="#0000ff" />
+            return <ActivityIndicator size="large" color="#808080" />
         } else {
             return (
                 <View style={styles.photoContainer}>
@@ -57,7 +57,7 @@ export default class ProfilePhotos extends Component {
                                 >
                                     <Image
                                         style={{ marginHorizontal: 65, width: 20, height: 20 }}
-                                        source={require('../images/icons/plusSign.png')}
+                                        source={require('../images/icons/delete.svg')}
                                     />
                                 </TouchableOpacity>
                             </View>
