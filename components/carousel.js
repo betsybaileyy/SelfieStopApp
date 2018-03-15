@@ -78,7 +78,7 @@ export default class Carousel extends Component {
                             horizontal={true}
                             height={190}
                         >
-                            <ActivityIndicator size="large" color="#0000ff" />
+                            <ActivityIndicator size="large" color="#808080" />
 
                         </View>
                     </View>
