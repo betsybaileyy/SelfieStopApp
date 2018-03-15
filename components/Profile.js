@@ -25,7 +25,6 @@ export default class Profile extends Component {
                 return;
             }
             const user = await userService.me();
-            console.log(user);
             this.setState({
                 user,
                 loading: false
@@ -81,7 +80,7 @@ export default class Profile extends Component {
 
 
                         <ScrollView>
-                            {<ProfilePhotos />}
+                            {<ProfilePhotos user={this.state.user} />}
                         </ScrollView>
 
 
