@@ -54,7 +54,7 @@ export default class HeaderBar extends Component {
                         </Body>
                         <Right>
 
-                            <TouchableOpacity onPress={() => {UserService.logout()}} >
+                            <TouchableOpacity onPress={() => { UserService.logout() }} >
                                 <Text>Log Out</Text>
                             </TouchableOpacity>
 
@@ -96,7 +96,6 @@ export default class HeaderBar extends Component {
                 </Container>
             )
         }
-
     }
 }
 const styles = StyleSheet.create({
