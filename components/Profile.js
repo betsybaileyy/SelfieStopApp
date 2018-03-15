@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, ScrollView, ActivityIndicator } from 'react-native';
 import { RkButton, RkCard, RkTheme, RkText } from 'react-native-ui-kitten';
 import ProfilePhotos from './ProfilePhotos';
+import * as userProfileService from './services/userProfile';
 import * as userService from './services/user';
 import ProfileCameraNav from '../components/profileCameraNav';
 import HeaderBar from '../components/header';
@@ -24,6 +25,7 @@ export default class Profile extends Component {
                 return;
             }
             const user = await userService.me();
+            console.log(user);
             this.setState({
                 user,
                 loading: false
@@ -39,18 +41,13 @@ export default class Profile extends Component {
     }
 
     render() {
-        const currentUser = this.state.user;
         if (this.state.loading === true) {
-            return (
-                <View style={{ marginTop: 100 }}>
-                    <ActivityIndicator size="large" color="#808080" />
-                </View>
-            )
+            return <ActivityIndicator size="large" color="#0000ff" />
         } else {
             return (
                 <View style={{ flex: 1 }}>
                     <HeaderBar />
-                    <View style={{ marginTop: 70, flex: 1 }}>
+                    <View style={{ marginTop: 70 }}>
                         <View style={styles.profileContainer}>
 
                             <View style={styles.headerContainer}>
@@ -84,7 +81,7 @@ export default class Profile extends Component {
 
 
                         <ScrollView>
-                            <ProfilePhotos user={currentUser} />
+                            {<ProfilePhotos />}
                         </ScrollView>
 
 
@@ -111,7 +108,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingLeft: 20,
-        flex: 1,
     },
 
     userName: {
@@ -135,7 +131,6 @@ const styles = StyleSheet.create({
         paddingRight: 100,
         paddingLeft: 10,
         paddingTop: 15,
-        flex: 1,
     },
 
     bioText: {
@@ -144,7 +139,6 @@ const styles = StyleSheet.create({
     iconContainer: {
         alignItems: 'center',
         justifyContent: 'center',
-        flex: 1,
 
     },
     galleryIcon: {

@@ -85,10 +85,6 @@ export default class HeaderBar extends Component {
                 </Container>
             )
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> 828a465f325e43fec85765271988d418c2e4bd79
     }
 }
 const styles = StyleSheet.create({
