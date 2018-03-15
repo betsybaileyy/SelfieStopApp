@@ -47,7 +47,6 @@ export default class HeaderBar extends Component {
                         <Body
                             style={{ paddingTop: 5, alignItems: 'center', justifyContent: 'center', }}
                         >
-<<<<<<< HEAD
                             <Image
                                 style={{ marginLeft: 100, width: 65, height: 65, }}
                                 source={require('../images/headerLogo.png')}
@@ -55,7 +54,7 @@ export default class HeaderBar extends Component {
                         </Body>
                         <Right>
 
-                            <TouchableOpacity onPress={() => {UserService.logout()}} >
+                            <TouchableOpacity onPress={() => { UserService.logout() }} >
                                 <Text>Log Out</Text>
                             </TouchableOpacity>
 
@@ -96,25 +95,6 @@ export default class HeaderBar extends Component {
             )
         }
 
-=======
-                    <Image
-                            style={{ marginLeft: 100, width: 300, height: 65, }}
-                            source={require('../images/headerLogo.png')}
-                        />  
-                    </Body>
-                    <Right>
-                      
-                    <TouchableOpacity onPress={() =>{ this.props.navigate('LoginScreen') }} >
-                    <Text>Log In</Text>
-                    </TouchableOpacity>
-                   
-                    </Right>
-                </Header>
-               
-            </Container>
-            
-        );
->>>>>>> 5cc6c403269d7cc6a91cefa7297befad09a1c4dd
     }
 }
 const styles = StyleSheet.create({

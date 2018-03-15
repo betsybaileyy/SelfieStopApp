@@ -76,7 +76,7 @@ export default class Carousel extends Component {
                                 alignItems: 'center'
                             }}
                             horizontal={true}
-                            height={190}
+                            height={180}
                         >
                             <ActivityIndicator size="large" color="#0000ff" />
 
@@ -95,7 +95,7 @@ export default class Carousel extends Component {
                         flexWrap: 'wrap'
                     }}>
 
-                        <ScrollView horizontal={true} height={190}>
+                        <ScrollView horizontal={true} height={200}>
                             {shuffledPosts.map((location, index) => {
                                 return (
                                     <RkCard key={index} width={400}>
@@ -116,9 +116,10 @@ export default class Carousel extends Component {
     }
 }
 
-RkTheme.setType('RkCard', 'shadowed', {
+RkTheme.setType('RkCard', {
     img: {
         height: 200,
+
     },
     content: {
         alignSelf: 'center',
@@ -131,11 +132,11 @@ RkTheme.setType('RkCard', 'shadowed', {
 });
 const styles = StyleSheet.create({
     img: {
-        height: 220,
+        height: 200,
         width: 400,
     },
     overlayContainer: {
-        height: 220,
+        height: 230,
         width: 400,
     },
     overlayText: {
