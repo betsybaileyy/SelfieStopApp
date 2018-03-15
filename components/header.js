@@ -72,7 +72,7 @@ export default class HeaderBar extends Component {
                         style={{ backgroundColor: '#81ecec' }}
                     >
                         <Left>
-                        <TouchableOpacity onPress={() => {UserService.logout()}} >
+                        <TouchableOpacity onPress={() => { this.props.navigate('SignupScreen') }} >
                                 <Text>Sign Up</Text>
                             </TouchableOpacity>
                         </Left>
@@ -86,7 +86,7 @@ export default class HeaderBar extends Component {
                         </Body>
                         <Right>
 
-                            <TouchableOpacity onPress={() => { this.props.navigate('LoginScreen') }} >
+                            <TouchableOpacity onPress={() => { this.props.navigate('LoginScreen') }}>
                                 <Text>Log In</Text>
                             </TouchableOpacity>
 
