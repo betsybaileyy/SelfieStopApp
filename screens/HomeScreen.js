@@ -58,8 +58,8 @@ export default class HomeScreen extends Component {
                 <View>
                     <HeaderBar navigate={this.props.navigation.navigate} />
                 </View>
-                <ScrollView
-                    style={{ marginTop: 55 }}
+                <View
+                    style={{ marginTop: 60 }}
                     ref={(c) => { this.parentScrollView = c; }} >
                     <View style={{ backgroundColor: 'black' }}
                     >
@@ -77,7 +77,7 @@ export default class HomeScreen extends Component {
                         </View>
                     </View>
                     <LocationCards navigate={this.props.navigation.navigate} />
-                </ScrollView>
+                </View>
             </View>
 
         );
