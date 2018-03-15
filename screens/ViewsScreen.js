@@ -36,7 +36,7 @@ export default class EatsScreen extends Component {
         if (this.state.loading === true) {
             return (
                 <View style={{ marginTop: 100 }}>
-                    <ActivityIndicator size="large" color="#0000ff" />
+                    <ActivityIndicator size="large" color="#808080" />
                 </View>
             )
         } else {
