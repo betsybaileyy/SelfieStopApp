@@ -60,12 +60,18 @@ const HomeStack = StackNavigator({
 const Tabs = TabNavigator({
     Home: { screen: HomeStack,
             navigationOptions: ({ navigation }) =>({
-            icon: ({ tintColor }) => <FontAwesome>{Icons.chevronLeft}</FontAwesome>
+            tabBarIcon: ({ tintColor }) => <FontAwesome>{Icons.home}</FontAwesome>
         })
      },
     // Signup: { screen: SignupScreen },
-    CameraRoll: { screen: CameraRoll },
-    Profile: { screen: ProfileScreen },
+    CameraRoll: { screen: CameraRoll,
+        navigationOptions: ({ navigation }) =>({
+            tabBarIcon: ({ tintColor }) => <FontAwesome>{Icons.camera}</FontAwesome>
+        }) },
+    Profile: { screen: ProfileScreen,
+        navigationOptions: ({ navigation }) =>({
+            tabBarIcon: ({ tintColor }) => <FontAwesome>{Icons.userCircle}</FontAwesome>
+        }) },
     // Login: { screen: LoginScreen },
 
 
