@@ -39,10 +39,12 @@ const ViewsStack = StackNavigator({
 
 const HeaderStack = StackNavigator({
     HeaderBar: { screen: HeaderBar },
-    LoginScreen: { screen: LoginScreen },
-    SignupScreen: { screen: SignupScreen },
-    
-    // navigationOptions = { header: null }
+    LoginScreen: { screen: LoginScreen, navigationOptions: {
+        header: null
+    }, },
+    SignupScreen: { screen: SignupScreen, navigationOptions: {
+        header: null
+    }, },
 })
 
 const HomeStack = StackNavigator({
@@ -61,10 +63,10 @@ const Tabs = TabNavigator({
             icon: ({ tintColor }) => <FontAwesome>{Icons.chevronLeft}</FontAwesome>
         })
      },
-    Signup: { screen: SignupScreen },
+    // Signup: { screen: SignupScreen },
     CameraRoll: { screen: CameraRoll },
     Profile: { screen: ProfileScreen },
-    Login: { screen: LoginScreen },
+    // Login: { screen: LoginScreen },
 
 
 },
