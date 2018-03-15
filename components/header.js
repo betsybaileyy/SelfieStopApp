@@ -4,6 +4,33 @@ import { Container, Header, Left, Body, Right, Button, Icon, Title, Text } from 
 import { withNavigation } from 'react-navigation';
 import * as UserService from './services/user';
 
+// import IndeterminateProgress from '../utilities/indeterminateProgress';
+
+
+// class Logout extends Component {
+
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             loggedOut: false
+//         };
+//     }
+
+//     componentDidMount() {
+//         UserService.logout();
+//         this.setState({ loggedOut: true });
+//     }
+
+//     render() {
+//         if (this.state.loggedOut) {
+//             return <Redirect to="HomeScreen" />;
+//         } else {
+//             return <Text>Logging Out...</Text>
+//         }
+//     }
+// }
+
+
 export default class HeaderBar extends Component {
     constructor(props) {
         super(props);
@@ -17,6 +44,13 @@ export default class HeaderBar extends Component {
         const isLoggedIn = await UserService.isLoggedIn();
 
         this.setState({ isLoggedIn });
+    }
+
+    logout() {
+        UserService.logout()
+        this.setState({
+            isLoggedIn: false
+        })
     }
 
     navigate() {
@@ -43,8 +77,8 @@ export default class HeaderBar extends Component {
                         </Body>
                         <Right>
 
-                            <TouchableOpacity onPress={() => { UserService.logout() }} >
-                                <Text>Log Out</Text>
+                            <TouchableOpacity onPress={() => this.logout()}>
+                            <Text>Log Out</Text>
                             </TouchableOpacity>
 
                         </Right>
