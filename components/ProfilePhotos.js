@@ -57,7 +57,7 @@ export default class ProfilePhotos extends Component {
                                 >
                                     <Image
                                         style={{ marginHorizontal: 65, width: 20, height: 20 }}
-                                        source={require('../images/icons/delete.svg')}
+                                        source={require('../images/icons/delete.png')}
                                     />
                                 </TouchableOpacity>
                             </View>
