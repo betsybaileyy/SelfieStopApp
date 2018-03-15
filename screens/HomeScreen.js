@@ -66,14 +66,14 @@ export default class HomeScreen extends Component {
                         <Carousel navigate={this.props.navigation.navigate} />
                     </View>
                     <View
-                        style={{ borderColor: '#423e3c', borderWidth: 8 }}
+                        style={{ borderColor: '#423e3c', borderWidth: 8, }}
                     >
                         {/* <View style={{ alignItems: 'center', backgroundColor: '#423e3c' }}>
                             <Text style={{ color: '#fff', backgroundColor: '#423e3c' }}>Featured Locations</Text>
                         </View> */}
                         <RecentSelfies />
                         <View style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: '#423e3c' }}>
-                            <Text style={{ paddingTop: 8, color: '#fff', backgroundColor: '#423e3c' }}>Recent Selfies</Text>
+                            <Text style={{ letterSpacing: 2, fontFamily: 'AppleColorEmoji', color: '#fff', backgroundColor: '#423e3c' }}>Recent-Selfies</Text>
                         </View>
                     </View>
                     <LocationCards navigate={this.props.navigation.navigate} />

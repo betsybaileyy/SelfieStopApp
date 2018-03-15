@@ -23,21 +23,21 @@ export default class LocationCards extends Component {
 
                 <TouchableOpacity onPress={() => { this.props.navigate('Arts') }} >
                     <Image
-                        style={{ borderRadius: 10, height: 210, marginHorizontal: 10 }}
+                        style={{ borderRadius: 10, height: 220, marginHorizontal: 10 }}
                         source={require('../images/Arts_Blue.jpg')}
                     />
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => { this.props.navigate('Eats') }} >
                     <Image
-                        style={{ borderRadius: 10, height: 210, marginHorizontal: 10 }}
+                        style={{ borderRadius: 10, height: 220, marginHorizontal: 10 }}
                         source={require('../images/Eats_Blue.jpg')}
                     />
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => { this.props.navigate('Views') }} >
                     <Image
-                        style={{ borderRadius: 10, height: 210, marginHorizontal: 10 }}
+                        style={{ borderRadius: 10, height: 220, marginHorizontal: 10 }}
                         source={require('../images/Views_Blue.jpg')}
                     />
                 </TouchableOpacity>
