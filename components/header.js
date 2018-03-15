@@ -4,17 +4,6 @@ import { Container, Header, Left, Body, Right, Button, Icon, Title, Text } from 
 import { withNavigation } from 'react-navigation';
 import * as UserService from './services/user';
 
-
-// const AuthButton = withRouter(
-//     ({ history }) => {
-//         if (isLoggedIn()) {
-//             return <Link className="btn btn-info" to="/logout">Logout</Link>;
-//         } else {
-//             return <Link className="btn btn-info" to="/login">Login</Link>;
-//         }
-//     }
-// );
-
 export default class HeaderBar extends Component {
     constructor(props) {
         super(props);
@@ -48,7 +37,7 @@ export default class HeaderBar extends Component {
                             style={{ paddingTop: 5, alignItems: 'center', justifyContent: 'center', }}
                         >
                             <Image
-                                style={{ marginLeft: 100, width: 65, height: 65, }}
+                                style={{ marginLeft: 100, width: 250, height: 65, }}
                                 source={require('../images/headerLogo.png')}
                             />
                         </Body>
@@ -72,7 +61,7 @@ export default class HeaderBar extends Component {
                         style={{ backgroundColor: '#81ecec' }}
                     >
                         <Left>
-                        <TouchableOpacity onPress={() => { this.props.navigate('SignupScreen') }} >
+                            <TouchableOpacity onPress={() => { this.props.navigate('SignupScreen') }} >
                                 <Text>Sign Up</Text>
                             </TouchableOpacity>
                         </Left>
