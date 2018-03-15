@@ -40,7 +40,7 @@ export default class ProfilePhotos extends Component {
 
     render() {
         if (this.state.loading === true) {
-            return <ActivityIndicator size="large" color="#0000ff" />
+            return <ActivityIndicator size="large" color="#808080" />
         } else {
             return (
                 <View style={styles.photoContainer}>
