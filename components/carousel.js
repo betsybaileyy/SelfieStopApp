@@ -41,7 +41,7 @@ export default class Carousel extends Component {
 
     async getLocations() {
         try {
-            const locations = await locationsService.allLocations();
+            const locations = await locationsService.allCarousel();
 
             this.setState({
                 locations,
